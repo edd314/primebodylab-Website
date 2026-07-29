@@ -1085,6 +1085,16 @@ export const routing = defineRouting({
   locales: ['de', 'en'],
   defaultLocale: 'de',
   localePrefix: 'as-needed',
+
+  /**
+   * Deliberately off. With detection enabled, any visitor sending an English
+   * Accept-Language header gets redirected from / to /en — including Googlebot,
+   * which crawls as en-US. That would leave the German homepage unindexed at the
+   * root URL, defeating the point of putting German on the clean URLs.
+   * Visitors choose English explicitly via the locale switcher.
+   */
+  localeDetection: false,
+
   pathnames: {
     '/': '/',
     '/services': {de: '/leistungen', en: '/services'},

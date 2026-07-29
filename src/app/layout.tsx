@@ -1,15 +1,15 @@
 import type {ReactNode} from 'react';
-import {bodyFont, displayFont} from '@/lib/fonts';
 import '@/styles/globals.css';
 
 export const metadata = {
   metadataBase: new URL('https://www.primebodylab.de'),
 };
 
+/**
+ * The [locale] layout renders <html> and <body>, because the lang attribute and
+ * the font variables both depend on the resolved locale. This root layout exists
+ * only to load global CSS and set metadataBase.
+ */
 export default function RootLayout({children}: {children: ReactNode}) {
-  return (
-    <html lang="de" className={`${displayFont.variable} ${bodyFont.variable}`}>
-      <body className="bg-bone text-ink antialiased">{children}</body>
-    </html>
-  );
+  return children;
 }
