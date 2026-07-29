@@ -1,14 +1,19 @@
 import {setRequestLocale} from 'next-intl/server';
+import {getService} from '@/content/services';
+import {BookingGate} from '@/components/booking/BookingGate';
+import type {Locale} from '@/content/schema';
 
-type Props = {params: Promise<{locale: string}>};
+type Props = {
+  params: Promise<{locale: string}>;
+  searchParams: Promise<{service?: string}>;
+};
 
-export default async function BookPage({params}: Props) {
-  const {locale} = await params;
-  setRequestLocale(locale);
+export default async function BookPage({params, searchParams}: Props) {
+  const {locale: raw} = await params;
+  setRequestLocale(raw);
 
-  return (
-    <h1 className="font-display text-4xl">
-      {locale === 'de' ? 'Termin buchen' : 'Book an appointment'}
-    </h1>
-  );
+  const {service: slug} = await searchParams;
+  const service = slug ? (getService(slug) ?? null) : null;
+
+  return <BookingGate locale={raw as Locale} service={service} />;
 }
