@@ -79,6 +79,30 @@ export const testimonialSchema = z.object({
   quote: localizedText,
 });
 
+export const homeSchema = z.object({
+  hero: z.object({
+    kicker: localizedText,
+    headline: localized(z.array(z.string().min(1)).min(1)),
+    body: localizedText,
+  }),
+  standard: localizedText,
+  pillars: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        title: localizedText,
+        body: localizedText,
+      }),
+    )
+    .length(3),
+  founder: z.object({
+    heading: localizedText,
+    body: localizedText,
+  }),
+});
+
+export type Home = z.infer<typeof homeSchema>;
+
 export type Service = z.infer<typeof serviceSchema>;
 export type FaqGroup = z.infer<typeof faqGroupSchema>;
 export type Testimonial = z.infer<typeof testimonialSchema>;

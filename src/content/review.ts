@@ -8,6 +8,10 @@
  */
 export const pendingGermanReview: string[] = [
   'site.qualifications',
+  'home.hero',
+  'home.standard',
+  'home.pillars',
+  'home.founder',
   'services.performance-massage',
   'services.stretch-therapy',
   'services.performance-coaching',
