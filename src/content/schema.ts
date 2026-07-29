@@ -42,3 +42,43 @@ export const siteSchema = z.object({
 });
 
 export type Site = z.infer<typeof siteSchema>;
+
+export const durationSchema = z.object({
+  minutes: z.number().int().positive(),
+  price: z.number().positive().nullable(),
+});
+
+export const serviceSchema = z.object({
+  slug: z.string().regex(/^[a-z0-9-]+$/),
+  acuityTypeId: z.string().nullable(),
+  name: localizedText,
+  tagline: localizedText,
+  description: localizedText,
+  includes: localized(z.array(z.string().min(1)).min(1)),
+  durations: z.array(durationSchema).min(1),
+});
+
+export const faqGroupSchema = z.object({
+  id: z.string().min(1),
+  title: localizedText,
+  items: z
+    .array(
+      z.object({
+        id: z.string().min(1),
+        question: localizedText,
+        answer: localizedText,
+      }),
+    )
+    .min(1),
+});
+
+export const testimonialSchema = z.object({
+  id: z.string().min(1),
+  author: z.string().min(1),
+  rating: z.number().int().min(1).max(5),
+  quote: localizedText,
+});
+
+export type Service = z.infer<typeof serviceSchema>;
+export type FaqGroup = z.infer<typeof faqGroupSchema>;
+export type Testimonial = z.infer<typeof testimonialSchema>;
