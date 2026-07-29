@@ -1,0 +1,37 @@
+{
+  "_comment": [
+    "The `canonical` audit is switched off and the SEO threshold sits at 0.9 for",
+    "one reason only: Lighthouse runs against http://localhost:3000 while the",
+    "pages correctly declare canonicals on https://www.primebodylab.de, which",
+    "Lighthouse reports as 'points to another hreflang location'. It cannot pass",
+    "outside production. Canonical and hreflang correctness is asserted exactly,",
+    "URL by URL, in e2e/seo.spec.ts — a stronger check than the score.",
+    "Every other SEO audit must still pass."
+  ],
+  "ci": {
+    "collect": {
+      "startServerCommand": "npm run start",
+      "url": [
+        "http://localhost:3000/",
+        "http://localhost:3000/leistungen",
+        "http://localhost:3000/leistungen/performance-massage",
+        "http://localhost:3000/faq"
+      ],
+      "numberOfRuns": 3,
+      "settings": {"preset": "desktop"}
+    },
+    "assert": {
+      "assertions": {
+        "categories:performance": ["error", {"minScore": 0.9}],
+        "categories:accessibility": ["error", {"minScore": 0.95}],
+        "categories:best-practices": ["error", {"minScore": 0.95}],
+        "categories:seo": ["error", {"minScore": 0.9}],
+        "canonical": "off",
+        "largest-contentful-paint": ["error", {"maxNumericValue": 2500}],
+        "cumulative-layout-shift": ["error", {"maxNumericValue": 0.1}],
+        "total-blocking-time": ["error", {"maxNumericValue": 200}]
+      }
+    },
+    "upload": {"target": "temporary-public-storage"}
+  }
+}

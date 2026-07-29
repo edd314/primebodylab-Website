@@ -265,17 +265,22 @@ Create `src/lib/fonts.ts`:
 ```ts
 import {Instrument_Serif, Inter} from 'next/font/google';
 
+/**
+ * The CSS variable names here must NOT match the Tailwind theme keys
+ * (`--font-display` / `--font-body`), or `@theme` ends up defining a variable
+ * in terms of itself and the font silently falls back.
+ */
 export const displayFont = Instrument_Serif({
   subsets: ['latin', 'latin-ext'],
   weight: '400',
   display: 'swap',
-  variable: '--font-display',
+  variable: '--font-instrument-serif',
 });
 
 export const bodyFont = Inter({
   subsets: ['latin', 'latin-ext'],
   display: 'swap',
-  variable: '--font-body',
+  variable: '--font-inter',
 });
 ```
 
@@ -296,8 +301,8 @@ Replace `src/styles/globals.css`:
   --color-muted: #5C635A;
   --color-line: #DFDBD2;
 
-  --font-display: var(--font-display), Georgia, serif;
-  --font-body: var(--font-body), system-ui, sans-serif;
+  --font-display: var(--font-instrument-serif), Georgia, serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
 }
 
 html {
@@ -1080,6 +1085,16 @@ export const routing = defineRouting({
   locales: ['de', 'en'],
   defaultLocale: 'de',
   localePrefix: 'as-needed',
+
+  /**
+   * Deliberately off. With detection enabled, any visitor sending an English
+   * Accept-Language header gets redirected from / to /en — including Googlebot,
+   * which crawls as en-US. That would leave the German homepage unindexed at the
+   * root URL, defeating the point of putting German on the clean URLs.
+   * Visitors choose English explicitly via the locale switcher.
+   */
+  localeDetection: false,
+
   pathnames: {
     '/': '/',
     '/services': {de: '/leistungen', en: '/services'},
