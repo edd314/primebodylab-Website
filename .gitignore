@@ -42,3 +42,5 @@ next-env.d.ts
 .lighthouseci/
 test-results/
 playwright-report/
+
+.vercel
