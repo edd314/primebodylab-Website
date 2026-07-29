@@ -2,9 +2,23 @@ import {setRequestLocale} from 'next-intl/server';
 import {services} from '@/content/services';
 import {ServiceCard} from '@/components/sections/ServiceCard';
 import {CtaBand} from '@/components/sections/CtaBand';
+import {buildMetadata} from '@/lib/metadata';
+import type {Metadata} from 'next';
 import type {Locale} from '@/content/schema';
 
 type Props = {params: Promise<{locale: string}>};
+
+export async function generateMetadata({params}: {params: Promise<{locale: string}>}): Promise<Metadata> {
+  const {locale: raw} = await params;
+  const locale = raw as Locale;
+
+  return buildMetadata({
+    locale,
+    href: '/services',
+    title: locale === 'de' ? 'Leistungen — Sportmassage, Stretching & Coaching | PrimeBodyLab' : 'Services — Sports Massage, Stretching & Coaching | PrimeBodyLab',
+    description: locale === 'de' ? 'Sportmassage, assistiertes Stretching und Performance-Coaching in Pfaffenhofen. Eine Philosophie, drei spezialisierte Leistungen.' : 'Sports massage, assisted stretching and performance coaching in Pfaffenhofen. One philosophy, three specialised services.',
+  });
+}
 
 export default async function ServicesPage({params}: Props) {
   const {locale: raw} = await params;

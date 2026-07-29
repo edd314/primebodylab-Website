@@ -3,9 +3,23 @@ import {faqs} from '@/content/faqs';
 import {FaqAccordion} from '@/components/sections/FaqAccordion';
 import {JsonLd} from '@/components/seo/JsonLd';
 import {CtaBand} from '@/components/sections/CtaBand';
+import {buildMetadata} from '@/lib/metadata';
+import type {Metadata} from 'next';
 import type {Locale} from '@/content/schema';
 
 type Props = {params: Promise<{locale: string}>};
+
+export async function generateMetadata({params}: {params: Promise<{locale: string}>}): Promise<Metadata> {
+  const {locale: raw} = await params;
+  const locale = raw as Locale;
+
+  return buildMetadata({
+    locale,
+    href: '/faq',
+    title: locale === 'de' ? 'Häufige Fragen | PrimeBodyLab' : 'FAQs | PrimeBodyLab',
+    description: locale === 'de' ? 'Antworten zu Buchung, Ablauf, Vorbereitung, Stornierung und Coaching bei PrimeBodyLab.' : 'Answers on booking, sessions, preparation, cancellation and coaching at PrimeBodyLab.',
+  });
+}
 
 export default async function FaqPage({params}: Props) {
   const {locale: raw} = await params;

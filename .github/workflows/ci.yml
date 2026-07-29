@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm test
+      - run: npm run build
+      - run: npm run test:e2e
+      - run: npm run test:perf
+
+# `npm run check:release` is deliberately NOT run here. It gates the launch
+# decision, not everyday commits — it stays red until Eddie approves the German
+# copy, and blocking every push on that would be useless noise.

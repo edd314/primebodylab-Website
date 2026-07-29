@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# primebodylab.de
 
-## Getting Started
+German-first marketing site for PrimeBodyLab — sports massage, assisted stretch
+therapy and performance coaching in Pfaffenhofen, Bavaria.
 
-First, run the development server:
+Replaces the previous Squarespace site.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Next.js (App Router) · TypeScript · Tailwind v4 · next-intl · Zod · Vitest ·
+Playwright · Vercel
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Local dev server |
+| `npm run build` | Production build — also validates all content |
+| `npm test` | Content and unit tests |
+| `npm run test:e2e` | Playwright suite |
+| `npm run test:perf` | Lighthouse budget — fails if Core Web Vitals regress |
+| `npm run check:release` | Fails while German copy awaits the owner's approval |
 
-## Learn More
+## Architecture notes
 
-To learn more about Next.js, take a look at the following resources:
+- **German is the default locale**, served unprefixed; English lives under `/en`.
+  Localised pathnames are declared in `src/i18n/routing.ts` — the `app/` directory
+  uses internal English paths (`/services`), visitors see the localised ones
+  (`/leistungen`).
+- Automatic locale detection is **off**. With it on, any request carrying an
+  English `Accept-Language` header — including Googlebot — would be redirected
+  from `/` to `/en`, leaving the German homepage unindexed at the root.
+- All pages are statically generated. A small edge middleware (`src/proxy.ts`)
+  handles locale routing only.
+- **No third-party script loads before user interaction**, which is why there is
+  no cookie banner. See `src/components/booking/BookingGate.tsx`.
+- All copy lives in typed files under `src/content/`, validated by Zod at build
+  time. A record missing either locale is a build error, not a blank page.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Content and client docs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `AGENTS.md` (imported by `CLAUDE.md`) — how to change content safely
+- `docs/client-questions.md` — open questions for the owner
+- `docs/superpowers/specs/` — the design spec
+- `docs/superpowers/plans/` — the implementation plan
 
-## Deploy on Vercel
+## Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Push to `main`; Vercel builds and deploys.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Cutover from Squarespace is documented in
+`docs/superpowers/specs/2026-07-29-primebodylab-rebuild-design.md` §9. The site
+must not go live while `npm run check:release` fails.

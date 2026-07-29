@@ -7,6 +7,9 @@ import {bodyFont, displayFont} from '@/lib/fonts';
 import {Header} from '@/components/layout/Header';
 import {Footer} from '@/components/layout/Footer';
 import {MobileContactBar} from '@/components/layout/MobileContactBar';
+import {JsonLd} from '@/components/seo/JsonLd';
+import {site} from '@/content/site';
+import {SITE_URL} from '@/lib/metadata';
 import type {Locale} from '@/content/schema';
 
 export function generateStaticParams() {
@@ -31,6 +34,26 @@ export default async function LocaleLayout({children, params}: Props) {
   return (
     <html lang={locale} className={`${displayFont.variable} ${bodyFont.variable}`}>
       <body className="bg-bone text-ink antialiased">
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'HealthAndBeautyBusiness',
+            name: 'PrimeBodyLab',
+            url: SITE_URL,
+            telephone: site.phone,
+            email: site.email,
+            founder: {'@type': 'Person', name: site.ownerName},
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: site.street,
+              postalCode: site.postcode,
+              addressLocality: site.city,
+              addressCountry: site.country,
+            },
+            sameAs: Object.values(site.socials),
+          }}
+        />
+
         <NextIntlClientProvider>
           <Header locale={locale} />
           <main className="pb-20 sm:pb-0">{children}</main>
