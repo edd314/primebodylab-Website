@@ -4,7 +4,7 @@ import type {Locale, Service} from '@/content/schema';
 
 export function ServiceDetail({service, locale}: {service: Service; locale: Locale}) {
   return (
-    <section className="mx-auto max-w-6xl px-6 pt-16 sm:pt-20">
+    <section className="mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-20 sm:pb-24">
       <p className="text-xs uppercase tracking-[0.2em] text-sage">{service.tagline[locale]}</p>
 
       <h1 className="mt-3 font-display text-4xl text-balance sm:text-5xl">

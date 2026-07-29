@@ -13,7 +13,7 @@ export default async function ServicesPage({params}: Props) {
 
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 pt-16 sm:pt-20">
+      <section className="mx-auto max-w-6xl px-6 pt-16 pb-16 sm:pt-20 sm:pb-20">
         <h1 className="font-display text-4xl sm:text-5xl">
           {locale === 'de' ? 'Leistungen' : 'Services'}
         </h1>

@@ -15,7 +15,7 @@ export function FounderBlock({locale, founder}: {locale: Locale; founder: Home['
       />
 
       <div className="self-center">
-        <h2 className="max-w-[18ch] font-display text-3xl leading-snug text-balance">
+        <h2 className="max-w-[26ch] font-display text-3xl leading-snug text-balance">
           {founder.heading[locale]}
         </h2>
         <p className="mt-5 max-w-[52ch] text-base leading-relaxed text-muted">

@@ -4,8 +4,10 @@ import {bookCta, legalItems, navItems} from '@/lib/nav';
 import type {Locale} from '@/content/schema';
 
 export function Footer({locale}: {locale: Locale}) {
+  // No top margin: pages own their own bottom spacing, and most end with the
+  // full-bleed CTA band, which should meet the footer edge to edge.
   return (
-    <footer className="mt-24 border-t border-line">
+    <footer className="border-t border-line">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <p className="font-display text-xl">PrimeBodyLab</p>
