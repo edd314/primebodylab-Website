@@ -83,9 +83,26 @@ site. Nothing has been silently changed — where we deviated, it says so.
 11. **Logo.** The current one is a small raster (`logo+embedded.png`). An SVG or a
     high-resolution PNG would look sharper, especially on phones.
 
-12. **Photography.** The site is designed to look right with few images, but real
-    photos of you, the studio and hands-on work will lift it considerably. Stock is
-    used only for environment and texture — never a stand-in for you or your room.
+12. **Photography — where your photos will go.** Every image slot is now filled so
+    you can see the shape of it. Two are already yours, taken from your current
+    site:
+
+    | Where | Image | Status |
+    | --- | --- | --- |
+    | Homepage, "Hi, ich bin Eddie" | Your portrait | **Yours** |
+    | Booking page | Your treatment room | **Yours** |
+    | Performance Massage card + detail page | Hands-on massage | Stock placeholder |
+    | Assisted Stretch card + detail page | Therapist stretching a leg | Stock placeholder |
+    | Performance Coaching card + detail page | Dumbbells | Stock placeholder |
+
+    The three stock images carry a small **PLATZHALTER** label on the page, on
+    purpose — nobody should mistake stock for your studio or your clients, and it
+    makes the gaps obvious at a glance. The labels disappear automatically when
+    the real photos go in.
+
+    Stock is deliberately limited to hands, equipment and environment with no
+    identifiable faces. What we most need from your shoot: you working on a
+    client, your studio, and hands-on detail shots.
 
 13. **Social links — please confirm.** We took these from your current site:
     - Instagram: `instagram.com/prime.body.lab/`

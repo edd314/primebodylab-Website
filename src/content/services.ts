@@ -1,5 +1,6 @@
 import {z} from 'zod';
 import {serviceSchema, type Service} from './schema';
+import {images} from './images';
 
 /**
  * English copy is transcribed verbatim from primebodylab.de/services.
@@ -13,6 +14,7 @@ const data: Service[] = [
   {
     slug: 'performance-massage',
     acuityTypeId: null,
+    image: images.massage,
     name: {de: 'Performance Massage', en: 'Performance Massage'},
     tagline: {de: 'Schneller regenerieren', en: 'Recover Faster'},
     description: {
@@ -46,6 +48,7 @@ const data: Service[] = [
   {
     slug: 'stretch-therapy',
     acuityTypeId: null,
+    image: images.stretch,
     name: {de: 'Assistiertes Stretching', en: 'Assisted Stretch Therapy'},
     tagline: {de: 'Besser bewegen', en: 'Move Better'},
     description: {
@@ -77,6 +80,7 @@ const data: Service[] = [
   {
     slug: 'performance-coaching',
     acuityTypeId: null,
+    image: images.coaching,
     name: {de: 'Performance Coaching', en: 'Performance Coaching'},
     tagline: {de: 'Klüger trainieren', en: 'Train Smarter'},
     description: {

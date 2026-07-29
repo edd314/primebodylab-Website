@@ -1,5 +1,6 @@
 import {Link} from '@/i18n/navigation';
 import {formatPrice} from '@/lib/format';
+import {Figure} from '@/components/media/Figure';
 import type {Locale, Service} from '@/content/schema';
 
 export function ServiceDetail({service, locale}: {service: Service; locale: Locale}) {
@@ -14,6 +15,13 @@ export function ServiceDetail({service, locale}: {service: Service; locale: Loca
       <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-muted">
         {service.description[locale]}
       </p>
+
+      <Figure
+        image={service.image}
+        locale={locale}
+        className="mt-10 aspect-[16/9] sm:aspect-[21/9]"
+        sizes="(min-width: 1280px) 1152px, 100vw"
+      />
 
       <div className="mt-14 grid gap-12 sm:grid-cols-2">
         <div>

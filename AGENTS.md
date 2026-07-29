@@ -23,6 +23,7 @@ All copy is in `src/content/`. You almost never need to touch anything else.
 | Homepage headline, the three pillars, the founder blurb | `src/content/home.ts` |
 | Impressum, privacy policy, terms | `src/content/legal.ts` |
 | Menu labels and button text | `src/lib/nav.ts` |
+| Any photograph on the site | `src/content/images.ts` |
 
 ## Rules that must not be broken
 
@@ -78,6 +79,22 @@ then, every button opens the general calendar.
 
 ## Photography
 
-Image slots are already laid out (see `src/components/sections/FounderBlock.tsx`).
-When real photos exist, drop them in and swap the placeholder block for
-`next/image` — no layout changes needed.
+Every photograph is registered in `src/content/images.ts`. Two are Eddie's own
+(his portrait, his treatment room); three are licensed stock placeholders.
+
+To swap in a real photo:
+
+1. Put the file in `public/images/`
+2. Point that entry's `src` at it
+3. Set `placeholder: false`
+
+That's all. The layouts are already sized for these crops, and setting
+`placeholder: false` removes the visible "Platzhalter" chip.
+
+Keep the chip on anything that is still stock. It exists so no visitor mistakes
+a stock photo for Eddie's studio or his clients — which on a health business with
+his name and credentials attached is a trust problem, not a cosmetic one.
+
+Do not add `priority` to more than the single largest above-the-fold image;
+preloading several full srcsets stalls page load badly (it took the e2e suite
+from 14s to over 3 minutes).

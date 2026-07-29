@@ -2,6 +2,8 @@
 
 import {useState} from 'react';
 import {formatPrice} from '@/lib/format';
+import {images} from '@/content/images';
+import {Figure} from '@/components/media/Figure';
 import type {Locale, Service} from '@/content/schema';
 
 const ACUITY_BASE = 'https://opensessions.as.me/schedule.php';
@@ -45,6 +47,13 @@ export function BookingGate({locale, service}: {locale: Locale; service: Service
   return (
     <section className="mx-auto max-w-3xl px-6 pt-16 pb-20 sm:pt-20 sm:pb-24">
       <h1 className="font-display text-4xl sm:text-5xl">{copy.heading}</h1>
+
+      <Figure
+        image={images.treatmentRoom}
+        locale={locale}
+        className="mt-8 aspect-[16/9]"
+        sizes="(min-width: 768px) 768px, 100vw"
+      />
 
       <div className="mt-8 border border-line p-6">
         <p className="text-xs uppercase tracking-[0.2em] text-muted">{copy.selected}</p>

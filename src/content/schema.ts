@@ -48,9 +48,24 @@ export const durationSchema = z.object({
   price: z.number().positive().nullable(),
 });
 
+/**
+ * `placeholder: true` means this is stock imagery standing in until Eddie's own
+ * photography arrives. It makes the site render a small visible chip on the
+ * image, so nobody mistakes stock for his studio. Set it to false when the real
+ * photo is dropped in.
+ */
+export const imageSchema = z.object({
+  src: z.string().startsWith('/images/'),
+  alt: localizedText,
+  placeholder: z.boolean(),
+});
+
+export type SiteImage = z.infer<typeof imageSchema>;
+
 export const serviceSchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/),
   acuityTypeId: z.string().nullable(),
+  image: imageSchema,
   name: localizedText,
   tagline: localizedText,
   description: localizedText,
