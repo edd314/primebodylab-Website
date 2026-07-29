@@ -1,4 +1,5 @@
 import type {ReactNode} from 'react';
+import {bodyFont, displayFont} from '@/lib/fonts';
 import '@/styles/globals.css';
 
 export const metadata = {
@@ -7,8 +8,8 @@ export const metadata = {
 
 export default function RootLayout({children}: {children: ReactNode}) {
   return (
-    <html lang="de">
-      <body>{children}</body>
+    <html lang="de" className={`${displayFont.variable} ${bodyFont.variable}`}>
+      <body className="bg-bone text-ink antialiased">{children}</body>
     </html>
   );
 }
