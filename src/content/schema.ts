@@ -79,6 +79,14 @@ export const testimonialSchema = z.object({
   quote: localizedText,
 });
 
+export const legalSchema = z.object({
+  imprint: localizedText,
+  privacy: localizedText,
+  terms: localizedText,
+});
+
+export type Legal = z.infer<typeof legalSchema>;
+
 export const homeSchema = z.object({
   hero: z.object({
     kicker: localizedText,

@@ -22,4 +22,7 @@ export const pendingGermanReview: string[] = [
   'testimonials.dr-verena',
   'testimonials.micheal-oatah',
   'testimonials.dr-moritz',
+  'legal.imprint',
+  'legal.privacy',
+  'legal.terms',
 ];

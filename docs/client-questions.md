@@ -35,6 +35,25 @@ site. Nothing has been silently changed — where we deviated, it says so.
      Certified Stretch Expert
    **We used the homepage version.** Which is correct?
 
+5b. **Your AGB gives a third figure.** It says "at least 24 hours in advance"
+   with no mention of mobile sessions. Between the FAQ, the homepage and the AGB
+   there are now three slightly different statements of the same policy. Pick one
+   and we'll make all three match.
+
+## New privacy policy section — please confirm
+
+15. Your old privacy policy was written for Squarespace. The new site is hosted
+    differently, so we added a section 4, "Hosting and Third-Party Services",
+    stating that:
+    - the site is hosted by Vercel Inc.
+    - fonts are served from our own server, with no connection to Google Fonts
+    - the Acuity booking calendar loads **only** after the visitor clicks, and no
+      connection to Acuity is made otherwise
+
+    All three are factually true of the site as built. Please read it and confirm
+    you're happy with the wording. Everything in sections 1–3 is your original text,
+    unchanged.
+
 ## Errors we found but did not fix for you
 
 6. **Dr. Verena's review looks like it has text pasted into it by mistake.** It ends
