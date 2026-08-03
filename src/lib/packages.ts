@@ -56,6 +56,10 @@ const PACKAGE_ELIGIBLE_SLUGS = new Set([
   'stretch-therapy',
 ]);
 
+export function isPackageEligible(slug: string): boolean {
+  return PACKAGE_ELIGIBLE_SLUGS.has(slug);
+}
+
 export function getPackagesForService(service: Service): DurationPackages[] {
   if (!PACKAGE_ELIGIBLE_SLUGS.has(service.slug)) return [];
 
