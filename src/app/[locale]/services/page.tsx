@@ -4,6 +4,7 @@ import {ServiceCard} from '@/components/sections/ServiceCard';
 import {Reveal} from '@/components/motion/Reveal';
 import {CtaBand} from '@/components/sections/CtaBand';
 import {buildMetadata} from '@/lib/metadata';
+import {ServiceFinderPrompt} from '@/components/ServiceFinderPrompt';
 import type {Metadata} from 'next';
 import type {Locale} from '@/content/schema';
 
@@ -37,6 +38,8 @@ export default async function ServicesPage({params}: Props) {
             ? 'Eine Philosophie. Fünf spezialisierte Leistungen. Ein erstklassiges Erlebnis.'
             : 'One philosophy. Five specialised services. One premium experience.'}
         </p>
+
+        <ServiceFinderPrompt locale={locale} />
 
         <div className="mt-8">
           {services.map((service, index) => (
