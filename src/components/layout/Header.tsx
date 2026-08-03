@@ -8,16 +8,21 @@ export function Header({locale}: {locale: Locale}) {
   return (
     <header className="border-b border-line">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-6 py-4 sm:py-5">
-        <Link href="/" className="flex items-center gap-3 font-display text-3xl leading-none sm:text-4xl">
+        <Link href="/" className="flex items-center gap-4">
           <Image
             src="/images/logo-mark.png"
             alt=""
-            width={56}
-            height={56}
-            className="h-11 w-11 sm:h-14 sm:w-14"
+            width={80}
+            height={80}
+            className="h-16 w-16 sm:h-20 sm:w-20"
             priority
           />
-          PrimeBodyLab
+          <span className="flex flex-col leading-none">
+            <span className="font-display text-4xl sm:text-5xl">PrimeBodyLab</span>
+            <span className="mt-1.5 text-[0.65rem] tracking-[0.25em] text-muted uppercase sm:text-xs">
+              Massage &amp; Sports Recovery
+            </span>
+          </span>
         </Link>
 
         <nav
