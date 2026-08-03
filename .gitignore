@@ -43,4 +43,7 @@ next-env.d.ts
 test-results/
 playwright-report/
 
+# subagent-driven-development scratch workspace
+/.superpowers/
+
 .vercel
