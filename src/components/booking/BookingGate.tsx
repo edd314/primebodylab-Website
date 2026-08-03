@@ -6,7 +6,7 @@ import {images} from '@/content/images';
 import {Figure} from '@/components/media/Figure';
 import type {Locale, Service} from '@/content/schema';
 
-const ACUITY_BASE = 'https://opensessions.as.me/schedule.php';
+const ACUITY_BASE = 'https://opensessions.as.me/';
 
 /**
  * Acuity is US-hosted and sets cookies, so it must not load on page view.
@@ -92,7 +92,7 @@ export function BookingGate({locale, service}: {locale: Locale; service: Service
           className="mt-8 h-[800px] w-full border border-line"
         />
       ) : (
-        <div className="mt-8 border border-line bg-[color-mix(in_srgb,var(--color-bone)_55%,white)] p-8 text-center">
+        <div className="mt-8 border border-line bg-surface p-8 text-center">
           <p
             data-testid="booking-notice"
             className="mx-auto max-w-[54ch] text-sm leading-relaxed text-muted"
@@ -104,7 +104,7 @@ export function BookingGate({locale, service}: {locale: Locale; service: Service
             type="button"
             data-testid="load-booking"
             onClick={() => setLoaded(true)}
-            className="mt-6 rounded-full bg-forest px-7 py-3.5 text-sm font-medium text-bone transition-opacity hover:opacity-90"
+            className="mt-6 rounded-full bg-forest px-7 py-3.5 text-sm font-medium text-ink transition-opacity hover:opacity-90"
           >
             {copy.button}
           </button>

@@ -2,6 +2,7 @@ import {setRequestLocale} from 'next-intl/server';
 import {home} from '@/content/home';
 import {bookCta} from '@/lib/nav';
 import {Hero} from '@/components/sections/Hero';
+import {Gallery} from '@/components/sections/Gallery';
 import {PillarGrid} from '@/components/sections/PillarGrid';
 import {FounderBlock} from '@/components/sections/FounderBlock';
 import {TestimonialRow} from '@/components/sections/TestimonialRow';
@@ -21,8 +22,8 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
     href: '/',
     title:
       locale === 'de'
-        ? 'PrimeBodyLab — Sportmassage, Stretching & Coaching in Pfaffenhofen'
-        : 'PrimeBodyLab — Sports Massage, Stretching & Coaching in Pfaffenhofen',
+        ? 'PrimeBodyLab — Wellnessmassage, Sportmassage, Stretching & Coaching in Pfaffenhofen'
+        : 'PrimeBodyLab — Wellness & Sports Massage, Stretching & Coaching in Pfaffenhofen',
     description: home.hero.body[locale],
   });
 }
@@ -41,6 +42,7 @@ export default async function HomePage({params}: Props) {
         body={home.hero.body}
         ctaLabel={bookCta[locale]}
       />
+      <Gallery locale={locale} />
       <PillarGrid locale={locale} pillars={home.pillars} standard={home.standard} />
       <FounderBlock locale={locale} founder={home.founder} />
       <TestimonialRow locale={locale} />

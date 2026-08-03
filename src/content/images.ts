@@ -34,8 +34,8 @@ export const images = {
     placeholder: false,
   }),
 
-  // Stock — Unsplash photo nMVUTY8_gGw
-  massage: imageSchema.parse({
+  // Stock — placeholder until Eddie has a suitable real photo for this service.
+  wellnessMassage: imageSchema.parse({
     src: '/images/stock-massage.jpg',
     alt: {
       de: 'Hände bei einer Rückenmassage',
@@ -44,22 +44,40 @@ export const images = {
     placeholder: true,
   }),
 
-  // Stock — Unsplash photo gavoj4Q_C_Q
-  stretch: imageSchema.parse({
-    src: '/images/stock-stretch.jpg',
+  massage: imageSchema.parse({
+    src: '/images/eddie-massage.jpg',
     alt: {
-      de: 'Therapeut dehnt das Bein eines Klienten auf der Behandlungsliege',
-      en: 'Therapist stretching a client’s leg on the treatment table',
+      de: 'Eddie bei einer Performance & Recovery Massage',
+      en: 'Eddie performing a Performance & Recovery Massage',
     },
-    placeholder: true,
+    placeholder: false,
   }),
 
-  // Stock — Unsplash photo 8DcwvlVXIVw
-  coaching: imageSchema.parse({
-    src: '/images/stock-coaching.jpg',
+  stretch: imageSchema.parse({
+    src: '/images/eddie-stretch.jpg',
     alt: {
-      de: 'Kurzhanteln für das Krafttraining',
-      en: 'Dumbbells used for strength training',
+      de: 'Eddie bei der Behandlung eines Klienten',
+      en: 'Eddie treating a client',
+    },
+    placeholder: false,
+  }),
+
+  coaching: imageSchema.parse({
+    src: '/images/eddie-coaching.jpg',
+    alt: {
+      de: 'Eddie beim Kraftraining im Clever Fit Studio',
+      en: 'Eddie strength training at Clever Fit',
+    },
+    placeholder: false,
+    focus: 'center 25%',
+  }),
+
+  // Stock — placeholder until Eddie has a real photo for this bundle.
+  bundle: imageSchema.parse({
+    src: '/images/stock-massage.jpg',
+    alt: {
+      de: 'Hände bei einer Rückenmassage',
+      en: 'Hands performing a back massage',
     },
     placeholder: true,
   }),

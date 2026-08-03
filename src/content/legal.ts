@@ -98,7 +98,7 @@ These terms apply to all consultations and studio services provided by Eddie.
 
 2. Appointments and Cancellations
 
-Appointments are binding. If you need to cancel or reschedule, please do so at least 24 hours in advance. Late cancellations may be subject to a cancellation fee.
+Appointments are binding. If you need to cancel or reschedule, please do so at least 24 hours in advance for studio sessions, or 48 hours in advance for mobile (in-home) sessions. Late cancellations may be subject to a cancellation fee. Coaching plans follow their own cancellation terms, communicated separately.
 
 3. Payment Terms
 
@@ -114,7 +114,7 @@ Diese Bedingungen gelten für alle Beratungen und Studioleistungen von Eddie.
 
 2. Termine und Stornierungen
 
-Termine sind verbindlich. Wenn du einen Termin absagen oder verschieben möchtest, tu dies bitte mindestens 24 Stunden im Voraus. Bei verspäteter Absage kann eine Stornogebühr anfallen.
+Termine sind verbindlich. Wenn du einen Termin absagen oder verschieben möchtest, tu dies bitte mindestens 24 Stunden im Voraus bei Studio-Terminen bzw. 48 Stunden im Voraus bei mobilen Terminen (bei dir zu Hause). Bei verspäteter Absage kann eine Stornogebühr anfallen. Für Coaching-Pläne gelten eigene Stornierungsbedingungen, die separat mitgeteilt werden.
 
 3. Zahlungsbedingungen
 

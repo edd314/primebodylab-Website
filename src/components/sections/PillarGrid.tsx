@@ -1,3 +1,4 @@
+import {Reveal} from '@/components/motion/Reveal';
 import type {Home, Locale, Localized} from '@/content/schema';
 
 type Props = {
@@ -16,15 +17,16 @@ export function PillarGrid({locale, pillars, standard}: Props) {
       </div>
 
       <div className="mx-auto mt-10 grid max-w-6xl sm:grid-cols-3">
-        {pillars.map((pillar) => (
-          <div
+        {pillars.map((pillar, index) => (
+          <Reveal
             key={pillar.id}
+            delay={index * 120}
             data-testid="pillar"
             className="border-b border-line px-8 py-12 last:border-b-0 sm:border-r sm:border-b-0 sm:last:border-r-0"
           >
             <h3 className="font-display text-2xl">{pillar.title[locale]}</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted">{pillar.body[locale]}</p>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>

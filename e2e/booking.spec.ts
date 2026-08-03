@@ -26,7 +26,7 @@ test('Acuity loads after the user clicks', async ({page}) => {
 
 test('deep link preselects the service', async ({page}) => {
   await page.goto('/buchen?service=performance-massage');
-  await expect(page.getByTestId('selected-service')).toContainText('Performance Massage');
+  await expect(page.getByTestId('selected-service')).toContainText('Performance & Recovery Massage');
 });
 
 test('gate explains the third-party load before it happens', async ({page}) => {

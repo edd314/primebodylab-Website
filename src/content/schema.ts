@@ -58,9 +58,27 @@ export const imageSchema = z.object({
   src: z.string().startsWith('/images/'),
   alt: localizedText,
   placeholder: z.boolean(),
+  /** CSS object-position value — where the crop stays anchored when the frame's aspect ratio cuts into the photo. */
+  focus: z.string().default('center'),
 });
 
 export type SiteImage = z.infer<typeof imageSchema>;
+
+/**
+ * A short, muted, looping ambient clip (walking to the car, arriving at a
+ * client's door, etc.) — not a produced video with sound/controls.
+ * `src: null` renders as an empty "Platzhalter" tile, same convention as
+ * `imageSchema`'s `placeholder: true`, until Eddie has real footage.
+ */
+export const videoClipSchema = z.object({
+  src: z.string().startsWith('/videos/').nullable(),
+  poster: z.string().startsWith('/images/').optional(),
+  alt: localizedText,
+});
+
+export type VideoClip = z.infer<typeof videoClipSchema>;
+
+export type GalleryItem = ({kind: 'image'} & SiteImage) | ({kind: 'video'} & VideoClip);
 
 export const serviceSchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/),
@@ -93,6 +111,22 @@ export const testimonialSchema = z.object({
   rating: z.number().int().min(1).max(5),
   quote: localizedText,
 });
+
+export const welcomePopupSchema = z.object({
+  heading: localizedText,
+  body: localizedText,
+  emailPlaceholder: localizedText,
+  submitLabel: localizedText,
+  dismissLabel: localizedText,
+  confirmHeading: localizedText,
+  confirmBody: localizedText,
+  bookLabel: localizedText,
+  errorMessage: localizedText,
+  /** An Acuity coupon code — must exist in Acuity's Coupons panel or it won't actually apply a discount. */
+  discountCode: z.string().min(1),
+});
+
+export type WelcomePopupContent = z.infer<typeof welcomePopupSchema>;
 
 export const legalSchema = z.object({
   imprint: localizedText,

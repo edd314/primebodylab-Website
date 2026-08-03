@@ -22,13 +22,13 @@ const data: Testimonial[] = [
     author: 'Dr. Verena',
     rating: 5,
     quote: {
-      de: 'Normalerweise leide ich unter chronischer Migräne. Nach der Arbeit mit Eddie haben die Migräneanfälle nachgelassen und ich spüre eine enorme Erleichterung. Eddie ist unkompliziert, hört aktiv zu und geht auf Gespräche ein. Ich bin wirklich froh, mit ihm zu arbeiten. Und damit nicht genug — sein Ansatz und seine Leidenschaft für seine Arbeit sind inspirierend.',
-      en: 'I usually experience chronic migraines, however after working with Eddie the migraines reduced and i have tremendous relief. Eddie is easy to work with, an active listener and comprehends conversations. I am truly happy to be working with him. Eddie didn’t just do that, his approach and passion for what he does is inspirational.',
+      de: 'Normalerweise leide ich unter chronischer Migräne. Nach der Arbeit mit Eddie haben die Migräneanfälle nachgelassen und ich spüre eine enorme Erleichterung. Eddie ist unkompliziert, hört aktiv zu und geht auf Gespräche ein. Ich bin wirklich froh, mit ihm zu arbeiten.',
+      en: 'I usually experience chronic migraines, however after working with Eddie the migraines reduced and i have tremendous relief. Eddie is easy to work with, an active listener and comprehends conversations. I am truly happy to be working with him.',
     },
   },
   {
-    id: 'micheal-oatah',
-    author: 'Micheal Oatah',
+    id: 'michael-oatah',
+    author: 'Michael Oatah',
     rating: 4,
     quote: {
       de: 'Ich wollte schon immer einen Trainer, der mir Neues zeigt und mich über meine Grenzen hinaus fordert. Eddie hat nicht nur das getan — sein Ansatz und seine Leidenschaft für seine Arbeit sind inspirierend.',

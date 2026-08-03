@@ -45,7 +45,7 @@ export function LocaleSwitcher({current}: {current: Locale}) {
             aria-current={isActive ? 'true' : undefined}
             className={
               isActive
-                ? 'rounded-full bg-forest px-2.5 py-1 text-[11px] font-medium tracking-wider text-bone'
+                ? 'rounded-full bg-forest px-2.5 py-1 text-[11px] font-medium tracking-wider text-ink'
                 : 'rounded-full px-2.5 py-1 text-[11px] font-medium tracking-wider text-muted transition-colors hover:text-ink'
             }
           >

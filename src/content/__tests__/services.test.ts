@@ -4,18 +4,26 @@ import {faqs} from '@/content/faqs';
 import {testimonials} from '@/content/testimonials';
 
 describe('services', () => {
-  it('defines the three services the business offers', () => {
+  it('defines the five services the business offers', () => {
     expect(services.map((s) => s.slug)).toEqual([
+      'wellness-recovery-massage',
       'performance-massage',
       'stretch-therapy',
+      'performance-recovery-bundle',
       'performance-coaching',
     ]);
   });
 
-  it('gives performance massage a starting price of 80 euro', () => {
+  it('gives wellness & recovery massage a starting price of 80 euro', () => {
+    const wellness = getService('wellness-recovery-massage')!;
+    const prices = wellness.durations.map((d) => d.price);
+    expect(Math.min(...prices.filter((p): p is number => p !== null))).toBe(80);
+  });
+
+  it('gives performance massage a starting price of 85 euro', () => {
     const massage = getService('performance-massage')!;
     const prices = massage.durations.map((d) => d.price);
-    expect(Math.min(...prices.filter((p): p is number => p !== null))).toBe(80);
+    expect(Math.min(...prices.filter((p): p is number => p !== null))).toBe(85);
   });
 
   it('offers massage in 60, 90 and 120 minutes', () => {

@@ -18,7 +18,7 @@ export async function generateMetadata({params}: {params: Promise<{locale: strin
     locale,
     href: '/book',
     title: locale === 'de' ? 'Termin buchen | PrimeBodyLab Pfaffenhofen' : 'Book an appointment | PrimeBodyLab Pfaffenhofen',
-    description: locale === 'de' ? 'Buche deinen Termin für Sportmassage, assistiertes Stretching oder Performance-Coaching in Pfaffenhofen.' : 'Book your appointment for sports massage, assisted stretching or performance coaching in Pfaffenhofen.',
+    description: locale === 'de' ? 'Buche deinen Termin für Wellness- oder Performance-Massage, assistiertes Stretching oder Performance-Coaching in Pfaffenhofen.' : 'Book your appointment for wellness or performance massage, assisted stretching or performance coaching in Pfaffenhofen.',
   });
 }
 

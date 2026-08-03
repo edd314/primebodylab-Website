@@ -1,12 +1,32 @@
 @import "tailwindcss";
 
+/**
+ * Warm dark theme, approved by Eddie over the light original. Token NAMES are
+ * kept stable (bone/ink/forest/sage/muted/line) so every component below
+ * needed zero class-name changes for the swap — only the values moved:
+ *
+ * - bone   was the light page background, now the warm near-black one.
+ * - ink    was near-black text, now the warm cream — doubles as the light
+ *          "inverted" surface (e.g. the button inside the dark-green CtaBand).
+ * - forest stays dark green, brightened slightly so it still reads as a
+ *          surface/button color against the new dark bone.
+ * - sage   was a muted green accent, now IS the bronze accent (taglines,
+ *          ratings, hover states, package savings) — same role, warmer color.
+ * - muted / line were tuned for a light bg; both re-picked for legibility on
+ *          the dark one.
+ * - surface is new: the color-mix() card-elevation hack from the light theme
+ *          (mixing bone toward white) doesn't work once bone is dark, so
+ *          elevated panels (BookingGate note, TestimonialRow band) use this
+ *          explicit token instead.
+ */
 @theme {
-  --color-bone: #F6F3ED;
-  --color-ink: #1D2420;
-  --color-forest: #2E3A33;
-  --color-sage: #3E6B54;
-  --color-muted: #5C635A;
-  --color-line: #DFDBD2;
+  --color-bone: #1C160F;
+  --color-ink: #F3EBDD;
+  --color-forest: #2E4636;
+  --color-sage: #C99A68;
+  --color-muted: #A89D8A;
+  --color-line: #3A3226;
+  --color-surface: #2A2318;
 
   --font-display: var(--font-instrument-serif), Georgia, serif;
   --font-body: var(--font-inter), system-ui, sans-serif;

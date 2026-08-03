@@ -8,6 +8,7 @@ type Props = {
   className?: string;
   sizes?: string;
   priority?: boolean;
+  'data-testid'?: string;
 };
 
 /**
@@ -15,9 +16,16 @@ type Props = {
  * (`placeholder: true`) it also renders a small chip, so Eddie can see exactly
  * where his photos will land and no visitor mistakes stock for his studio.
  */
-export function Figure({image, locale, className = '', sizes = '100vw', priority}: Props) {
+export function Figure({
+  image,
+  locale,
+  className = '',
+  sizes = '100vw',
+  priority,
+  'data-testid': testId,
+}: Props) {
   return (
-    <div className={`relative overflow-hidden bg-line ${className}`}>
+    <div data-testid={testId} className={`relative overflow-hidden bg-line ${className}`}>
       <Image
         src={image.src}
         alt={image.alt[locale]}
@@ -25,6 +33,7 @@ export function Figure({image, locale, className = '', sizes = '100vw', priority
         sizes={sizes}
         priority={priority}
         className="object-cover"
+        style={{objectPosition: image.focus}}
       />
 
       {image.placeholder && (

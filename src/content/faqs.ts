@@ -5,12 +5,14 @@ import {faqGroupSchema, type FaqGroup} from './schema';
  * English answers are transcribed verbatim from primebodylab.de/faqs-2 and the
  * homepage FAQ section. German is our translation, pending Eddie's approval.
  *
- * Two deliberate deviations, both flagged in docs/client-questions.md:
+ * One deliberate deviation, flagged in docs/client-questions.md:
  *  - `what-to-wear` heading: the live site reads "What should i wear?" with a
  *    lowercase i. Corrected here as an obvious typo.
- *  - `cancellation`: /faqs-2 says only "24 hours", while the homepage gives the
- *    fuller and more accurate 24h studio / 48h mobile split. The homepage
- *    wording is used because it is his own and strictly more informative.
+ *  - `cancellation`: the old site had three inconsistent versions (a flat 24h
+ *    on /faqs-2 and in the AGB, vs. a 24h studio / 48h mobile split on the
+ *    homepage). Eddie confirmed the studio/mobile split is correct — it's now
+ *    used consistently here, on the homepage, and in the AGB. Coaching plans
+ *    have their own cancellation terms per Eddie, not yet specified.
  */
 const data: FaqGroup[] = [
   {
@@ -32,8 +34,8 @@ const data: FaqGroup[] = [
           en: 'What is your cancellation policy?',
         },
         answer: {
-          de: 'Termine können bis zu 24 Stunden vor dem vereinbarten Termin storniert oder verschoben werden. Bei verspäteter Absage oder Nichterscheinen kann eine Stornogebühr anfallen. Wenn sich deine Umstände ändern, melde dich einfach und wir finden gemeinsam die beste Lösung. Für Studio-Termine gilt eine Frist von mindestens 24 Stunden, für mobile Termine (bei dir zu Hause) 48 Stunden. Alle weiteren Bedingungen zu deinen Terminen oder deinem Coaching-Plan werden vorab klar erklärt.',
-          en: 'Appointments can be cancelled or rescheduled up to 24 hours before your scheduled session. Late cancellations or missed appointments may incur a cancellation fee. If your circumstances change, just get in touch and we’ll find the best option together. Studio sessions require at least 24 hours’ notice, while mobile (in-home) sessions require 48 hours’ notice. Any additional terms specific to your sessions or coaching plan will be explained clearly before you begin.',
+          de: 'Termine können storniert oder verschoben werden — mit einer Frist von mindestens 24 Stunden bei Studio-Terminen und 48 Stunden bei mobilen Terminen (bei dir zu Hause). Bei verspäteter Absage oder Nichterscheinen kann eine Stornogebühr anfallen. Wenn sich deine Umstände ändern, melde dich einfach und wir finden gemeinsam die beste Lösung. Für Coaching-Pläne gelten eigene Stornierungsbedingungen, die vorab klar erklärt werden.',
+          en: 'Appointments can be cancelled or rescheduled with notice — at least 24 hours for studio sessions, and 48 hours for mobile (in-home) sessions. Late cancellations or missed appointments may incur a cancellation fee. If your circumstances change, just get in touch and we’ll find the best option together. Coaching plans follow their own cancellation terms, which will be explained clearly before you begin.',
         },
       },
       {
@@ -69,7 +71,7 @@ const data: FaqGroup[] = [
     id: 'treatments',
     title: {
       de: 'Massage & Assistiertes Stretching',
-      en: 'Performance Massage & Assisted Stretch Therapy',
+      en: 'Massage & Assisted Stretching',
     },
     items: [
       {
@@ -95,8 +97,8 @@ const data: FaqGroup[] = [
         id: 'session-length',
         question: {de: 'Wie lange dauern die Sitzungen?', en: 'How long are the sessions?'},
         answer: {
-          de: 'Massage- und assistierte Stretching-Einheiten sind als 60-, 90- und 120-Minuten-Termine buchbar. Für Kunden, die eine umfassendere Behandlung und Regeneration benötigen, gibt es zusätzlich erweiterte Performance-Recovery-Sitzungen.',
-          en: 'Massage and assisted stretch sessions are available in 60, 90, and 120-minute appointments. Extended Performance Recovery Sessions are available for clients requiring more comprehensive treatment and recovery',
+          de: 'Massage- und assistierte Stretching-Einheiten sind als 60-, 90- und 120-Minuten-Termine buchbar. Für Kunden, die eine umfassendere Behandlung und Regeneration benötigen, gibt es zusätzlich das Performance & Recovery Bundle.',
+          en: 'Massage and assisted stretch sessions are available in 60, 90, and 120-minute appointments. For clients wanting a more comprehensive treatment and recovery session, the Performance & Recovery Bundle combines both in a single visit.',
         },
       },
       {
@@ -114,8 +116,8 @@ const data: FaqGroup[] = [
         id: 'combining-services',
         question: {de: 'Kann ich Leistungen kombinieren?', en: 'Can I combine services?'},
         answer: {
-          de: 'Auf jeden Fall. Viele Kunden profitieren davon, Performance Massage, assistiertes Stretching und Coaching zu kombinieren, um Leistung und Regeneration ganzheitlicher anzugehen. Ich empfehle dir die passende Kombination auf Basis deiner Ziele.',
-          en: 'Absolutely. Many clients benefit from combining performance massage, assisted stretch therapy, and coaching to create a more complete approach to performance and recovery. I’ll recommend the most appropriate combination based on your goals.',
+          de: 'Auf jeden Fall. Viele Kunden profitieren davon, Massage, assistiertes Stretching und Coaching zu kombinieren, um Leistung und Regeneration ganzheitlicher anzugehen. Ich empfehle dir die passende Kombination auf Basis deiner Ziele.',
+          en: 'Absolutely. Many clients benefit from combining massage, assisted stretch therapy, and coaching to create a more complete approach to performance and recovery. I’ll recommend the most appropriate combination based on your goals.',
         },
       },
       {

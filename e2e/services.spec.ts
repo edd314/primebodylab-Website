@@ -1,25 +1,25 @@
 import {expect, test} from '@playwright/test';
 
-test('overview lists all three services', async ({page}) => {
+test('overview lists all five services', async ({page}) => {
   await page.goto('/leistungen');
-  await expect(page.getByTestId('service-card')).toHaveCount(3);
+  await expect(page.getByTestId('service-card')).toHaveCount(5);
 });
 
 test('service card links to its detail page', async ({page}) => {
   await page.goto('/leistungen');
   await page.getByTestId('service-card').first().getByRole('link').first().click();
-  await expect(page).toHaveURL(/\/leistungen\/performance-massage$/);
+  await expect(page).toHaveURL(/\/leistungen\/wellness-recovery-massage$/);
 });
 
-test('massage detail page shows the 80 euro starting price', async ({page}) => {
-  await page.goto('/leistungen/performance-massage');
+test('wellness massage detail page shows the 80 euro starting price', async ({page}) => {
+  await page.goto('/leistungen/wellness-recovery-massage');
   await expect(page.getByTestId('duration-row').first()).toContainText('80 €');
 });
 
 test('durations without a price show an enquiry note, not a blank', async ({page}) => {
-  await page.goto('/leistungen/performance-massage');
+  await page.goto('/leistungen/performance-coaching');
   const rows = page.getByTestId('duration-row');
-  await expect(rows.nth(1)).toContainText('Auf Anfrage');
+  await expect(rows.first()).toContainText('Auf Anfrage');
 });
 
 test('unknown service slug returns 404', async ({page}) => {
@@ -28,6 +28,6 @@ test('unknown service slug returns 404', async ({page}) => {
 });
 
 test('English detail page uses English pricing format', async ({page}) => {
-  await page.goto('/en/services/performance-massage');
+  await page.goto('/en/services/wellness-recovery-massage');
   await expect(page.getByTestId('duration-row').first()).toContainText('€80');
 });

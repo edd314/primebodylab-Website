@@ -79,8 +79,9 @@ then, every button opens the general calendar.
 
 ## Photography
 
-Every photograph is registered in `src/content/images.ts`. Two are Eddie's own
-(his portrait, his treatment room); three are licensed stock placeholders.
+Every photograph is registered in `src/content/images.ts`. All but one are
+Eddie's own real photos; the Performance & Recovery Bundle still uses a
+licensed stock placeholder pending a real photo from Eddie.
 
 To swap in a real photo:
 

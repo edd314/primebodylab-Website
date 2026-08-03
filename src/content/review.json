@@ -4,17 +4,20 @@
   "home.standard",
   "home.pillars",
   "home.founder",
+  "services.wellness-recovery-massage",
   "services.performance-massage",
   "services.stretch-therapy",
+  "services.performance-recovery-bundle",
   "services.performance-coaching",
   "faqs.booking",
   "faqs.treatments",
   "faqs.coaching",
   "testimonials.tom-steggemen",
   "testimonials.dr-verena",
-  "testimonials.micheal-oatah",
+  "testimonials.michael-oatah",
   "testimonials.dr-moritz",
   "legal.imprint",
   "legal.privacy",
-  "legal.terms"
+  "legal.terms",
+  "welcomePopup"
 ]

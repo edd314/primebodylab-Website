@@ -1,6 +1,7 @@
 import {Link} from '@/i18n/navigation';
 import {formatPrice} from '@/lib/format';
 import {Figure} from '@/components/media/Figure';
+import {PackageList} from '@/components/sections/PackageList';
 import type {Locale, Service} from '@/content/schema';
 
 export function ServiceDetail({service, locale}: {service: Service; locale: Locale}) {
@@ -64,12 +65,14 @@ export function ServiceDetail({service, locale}: {service: Service; locale: Loca
 
           <Link
             href={{pathname: '/book', query: {service: service.slug}}}
-            className="mt-8 inline-block rounded-full bg-forest px-7 py-3.5 text-sm font-medium text-bone transition-opacity hover:opacity-90"
+            className="mt-8 inline-block rounded-full bg-forest px-7 py-3.5 text-sm font-medium text-ink transition-opacity hover:opacity-90"
           >
             {locale === 'de' ? 'Termin buchen' : 'Book Now'}
           </Link>
         </div>
       </div>
+
+      <PackageList service={service} locale={locale} />
     </section>
   );
 }

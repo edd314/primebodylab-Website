@@ -10,7 +10,7 @@ export function MobileContactBar({locale}: {locale: Locale}) {
     <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 border-t border-line bg-bone sm:hidden">
       <a
         href={site.phoneHref}
-        className="py-4 text-center text-sm font-medium text-forest"
+        className="py-4 text-center text-sm font-medium text-sage"
       >
         {locale === 'de' ? 'Anrufen' : 'Call'}
       </a>
@@ -18,7 +18,7 @@ export function MobileContactBar({locale}: {locale: Locale}) {
         href={site.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
-        className="border-l border-line py-4 text-center text-sm font-medium text-forest"
+        className="border-l border-line py-4 text-center text-sm font-medium text-sage"
       >
         WhatsApp
       </a>

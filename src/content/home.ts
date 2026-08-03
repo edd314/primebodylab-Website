@@ -7,8 +7,8 @@ import {homeSchema, type Home} from './schema';
 const data: Home = {
   hero: {
     kicker: {
-      de: 'Pfaffenhofen · Studio & mobil',
-      en: 'Pfaffenhofen · Studio & mobile',
+      de: 'Studio & mobil',
+      en: 'Studio & mobile',
     },
     headline: {
       de: ['Stärker regenerieren.', 'Klüger trainieren.', 'Besser bewegen.'],
@@ -55,8 +55,8 @@ const data: Home = {
       en: 'Hi i’m Eddie, founder of PrimeBodyLab.',
     },
     body: {
-      de: 'Als zertifizierter Personal Trainer, Massagetherapeut und Stretch-Spezialist entwickle ich persönliche Programme für gesundheitsbewusste Menschen — eine Philosophie, drei spezialisierte Leistungen, ein erstklassiges Erlebnis.',
-      en: 'As a certified personal trainer, massage therapist and stretch specialist, I build personalised programmes for health-conscious individuals — one philosophy, three specialised services, one premium experience.',
+      de: 'Als zertifizierter Personal Trainer, Massagetherapeut und Stretch-Spezialist entwickle ich persönliche Programme für gesundheitsbewusste Menschen — eine Philosophie, fünf spezialisierte Leistungen, ein erstklassiges Erlebnis.',
+      en: 'As a certified personal trainer, massage therapist and stretch specialist, I build personalised programmes for health-conscious individuals — one philosophy, five specialised services, one premium experience.',
     },
   },
 };

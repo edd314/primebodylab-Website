@@ -37,13 +37,13 @@ export function Hero({locale, kicker, headline, body, ctaLabel}: Props) {
         <Link
           href="/book"
           data-testid="hero-cta"
-          className="rounded-full bg-forest px-7 py-3.5 text-sm font-medium text-bone transition-opacity hover:opacity-90"
+          className="rounded-full bg-forest px-7 py-3.5 text-sm font-medium text-ink transition-opacity hover:opacity-90"
         >
           {ctaLabel}
         </Link>
         <Link
           href="/services"
-          className="border-b border-line px-4 py-3.5 text-sm font-medium text-forest transition-colors hover:border-forest"
+          className="border-b border-line px-4 py-3.5 text-sm font-medium text-sage transition-colors hover:border-forest"
         >
           {locale === 'de' ? 'Leistungen ansehen' : 'Explore Services'}
         </Link>
