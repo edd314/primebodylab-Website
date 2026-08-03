@@ -128,6 +128,41 @@ export const welcomePopupSchema = z.object({
 
 export type WelcomePopupContent = z.infer<typeof welcomePopupSchema>;
 
+export const serviceFinderOptionSchema = z.object({
+  id: z.string().min(1),
+  label: localizedText,
+});
+
+export const serviceFinderQuestionSchema = z.object({
+  id: z.enum(['goal', 'massageType', 'combine', 'frequency']),
+  question: localizedText,
+  options: z.array(serviceFinderOptionSchema).min(2),
+});
+
+export type ServiceFinderQuestionId = z.infer<typeof serviceFinderQuestionSchema>['id'];
+
+export const serviceFinderResultCopySchema = z.object({
+  /** A service slug from src/content/services.ts. */
+  id: z.string().min(1),
+  /** One-line "why this fits" summary shown on the result screen. */
+  summary: localizedText,
+});
+
+export const serviceFinderContentSchema = z.object({
+  bubbleLabel: localizedText,
+  panelHeading: localizedText,
+  questions: z.array(serviceFinderQuestionSchema).length(4),
+  results: z.array(serviceFinderResultCopySchema).min(1),
+  fallbackHeading: localizedText,
+  fallbackBody: localizedText,
+  fallbackCta: localizedText,
+  bookLabel: localizedText,
+  backLabel: localizedText,
+  restartLabel: localizedText,
+});
+
+export type ServiceFinderContent = z.infer<typeof serviceFinderContentSchema>;
+
 export const legalSchema = z.object({
   imprint: localizedText,
   privacy: localizedText,
