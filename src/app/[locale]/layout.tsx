@@ -8,6 +8,7 @@ import {Header} from '@/components/layout/Header';
 import {Footer} from '@/components/layout/Footer';
 import {MobileContactBar} from '@/components/layout/MobileContactBar';
 import {WelcomePopup} from '@/components/WelcomePopup';
+import {ServiceFinderWidget} from '@/components/ServiceFinderWidget';
 import {JsonLd} from '@/components/seo/JsonLd';
 import {site} from '@/content/site';
 import {SITE_URL} from '@/lib/metadata';
@@ -61,6 +62,7 @@ export default async function LocaleLayout({children, params}: Props) {
           <Footer locale={locale} />
           <MobileContactBar locale={locale} />
           <WelcomePopup locale={locale} />
+          <ServiceFinderWidget locale={locale} />
         </NextIntlClientProvider>
       </body>
     </html>
