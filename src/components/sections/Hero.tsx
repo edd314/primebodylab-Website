@@ -31,7 +31,7 @@ export function Hero({locale, kicker, headline, body, ctaLabel, image}: Props) {
               width={800}
               height={533}
               aria-hidden="true"
-              className="pointer-events-none absolute top-1/2 left-1/2 hidden w-[640px] -translate-x-1/2 -translate-y-1/2 opacity-20 sm:block lg:w-[760px]"
+              className="pointer-events-none absolute top-1/2 left-1/2 hidden w-[640px] -translate-x-1/2 -translate-y-1/2 opacity-10 sm:block lg:w-[760px]"
             />
 
             <span className="relative inline-block rounded-full bg-forest px-4 py-1.5 text-xs font-semibold tracking-[0.18em] text-bone uppercase">
@@ -40,11 +40,11 @@ export function Hero({locale, kicker, headline, body, ctaLabel, image}: Props) {
 
             {/* Each line is its own block: German words are long enough that letting
                 them reflow breaks the three-line rhythm the headline depends on. */}
-            <h1 className="relative mt-6 font-display text-4xl leading-[1.05] uppercase sm:text-6xl lg:text-7xl">
+            <h1 className="relative mt-6 font-display text-4xl leading-[1.05] sm:text-6xl lg:text-7xl">
               {lines.map((line, index) => (
                 <span
                   key={line}
-                  className={`block ${index === lines.length - 1 ? 'text-sage' : ''}`}
+                  className={`block ${index === lines.length - 1 ? 'text-sage italic' : ''}`}
                 >
                   {line}
                 </span>
