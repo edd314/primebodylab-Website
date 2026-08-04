@@ -25,3 +25,10 @@ test('English homepage renders the English headline', async ({page}) => {
   await page.goto('/en');
   await expect(page.getByRole('heading', {level: 1})).toContainText('Move Better');
 });
+
+test('service ticker lists every service with its starting price', async ({page}) => {
+  await page.goto('/');
+  const ticker = page.getByTestId('service-ticker');
+  await expect(ticker.getByTestId('ticker-item')).toHaveCount(5);
+  await expect(ticker).toContainText('ab 80 €');
+});
