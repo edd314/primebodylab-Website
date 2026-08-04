@@ -25,6 +25,15 @@ export const images = {
     placeholder: false,
   }),
 
+  heroPortrait: imageSchema.parse({
+    src: '/images/eddie-hero.jpg',
+    alt: {
+      de: 'Eddie Ekanem, Gründer von PrimeBodyLab',
+      en: 'Eddie Ekanem, founder of PrimeBodyLab',
+    },
+    placeholder: false,
+  }),
+
   treatmentRoom: imageSchema.parse({
     src: '/images/treatment-room.webp',
     alt: {
