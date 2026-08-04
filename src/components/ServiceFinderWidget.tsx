@@ -12,6 +12,7 @@ import {
 import {getService} from '@/content/services';
 import {getPackagesForService} from '@/lib/packages';
 import {formatPrice} from '@/lib/format';
+import {getFromPrice} from '@/lib/pricing';
 import {PackageList} from '@/components/sections/PackageList';
 import type {Locale, ServiceFinderQuestionId} from '@/content/schema';
 
@@ -236,8 +237,7 @@ function ResultStep({
 
   const service = getService(result.slug)!;
   const summary = serviceFinder.results.find((r) => r.id === result.slug)!.summary[locale];
-  const prices = service.durations.map((d) => d.price).filter((p): p is number => p !== null);
-  const startingPrice = prices.length > 0 ? Math.min(...prices) : null;
+  const startingPrice = getFromPrice(service);
   const packages = getPackagesForService(service);
 
   return (

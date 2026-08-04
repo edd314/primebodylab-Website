@@ -1,13 +1,11 @@
 import {Link} from '@/i18n/navigation';
 import {formatPrice} from '@/lib/format';
+import {getFromPrice} from '@/lib/pricing';
 import {Figure} from '@/components/media/Figure';
 import type {Locale, Service} from '@/content/schema';
 
 export function ServiceCard({service, locale}: {service: Service; locale: Locale}) {
-  const prices = service.durations
-    .map((duration) => duration.price)
-    .filter((price): price is number => price !== null);
-  const from = prices.length > 0 ? Math.min(...prices) : null;
+  const from = getFromPrice(service);
 
   return (
     <article
