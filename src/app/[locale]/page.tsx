@@ -1,6 +1,7 @@
 import {setRequestLocale} from 'next-intl/server';
 import {home} from '@/content/home';
 import {bookCta} from '@/lib/nav';
+import {images} from '@/content/images';
 import {Hero} from '@/components/sections/Hero';
 import {ServiceTicker} from '@/components/sections/ServiceTicker';
 import {Gallery} from '@/components/sections/Gallery';
@@ -42,6 +43,7 @@ export default async function HomePage({params}: Props) {
         headline={home.hero.headline}
         body={home.hero.body}
         ctaLabel={bookCta[locale]}
+        image={images.coaching}
       />
       <ServiceTicker locale={locale} />
       <Gallery locale={locale} />

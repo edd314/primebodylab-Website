@@ -57,7 +57,7 @@ export function Gallery({locale}: {locale: Locale}) {
               data-testid="gallery-slide"
               className={SLIDE_CLASS}
               sizes="(min-width: 1024px) 28vw, (min-width: 640px) 42vw, 78vw"
-              priority={index === 0}
+              priority={false}
             />
           ),
         )}
