@@ -21,5 +21,5 @@ test('display font is applied to the page', async ({page}) => {
   const fontFamily = await page
     .locator('body')
     .evaluate((el) => getComputedStyle(el).fontFamily);
-  expect(fontFamily).toContain('Epilogue');
+  expect(fontFamily).toContain('Inter');
 });

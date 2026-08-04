@@ -1,39 +1,40 @@
 @import "tailwindcss";
 
 /**
- * "Athletic Evolution" theme — black background, neon yellow-green accent,
- * bold condensed type. Replaces the warm dark-green/bronze theme. Token
- * NAMES are kept stable (bone/ink/forest/sage/muted/line/surface) so every
- * component needed zero class-name changes for the swap — only the values
- * moved:
+ * "Warm Calm" theme — light cream background, coffee-brown accent, olive-
+ * green secondary accent, soft editorial type. Replaces "Athletic
+ * Evolution" (black background, neon yellow-green). Token NAMES stay
+ * stable (bone/ink/forest/sage/muted/line/surface) — only the values
+ * moved, same mechanism as every previous theme swap on this project:
  *
- * - bone    page background: warm near-black -> true near-black.
- * - ink     primary text: warm cream -> off-white.
- * - forest  primary accent (solid-fill buttons, bands): dark green -> neon
- *           yellow-green. Anywhere this is used as a fill, pair it with
- *           `text-bone`, not `text-ink` — see Global Constraints in the
- *           plan this theme shipped under.
+ * - bone    page background: near-black -> warm cream.
+ * - ink     primary text: off-white -> warm espresso (not pure black).
+ * - forest  primary accent (solid-fill buttons, bands): neon yellow-green
+ *           -> coffee brown. `bone`'s new cream value is still light
+ *           enough to read on `forest`'s new brown value, so every
+ *           existing `bg-forest` + `text-bone` pairing keeps working
+ *           unchanged — no contrast-fix sweep needed this time, unlike
+ *           the last theme swap.
  * - sage    secondary accent (taglines, hero last line, hover states):
- *           bronze -> the same neon as `forest`. It's used as a *text*
- *           color on the dark `bone` background, so it stays high-contrast
- *           without needing the `forest` fill's dark-text pairing.
- * - muted / line were re-picked to sit correctly against the new near-black
- *           bone.
- * - surface is the elevated-panel token (BookingGate notice, Service
- *           Finder panel, CtaBand) — a shade lighter than `bone` so those
- *           panels still read as distinct surfaces on a near-black page.
+ *           was the same neon as `forest`; now a *distinct* olive green,
+ *           not the same value as `forest` — this palette uses two
+ *           accent colors, not one.
+ * - muted / line / surface were re-picked to sit correctly against the
+ *           new light cream `bone` (surface: a step darker than bone,
+ *           for the ticker bar and other elevated panels; line: a soft
+ *           warm tan border).
  */
 @theme {
-  --color-bone: #0A0A0A;
-  --color-ink: #F5F5F0;
-  --color-forest: #D7FF3D;
-  --color-sage: #D7FF3D;
-  --color-muted: #9A9A93;
-  --color-line: #2A2A2A;
-  --color-surface: #141414;
+  --color-bone: #F7F1E7;
+  --color-ink: #2B2116;
+  --color-forest: #6B4A31;
+  --color-sage: #5C6640;
+  --color-muted: #7A6B54;
+  --color-line: #DCCEB0;
+  --color-surface: #EFE6D3;
 
-  --font-display: var(--font-anton), Impact, sans-serif;
-  --font-body: var(--font-epilogue), system-ui, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
 }
 
 html {
