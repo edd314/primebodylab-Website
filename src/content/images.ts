@@ -74,10 +74,10 @@ export const images = {
 
   // Stock — placeholder until Eddie has a real photo for this bundle.
   bundle: imageSchema.parse({
-    src: '/images/stock-massage.jpg',
+    src: '/images/sports-massage.jpg',
     alt: {
-      de: 'Hände bei einer Rückenmassage',
-      en: 'Hands performing a back massage',
+      de: 'Sportmassage am Bein eines Klienten',
+      en: 'Sports massage on a client’s leg',
     },
     placeholder: true,
   }),
