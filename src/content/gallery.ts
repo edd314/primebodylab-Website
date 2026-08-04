@@ -62,6 +62,30 @@ export const gallery: GalleryItem[] = [
     }),
   },
   {
+    kind: 'image',
+    ...imageSchema.parse({
+      src: '/images/gallery-7.jpg',
+      alt: {de: 'Eddie, Gründer von PrimeBodyLab', en: 'Eddie, founder of PrimeBodyLab'},
+      placeholder: false,
+    }),
+  },
+  {
+    kind: 'image',
+    ...imageSchema.parse({
+      src: '/images/gallery-8.jpg',
+      alt: {de: 'Eddie, Gründer von PrimeBodyLab', en: 'Eddie, founder of PrimeBodyLab'},
+      placeholder: false,
+    }),
+  },
+  {
+    kind: 'image',
+    ...imageSchema.parse({
+      src: '/images/gallery-9.jpg',
+      alt: {de: 'Eddie, Gründer von PrimeBodyLab', en: 'Eddie, founder of PrimeBodyLab'},
+      placeholder: false,
+    }),
+  },
+  {
     kind: 'video',
     ...videoClipSchema.parse({
       src: null,
