@@ -18,7 +18,7 @@ export function Header({locale}: {locale: Locale}) {
             priority
           />
           <span className="flex flex-col leading-none">
-            <span className="font-display text-2xl sm:text-4xl md:text-5xl">PrimeBodyLab</span>
+            <span className="font-display text-2xl uppercase tracking-tight sm:text-4xl md:text-5xl">PrimeBodyLab</span>
             <span className="mt-1 text-[0.55rem] tracking-[0.2em] text-muted uppercase sm:mt-1.5 sm:text-[0.65rem] sm:tracking-[0.25em] md:text-xs">
               Massage &amp; Sports Recovery
             </span>
