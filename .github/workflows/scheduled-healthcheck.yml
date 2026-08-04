@@ -1,0 +1,61 @@
+name: Scheduled health check
+
+# Runs independently of any push, on GitHub's own infrastructure — this is
+# the durable backstop for site monitoring. It never writes fixes itself
+# (that needs a real agent session, not a script); it only detects problems
+# and opens a GitHub Issue so Eddie gets notified by email.
+on:
+  schedule:
+    # Every Monday at 08:00 UTC.
+    - cron: '0 8 * * 1'
+  workflow_dispatch: {}
+
+jobs:
+  healthcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Unit tests
+        run: npm test
+      - name: Build
+        run: npm run build
+      - name: Live site — German homepage
+        run: |
+          curl -fsS --retry 3 --retry-delay 5 https://www.primebodylab.de/ -o /tmp/home-de.html
+          grep -q 'PrimeBodyLab' /tmp/home-de.html
+      - name: Live site — English homepage
+        run: |
+          curl -fsS --retry 3 --retry-delay 5 https://www.primebodylab.de/en -o /tmp/home-en.html
+          grep -q 'PrimeBodyLab' /tmp/home-en.html
+      - name: Live site — services page
+        run: |
+          curl -fsS --retry 3 --retry-delay 5 https://www.primebodylab.de/leistungen -o /tmp/services.html
+          grep -q 'Leistungen' /tmp/services.html
+      - name: Live site — booking page
+        run: |
+          curl -fsS --retry 3 --retry-delay 5 https://www.primebodylab.de/buchen -o /tmp/book.html
+
+  notify-on-failure:
+    needs: healthcheck
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Open a GitHub Issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create \
+            --title "Scheduled health check failed — $(date -u +%Y-%m-%d)" \
+            --body "The weekly automated health check found a problem — either the build/tests failed, or the live site (https://www.primebodylab.de) didn't respond as expected.
+
+          Run details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+          This is a detection-only check — it does not fix anything automatically. Ask Claude to look into it, or check the workflow run above for the specific failure."
