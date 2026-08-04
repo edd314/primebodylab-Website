@@ -19,6 +19,10 @@ const data: Home = {
       en: 'Every journey begins with different goals. Be it relieving pain, improving performance, enhancing mobility, or investing in your long-term health, every PrimeBodyLab service is tailored to your individual needs and delivered with a commitment to quality, personalised care, and lasting results.',
     },
   },
+  tickerQuote: {
+    de: 'Heute Muskelkater. Morgen unaufhaltbar.',
+    en: 'Sore today. Unstoppable tomorrow.',
+  },
   standard: {
     de: 'Performance. Regeneration. Ergebnisse. Der PrimeBodyLab-Standard.',
     en: 'Performance. Recovery. Results. The PrimeBodyLab Standard.',

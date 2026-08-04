@@ -45,7 +45,7 @@ export default async function HomePage({params}: Props) {
         ctaLabel={bookCta[locale]}
         image={images.treatmentRoom}
       />
-      <ServiceTicker locale={locale} />
+      <ServiceTicker locale={locale} quote={home.tickerQuote} />
       <Gallery locale={locale} />
       <PillarGrid locale={locale} pillars={home.pillars} standard={home.standard} />
       <FounderBlock locale={locale} founder={home.founder} />

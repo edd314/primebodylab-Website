@@ -178,6 +178,7 @@ export const homeSchema = z.object({
     headline: localized(z.array(z.string().min(1)).min(1)),
     body: localizedText,
   }),
+  tickerQuote: localizedText,
   standard: localizedText,
   pillars: z
     .array(
