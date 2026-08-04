@@ -19,6 +19,10 @@ export const serviceFinder = serviceFinderContentSchema.parse({
     de: 'Finde deine passende Leistung',
     en: 'Find your right service',
   },
+  promptLabel: {
+    de: 'Nicht sicher, welche Leistung passt? Mach unseren 30-Sekunden-Quiz.',
+    en: "Not sure which service fits? Take our 30-second quiz.",
+  },
   questions: [
     {
       id: 'goal',

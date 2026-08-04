@@ -1,5 +1,6 @@
 import {describe, expect, it} from 'vitest';
 import {getNextStep, type ServiceFinderAnswers} from '@/lib/serviceFinder';
+import {getService} from '@/content/services';
 
 describe('getNextStep', () => {
   it('asks the goal question first when there are no answers yet', () => {
@@ -88,5 +89,21 @@ describe('getNextStep', () => {
       type: 'result',
       result: {kind: 'service', slug: 'stretch-therapy'},
     });
+  });
+
+  it('only ever produces service slugs that actually exist', () => {
+    const terminalAnswers: ServiceFinderAnswers[] = [
+      {goal: 'coaching'},
+      {goal: 'mobility', combine: 'yes'},
+      {goal: 'mobility', combine: 'no', frequency: 'onetime'},
+      {goal: 'relax', massageType: 'relaxation', combine: 'no', frequency: 'onetime'},
+      {goal: 'recover', massageType: 'targeted', combine: 'no', frequency: 'regular'},
+    ];
+    for (const answers of terminalAnswers) {
+      const step = getNextStep(answers);
+      if (step.type === 'result' && step.result.kind === 'service') {
+        expect(getService(step.result.slug)).toBeDefined();
+      }
+    }
   });
 });

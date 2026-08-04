@@ -34,3 +34,9 @@ test('answering "Not sure" recommends a Strategy Session instead of a service', 
 
   await expect(page.getByText('Strategy Session buchen')).toBeVisible();
 });
+
+test('the services page prompt opens the same quiz panel', async ({page}) => {
+  await page.goto('/leistungen');
+  await page.getByText('Nicht sicher, welche Leistung passt?').click();
+  await expect(page.getByTestId('service-finder-panel')).toBeVisible();
+});

@@ -151,6 +151,7 @@ export const serviceFinderResultCopySchema = z.object({
 export const serviceFinderContentSchema = z.object({
   bubbleLabel: localizedText,
   panelHeading: localizedText,
+  promptLabel: localizedText,
   questions: z.array(serviceFinderQuestionSchema).length(4),
   results: z.array(serviceFinderResultCopySchema).min(1),
   fallbackHeading: localizedText,

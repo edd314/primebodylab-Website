@@ -24,4 +24,11 @@ describe('service finder content', () => {
       expect(resultIds).toContain(service.slug);
     }
   });
+
+  it('never has a result summary for a slug that is not a real service', () => {
+    const serviceSlugs = services.map((s) => s.slug);
+    for (const result of serviceFinder.results) {
+      expect(serviceSlugs).toContain(result.id);
+    }
+  });
 });

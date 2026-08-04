@@ -1,6 +1,9 @@
 import {isPackageEligible} from '@/lib/packages';
 import type {ServiceFinderQuestionId} from '@/content/schema';
 
+/** Window event name used to open the quiz from any entry point (the floating bubble, the /leistungen prompt). */
+export const SERVICE_FINDER_OPEN_EVENT = 'pbl:open-service-finder';
+
 export type ServiceFinderAnswers = {
   goal?: 'relax' | 'recover' | 'mobility' | 'coaching' | 'unsure';
   massageType?: 'relaxation' | 'targeted';
@@ -8,8 +11,15 @@ export type ServiceFinderAnswers = {
   frequency?: 'onetime' | 'regular';
 };
 
+type ServiceSlug =
+  | 'wellness-recovery-massage'
+  | 'performance-massage'
+  | 'stretch-therapy'
+  | 'performance-recovery-bundle'
+  | 'performance-coaching';
+
 export type ServiceFinderResult =
-  | {kind: 'service'; slug: string}
+  | {kind: 'service'; slug: ServiceSlug}
   | {kind: 'strategy-session'};
 
 export type ServiceFinderStep =
@@ -50,7 +60,10 @@ export function getNextStep(answers: ServiceFinderAnswers): ServiceFinderStep {
   return resolveMassageOrStretch(baseSlug, answers);
 }
 
-function resolveMassageOrStretch(baseSlug: string, answers: ServiceFinderAnswers): ServiceFinderStep {
+function resolveMassageOrStretch(
+  baseSlug: 'wellness-recovery-massage' | 'performance-massage' | 'stretch-therapy',
+  answers: ServiceFinderAnswers,
+): ServiceFinderStep {
   if (answers.combine === undefined) {
     return {type: 'question', questionId: 'combine'};
   }

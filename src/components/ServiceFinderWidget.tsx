@@ -1,16 +1,21 @@
 'use client';
 
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {Link} from '@/i18n/navigation';
 import {serviceFinder} from '@/content/serviceFinder';
-import {getNextStep, type ServiceFinderAnswers, type ServiceFinderResult} from '@/lib/serviceFinder';
+import {
+  getNextStep,
+  SERVICE_FINDER_OPEN_EVENT,
+  type ServiceFinderAnswers,
+  type ServiceFinderResult,
+} from '@/lib/serviceFinder';
 import {getService} from '@/content/services';
 import {getPackagesForService} from '@/lib/packages';
 import {formatPrice} from '@/lib/format';
 import {PackageList} from '@/components/sections/PackageList';
 import type {Locale, ServiceFinderQuestionId} from '@/content/schema';
 
-const OPEN_EVENT = 'pbl:open-service-finder';
+const OPEN_EVENT = SERVICE_FINDER_OPEN_EVENT;
 
 /**
  * Floating quiz widget: a bubble button that opens a short rule-based
@@ -79,6 +84,13 @@ export function ServiceFinderWidget({locale}: {locale: Locale}) {
 
   const step = getNextStep(answers);
 
+  const panelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (open) panelRef.current?.focus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [open, step.type, step.type === 'question' ? step.questionId : undefined]);
+
   return (
     <>
       <button
@@ -101,7 +113,9 @@ export function ServiceFinderWidget({locale}: {locale: Locale}) {
         >
           <div
             data-testid="service-finder-panel"
-            className="relative w-full max-w-md rounded-2xl border border-line bg-surface p-7 motion-reduce:transition-none"
+            ref={panelRef}
+            tabIndex={-1}
+            className="relative max-h-[85vh] w-full max-w-md overflow-y-auto overscroll-contain rounded-2xl border border-line bg-surface p-7 motion-reduce:transition-none"
           >
             <button
               type="button"
@@ -125,7 +139,13 @@ export function ServiceFinderWidget({locale}: {locale: Locale}) {
                 onBack={goBack}
               />
             ) : (
-              <ResultStep result={step.result} locale={locale} onRestart={launch} onClose={close} />
+              <ResultStep
+                result={step.result}
+                locale={locale}
+                answers={answers}
+                onRestart={launch}
+                onClose={close}
+              />
             )}
           </div>
         </div>
@@ -183,11 +203,13 @@ function QuestionStep({
 function ResultStep({
   result,
   locale,
+  answers,
   onRestart,
   onClose,
 }: {
   result: ServiceFinderResult;
   locale: Locale;
+  answers: ServiceFinderAnswers;
   onRestart: () => void;
   onClose: () => void;
 }) {
@@ -239,7 +261,9 @@ function ResultStep({
         {serviceFinder.bookLabel[locale]}
       </Link>
 
-      {packages.length > 0 && <PackageList service={service} locale={locale} />}
+      {packages.length > 0 && answers.frequency === 'regular' && (
+        <PackageList service={service} locale={locale} />
+      )}
 
       <div className="mt-6 border-t border-line pt-5 text-center">
         {strategySessionLink}

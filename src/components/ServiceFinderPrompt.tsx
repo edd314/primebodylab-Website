@@ -1,8 +1,8 @@
 'use client';
 
 import type {Locale} from '@/content/schema';
-
-const OPEN_EVENT = 'pbl:open-service-finder';
+import {serviceFinder} from '@/content/serviceFinder';
+import {SERVICE_FINDER_OPEN_EVENT} from '@/lib/serviceFinder';
 
 /**
  * Text entry point for the Service Finder quiz (ServiceFinderWidget.tsx),
@@ -13,12 +13,10 @@ export function ServiceFinderPrompt({locale}: {locale: Locale}) {
   return (
     <button
       type="button"
-      onClick={() => window.dispatchEvent(new CustomEvent(OPEN_EVENT))}
+      onClick={() => window.dispatchEvent(new CustomEvent(SERVICE_FINDER_OPEN_EVENT))}
       className="mt-4 text-sm text-sage underline-offset-2 hover:underline"
     >
-      {locale === 'de'
-        ? 'Nicht sicher, welche Leistung passt? Mach unseren 30-Sekunden-Quiz.'
-        : "Not sure which service fits? Take our 30-second quiz."}
+      {serviceFinder.promptLabel[locale]}
     </button>
   );
 }
