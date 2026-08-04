@@ -44,8 +44,8 @@ const data: Service[] = [
     },
     durations: [
       {minutes: 60, price: 80},
-      {minutes: 90, price: 85},
-      {minutes: 120, price: 95},
+      {minutes: 90, price: 90},
+      {minutes: 120, price: 105},
     ],
   },
   {

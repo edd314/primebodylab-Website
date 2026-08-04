@@ -48,6 +48,12 @@ export function ServiceCard({service, locale}: {service: Service; locale: Locale
             </span>
           )}
         </div>
+
+        {service.slug === 'wellness-recovery-massage' && (
+          <p className="mt-2 text-xs text-muted">
+            {locale === 'de' ? 'Studio-Preis. Mobil ab 95 €.' : 'Studio price. Mobile from €95.'}
+          </p>
+        )}
       </div>
     </article>
   );

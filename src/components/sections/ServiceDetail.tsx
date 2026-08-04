@@ -63,6 +63,14 @@ export function ServiceDetail({service, locale}: {service: Service; locale: Loca
             ))}
           </ul>
 
+          {service.slug === 'wellness-recovery-massage' && (
+            <p className="mt-3 text-xs leading-relaxed text-muted">
+              {locale === 'de'
+                ? 'Preise gelten für Studio-Termine. Mobil: 60 Min. 95 €, 90 Min. 110 €, 120 Min. 125 €.'
+                : 'Prices shown are for Studio appointments. Mobile: 60 min €95, 90 min €110, 120 min €125.'}
+            </p>
+          )}
+
           <Link
             href={{pathname: '/book', query: {service: service.slug}}}
             className="mt-8 inline-block rounded-full bg-forest px-7 py-3.5 text-sm font-medium text-bone transition-opacity hover:opacity-90"
