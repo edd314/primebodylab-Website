@@ -43,7 +43,7 @@ export default async function HomePage({params}: Props) {
         headline={home.hero.headline}
         body={home.hero.body}
         ctaLabel={bookCta[locale]}
-        image={images.coaching}
+        image={images.treatmentRoom}
       />
       <ServiceTicker locale={locale} />
       <Gallery locale={locale} />
