@@ -1,19 +1,19 @@
-import {Instrument_Serif, Inter} from 'next/font/google';
+import {Anton, Epilogue} from 'next/font/google';
 
 /**
  * The CSS variable names here must NOT match the Tailwind theme keys
  * (`--font-display` / `--font-body`), or `@theme` ends up defining a variable
  * in terms of itself and the font silently falls back.
  */
-export const displayFont = Instrument_Serif({
+export const displayFont = Anton({
   subsets: ['latin', 'latin-ext'],
   weight: '400',
   display: 'swap',
-  variable: '--font-instrument-serif',
+  variable: '--font-anton',
 });
 
-export const bodyFont = Inter({
+export const bodyFont = Epilogue({
   subsets: ['latin', 'latin-ext'],
   display: 'swap',
-  variable: '--font-inter',
+  variable: '--font-epilogue',
 });

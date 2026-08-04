@@ -101,7 +101,7 @@ export function WelcomePopup({locale}: {locale: Locale}) {
             <Link
               href="/book"
               onClick={dismiss}
-              className="mt-6 inline-block rounded-full bg-forest px-7 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90"
+              className="mt-6 inline-block rounded-full bg-forest px-7 py-3 text-sm font-medium text-bone transition-opacity hover:opacity-90"
             >
               {welcomePopup.bookLabel[locale]}
             </Link>
@@ -125,7 +125,7 @@ export function WelcomePopup({locale}: {locale: Locale}) {
               <button
                 type="submit"
                 disabled={submitting}
-                className="rounded-full bg-forest px-7 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90 disabled:opacity-60"
+                className="rounded-full bg-forest px-7 py-3 text-sm font-medium text-bone transition-opacity hover:opacity-90 disabled:opacity-60"
               >
                 {welcomePopup.submitLabel[locale]}
               </button>

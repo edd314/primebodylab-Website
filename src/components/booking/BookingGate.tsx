@@ -104,7 +104,7 @@ export function BookingGate({locale, service}: {locale: Locale; service: Service
             type="button"
             data-testid="load-booking"
             onClick={() => setLoaded(true)}
-            className="mt-6 rounded-full bg-forest px-7 py-3.5 text-sm font-medium text-ink transition-opacity hover:opacity-90"
+            className="mt-6 rounded-full bg-forest px-7 py-3.5 text-sm font-medium text-bone transition-opacity hover:opacity-90"
           >
             {copy.button}
           </button>

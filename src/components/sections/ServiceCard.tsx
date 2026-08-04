@@ -39,7 +39,7 @@ export function ServiceCard({service, locale}: {service: Service; locale: Locale
         <div className="mt-7 flex flex-wrap items-center gap-6">
           <Link
             href={{pathname: '/services/[slug]', params: {slug: service.slug}}}
-            className="rounded-full bg-forest px-6 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90"
+            className="rounded-full bg-forest px-6 py-3 text-sm font-medium text-bone transition-opacity hover:opacity-90"
           >
             {locale === 'de' ? 'Mehr erfahren' : 'Learn More'}
           </Link>

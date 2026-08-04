@@ -98,7 +98,7 @@ export function ServiceFinderWidget({locale}: {locale: Locale}) {
         data-testid="service-finder-bubble"
         onClick={launch}
         aria-label={serviceFinder.bubbleLabel[locale]}
-        className="fixed right-4 bottom-20 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-forest text-2xl text-ink shadow-lg transition-opacity hover:opacity-90 sm:right-6 sm:bottom-6"
+        className="fixed right-4 bottom-20 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-forest text-2xl text-bone shadow-lg transition-opacity hover:opacity-90 sm:right-6 sm:bottom-6"
       >
         ?
       </button>
@@ -217,7 +217,7 @@ function ResultStep({
     <Link
       href={{pathname: '/book', query: {service: 'performance-coaching'}}}
       onClick={onClose}
-      className="mt-4 inline-block rounded-full border border-forest px-6 py-2.5 text-sm text-sage transition-colors hover:bg-forest hover:text-ink"
+      className="mt-4 inline-block rounded-full border border-forest px-6 py-2.5 text-sm text-sage transition-colors hover:bg-forest hover:text-bone"
     >
       {serviceFinder.fallbackCta[locale]}
     </Link>
@@ -256,7 +256,7 @@ function ResultStep({
       <Link
         href={{pathname: '/book', query: {service: service.slug}}}
         onClick={onClose}
-        className="mt-5 inline-block rounded-full bg-forest px-7 py-3 text-sm font-medium text-ink transition-opacity hover:opacity-90"
+        className="mt-5 inline-block rounded-full bg-forest px-7 py-3 text-sm font-medium text-bone transition-opacity hover:opacity-90"
       >
         {serviceFinder.bookLabel[locale]}
       </Link>

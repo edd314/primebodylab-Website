@@ -43,7 +43,7 @@ export function Header({locale}: {locale: Locale}) {
 
           <Link
             href="/book"
-            className="rounded-full border border-forest px-3 py-1.5 text-xs whitespace-nowrap text-sage transition-colors hover:bg-forest hover:text-ink sm:px-5 sm:py-2.5 sm:text-sm"
+            className="rounded-full border border-forest px-3 py-1.5 text-xs whitespace-nowrap text-sage transition-colors hover:bg-forest hover:text-bone sm:px-5 sm:py-2.5 sm:text-sm"
           >
             {bookCta[locale]}
           </Link>
