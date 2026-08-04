@@ -112,9 +112,6 @@ function VideoSlide({
 
   return (
     <div data-testid="gallery-slide" className={SLIDE_CLASS}>
-      {/* Note: video clips don't get the site-wide grayscale filter (see Figure.tsx) —
-          add `className="... grayscale contrast-110"` here too if/when a real clip is
-          dropped in, to match the rest of the site's desaturated photography. */}
       <video
         ref={videoRef}
         src={item.src}

@@ -32,7 +32,7 @@ export function Figure({
         fill
         sizes={sizes}
         priority={priority}
-        className="object-cover grayscale contrast-110"
+        className="object-cover"
         style={{objectPosition: image.focus}}
       />
 
