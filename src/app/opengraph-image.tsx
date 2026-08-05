@@ -4,6 +4,13 @@ export const alt = 'PrimeBodyLab — Massage & Sports Recovery in Pfaffenhofen';
 export const size = {width: 1200, height: 630};
 export const contentType = 'image/png';
 
+/**
+ * Colors below are hardcoded, not read from the @theme tokens in globals.css —
+ * next/og's ImageResponse renders via Satori outside the CSS cascade, so it
+ * can't consume CSS custom properties. If the palette changes again, update
+ * these to match src/styles/globals.css by hand.
+ */
+
 export default function OpengraphImage() {
   return new ImageResponse(
     (
