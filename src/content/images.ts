@@ -32,6 +32,11 @@ export const images = {
       en: 'Eddie Ekanem, founder of PrimeBodyLab',
     },
     placeholder: false,
+    // Source photo has generous headroom above the head and a chair/stool
+    // in frame below the arms — biasing the crop toward the top keeps the
+    // whole head in frame on the tall 4/5–3/4 hero crop instead of the
+    // default center crop cutting into the top of the head.
+    focus: 'center 12%',
   }),
 
   treatmentRoom: imageSchema.parse({
