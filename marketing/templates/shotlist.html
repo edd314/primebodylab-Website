@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  @font-face {
+    font-family: 'Fraunces';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Fraunces-400.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Fraunces';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/Fraunces-400-italic.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Inter-400.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/Inter-600.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/Inter-700.ttf') format('truetype');
+  }
+
+  :root {
+    --bone: #F7F1E7;
+    --ink: #2B2116;
+    --forest: #6B4A31;
+    --sage: #5C6640;
+    --muted: #6E6049;
+    --line: #DCCEB0;
+    --surface: #EFE6D3;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 794px; /* A4 @ 96dpi */
+    background: var(--bone);
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    padding: 48px 56px 40px;
+  }
+
+  header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+  }
+  .brand {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+  .doc-title {
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    color: var(--muted);
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 34px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  h1 em {
+    color: var(--sage);
+    font-style: italic;
+  }
+  .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 22px;
+  }
+
+  .specs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+  .spec {
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .spec .label {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .spec .value {
+    font-size: 14px;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    margin: 22px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .recipe {
+    counter-reset: step;
+    display: grid;
+    gap: 6px;
+  }
+  .recipe li {
+    list-style: none;
+    counter-increment: step;
+    display: flex;
+    gap: 10px;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+  .recipe li::before {
+    content: counter(step);
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--bone);
+    font-size: 10px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .banks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 12px;
+  }
+  .bank .bank-title {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--forest);
+    margin-bottom: 8px;
+  }
+  .bank ul { list-style: none; display: grid; gap: 8px; }
+  .bank li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .box {
+    flex-shrink: 0;
+    width: 13px;
+    height: 13px;
+    margin-top: 1px;
+    border: 1.5px solid var(--ink);
+    border-radius: 3px;
+  }
+
+  .rule {
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-top: 22px;
+    line-height: 1.5;
+  }
+  .rule strong { color: var(--ink); }
+
+  footer {
+    margin-top: 26px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+  <header>
+    <span class="brand">PrimeBodyLab</span>
+    <span class="doc-title">Flipbook Reel — Filming Checklist</span>
+  </header>
+
+  <h1>Flipbook Shot List<br /><em>fitness &amp; fashion, one session, many reels.</em></h1>
+  <p class="subtitle">Film the bank once. Recombine it into a new reel every time — new song, new order, no new footage needed.</p>
+
+  <div class="specs">
+    <div class="spec"><div class="label">Aspect Ratio</div><div class="value">9:16</div></div>
+    <div class="spec"><div class="label">Per Snapshot</div><div class="value">1.5–2s</div></div>
+    <div class="spec"><div class="label">Snapshots / Reel</div><div class="value">10–14</div></div>
+    <div class="spec"><div class="label">Total Length</div><div class="value">18–25s</div></div>
+  </div>
+
+  <h2>Editing recipe</h2>
+  <ol class="recipe">
+    <li>Pick audio with a sharp, clear beat first — the format lives or dies on the music.</li>
+    <li>Drop 10–14 clips on the timeline in your chosen order.</li>
+    <li>Trim each clip to 1.5–2s, snapped so the cut lands on a beat/snare hit.</li>
+    <li>Hard cuts only — no fades, no slide transitions.</li>
+    <li>Text overlay on the first clip (hook) and the last clip (brand tag/CTA) only.</li>
+    <li>End on one extra beat: brand cream background + wordmark, ~1s.</li>
+  </ol>
+
+  <h2>Shot bank — check off as you film</h2>
+  <div class="banks">
+    <div class="bank">
+      <div class="bank-title">Fitness</div>
+      <ul>
+        <li><span class="box"></span>Wide establishing shot — walking in</li>
+        <li><span class="box"></span>Mid-rep freeze — hardest moment of a set</li>
+        <li><span class="box"></span>Close-up on hands/grip — chalk, bar, band</li>
+        <li><span class="box"></span>Post-set exhale / wiping down</li>
+        <li><span class="box"></span>Walking shot — entrance or exit</li>
+      </ul>
+    </div>
+    <div class="bank">
+      <div class="bank-title">Fashion</div>
+      <ul>
+        <li><span class="box"></span>Full-body static outfit shot</li>
+        <li><span class="box"></span>Detail close-up — shoes, watch, logo tee</li>
+        <li><span class="box"></span>Candid adjust — collar, jacket, sleeve</li>
+        <li><span class="box"></span>Walk-away or turn shot</li>
+        <li><span class="box"></span>Mirror / reflection shot</li>
+      </ul>
+    </div>
+    <div class="bank">
+      <div class="bank-title">Brand</div>
+      <ul>
+        <li><span class="box"></span>Branded item close-up — logo tee, signage</li>
+        <li><span class="box"></span>Treatment room / equipment detail</li>
+        <li><span class="box"></span>Solo close-up, direct to camera</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="rule"><strong>The recycling trick:</strong> one "gym day" + one "fashion day" fills the whole bank. Every reel after that is just a new 10–14 pick, new order, new song — until the bank feels stale and it's time to refresh it.</p>
+
+  <footer>
+    <span>PrimeBodyLab · Massage &amp; Sports Recovery</span>
+    <span>Pfaffenhofen · Studio &amp; Mobil</span>
+  </footer>
+</body>
+</html>
