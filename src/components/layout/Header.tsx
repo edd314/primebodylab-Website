@@ -12,9 +12,10 @@ export function Header({locale}: {locale: Locale}) {
           <Image
             src="/images/logo-mark.png"
             alt=""
-            width={800}
-            height={533}
-            className="h-11 w-11 sm:h-16 sm:w-16 md:h-20 md:w-20"
+            width={160}
+            height={107}
+            sizes="80px"
+            className="h-11 w-11 object-contain sm:h-16 sm:w-16 md:h-20 md:w-20"
             priority
           />
           <span className="flex flex-col leading-none">
