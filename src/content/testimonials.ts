@@ -2,10 +2,18 @@ import {z} from 'zod';
 import {testimonialSchema, type Testimonial} from './schema';
 
 /**
- * English quotes are reproduced exactly as they appear on primebodylab.de.
- * Two of them contain errors on the live site — see docs/client-questions.md.
- * They are NOT silently corrected here: these are real clients' words and
- * changing them is Eddie's call, not ours.
+ * tom-steggemen and michael-oatah: English is the client's original wording
+ * (reproduced verbatim, including phrasing that reads slightly informally),
+ * German is our translation.
+ *
+ * tchime-josh and roberto-b: German is the client's original Google review
+ * (reproduced verbatim), English is our translation — the reverse of above.
+ *
+ * Grammar/wording is never silently corrected either direction: these are
+ * real clients' words, and changing them is Eddie's call, not ours.
+ *
+ * Dr. Verena and Dr. Moritz were removed at Eddie's request pending their
+ * actual Google review text — do not re-add from git history without it.
  */
 const data: Testimonial[] = [
   {
@@ -18,15 +26,6 @@ const data: Testimonial[] = [
     },
   },
   {
-    id: 'dr-verena',
-    author: 'Dr. Verena',
-    rating: 5,
-    quote: {
-      de: 'Normalerweise leide ich unter chronischer Migräne. Nach der Arbeit mit Eddie haben die Migräneanfälle nachgelassen und ich spüre eine enorme Erleichterung. Eddie ist unkompliziert, hört aktiv zu und geht auf Gespräche ein. Ich bin wirklich froh, mit ihm zu arbeiten.',
-      en: 'I usually experience chronic migraines, however after working with Eddie the migraines reduced and i have tremendous relief. Eddie is easy to work with, an active listener and comprehends conversations. I am truly happy to be working with him.',
-    },
-  },
-  {
     id: 'michael-oatah',
     author: 'Michael Oatah',
     rating: 4,
@@ -36,12 +35,21 @@ const data: Testimonial[] = [
     },
   },
   {
-    id: 'dr-moritz',
-    author: 'Dr. Moritz',
-    rating: 4,
+    id: 'tchime-josh',
+    author: 'Tchime Josh',
+    rating: 5,
     quote: {
-      de: 'Eddie hat ein Gespür für muskuläre Verspannungen und seine Leidenschaft für seine Arbeit ist wirklich erfrischend. Ich hatte schon viele Therapeuten, aber keinen wie ihn.',
-      en: 'Eddie has a sense for muscle tension and his passion for what he does is really refreshing. I have had many therapist in the past but none like him.',
+      de: 'Ich nur empfehlen.',
+      en: 'Can only recommend.',
+    },
+  },
+  {
+    id: 'roberto-b',
+    author: 'Roberto B.',
+    rating: 5,
+    quote: {
+      de: 'Es war super!!!! Eddie ist ein toller Masseur.',
+      en: 'It was great!!!! Eddie is a fantastic massage therapist.',
     },
   },
 ];
