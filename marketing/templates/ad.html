@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="{{LANG}}">
+<head>
+<meta charset="utf-8" />
+<style>
+  @font-face {
+    font-family: 'Fraunces';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Fraunces-400.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Fraunces';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/Fraunces-400-italic.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Inter-400.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/Inter-600.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/Inter-700.ttf') format('truetype');
+  }
+
+  :root {
+    --bone: #F7F1E7;
+    --ink: #2B2116;
+    --forest: #6B4A31;
+    --sage: #5C6640;
+    --muted: #6E6049;
+    --line: #DCCEB0;
+    --surface: #EFE6D3;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    width: 1080px;
+    height: 1080px;
+    background: var(--bone);
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    padding: 88px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  body.format-story {
+    height: 1920px;
+    padding: 120px 96px;
+  }
+
+  /* Content is the one flexible block — it grows to fill whatever space
+     the fixed-height header/footer don't use, and centers within it. This
+     is what keeps the story format (1080x1920) from stranding the copy in
+     a sea of empty space that space-between would leave between 3 blocks
+     of very different heights. */
+  .middle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Faint anatomy-mark watermark, echoing the site's Hero background mark */
+  .mark {
+    position: absolute;
+    right: -120px;
+    bottom: -80px;
+    width: 640px;
+    height: 427px;
+    opacity: 0.06;
+    background: var(--ink);
+    -webkit-mask: url('../assets/logo-mark.png') no-repeat center / contain;
+    mask: url('../assets/logo-mark.png') no-repeat center / contain;
+  }
+
+  .wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .wordmark .name {
+    font-size: 34px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .wordmark .tagline {
+    margin-top: 8px;
+    font-size: 14px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    max-width: 820px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-self: flex-start;
+    background: var(--forest);
+    color: var(--bone);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 999px;
+  }
+
+  .headline {
+    font-family: 'Fraunces', serif;
+    font-size: 76px;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
+  body.format-story .headline {
+    font-size: 88px;
+  }
+
+  .body-text {
+    font-size: 30px;
+    line-height: 1.45;
+    color: var(--muted);
+    max-width: 700px;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-self: flex-start;
+    background: var(--forest);
+    color: var(--bone);
+    font-size: 26px;
+    font-weight: 600;
+    padding: 22px 44px;
+    border-radius: 999px;
+  }
+
+  .footer-rule {
+    height: 1px;
+    background: var(--line);
+    width: 100%;
+    margin-bottom: 24px;
+  }
+</style>
+</head>
+<body class="format-{{FORMAT}}">
+  <div class="mark" aria-hidden="true"></div>
+
+  <div class="wordmark">
+    <span class="name">PrimeBodyLab</span>
+    <span class="tagline">Massage &amp; Sports Recovery</span>
+  </div>
+
+  <div class="middle">
+    <div class="content">
+      <span class="eyebrow">{{EYEBROW}}</span>
+      <div class="headline">{{HEADLINE}}</div>
+      <p class="body-text">{{BODY}}</p>
+      <span class="cta">{{CTA}}</span>
+    </div>
+  </div>
+
+  <div>
+    <div class="footer-rule"></div>
+    <span class="tagline" style="color: var(--muted); font-size: 15px; letter-spacing: 0.18em; text-transform: uppercase;">Pfaffenhofen · Studio &amp; Mobil</span>
+  </div>
+</body>
+</html>
