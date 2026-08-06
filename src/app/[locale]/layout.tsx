@@ -7,6 +7,7 @@ import {bodyFont, displayFont} from '@/lib/fonts';
 import {Header} from '@/components/layout/Header';
 import {Footer} from '@/components/layout/Footer';
 import {MobileContactBar} from '@/components/layout/MobileContactBar';
+import {PromoBanner} from '@/components/sections/PromoBanner';
 import {DeferredWidgets} from '@/components/DeferredWidgets';
 import {JsonLd} from '@/components/seo/JsonLd';
 import {site} from '@/content/site';
@@ -16,6 +17,12 @@ import type {Locale} from '@/content/schema';
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({locale}));
 }
+
+/**
+ * Lets PromoBanner's active campaign change as the calendar moves on
+ * without needing a new deploy — pages revalidate at most once an hour.
+ */
+export const revalidate = 3600;
 
 type Props = {
   children: ReactNode;
@@ -57,6 +64,7 @@ export default async function LocaleLayout({children, params}: Props) {
 
         <NextIntlClientProvider>
           <Header locale={locale} />
+          <PromoBanner locale={locale} />
           <main className="pb-20 sm:pb-0">{children}</main>
           <Footer locale={locale} />
           <MobileContactBar locale={locale} />

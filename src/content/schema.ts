@@ -197,6 +197,50 @@ export const homeSchema = z.object({
 
 export type Home = z.infer<typeof homeSchema>;
 
+/**
+ * A month/day boundary for a recurring yearly promo window (no year — the
+ * same window applies every year). `end` before `start` in month/day order
+ * means the window wraps across New Year's (e.g. Dec 26 -> Jan 15).
+ */
+const monthDaySchema = z.object({
+  month: z.number().int().min(1).max(12),
+  day: z.number().int().min(1).max(31),
+});
+
+/**
+ * Where the campaign's CTA links to. A plain string can't be typed against
+ * next-intl's routing (German and English use different URL slugs for the
+ * same page — see src/i18n/routing.ts) — this discriminated shape is built
+ * into the right typed `Link` href in PromoBanner instead.
+ */
+export const campaignCtaSchema = z.discriminatedUnion('kind', [
+  z.object({kind: z.literal('service'), slug: z.string().min(1)}),
+  z.object({kind: z.literal('services')}),
+  z.object({kind: z.literal('book')}),
+]);
+
+export type CampaignCta = z.infer<typeof campaignCtaSchema>;
+
+export const campaignSchema = z.object({
+  id: z.string().min(1),
+  start: monthDaySchema,
+  end: monthDaySchema,
+  eyebrow: localizedText,
+  headline: localizedText,
+  body: localizedText,
+  ctaLabel: localizedText,
+  cta: campaignCtaSchema,
+  /**
+   * An Acuity coupon code — must exist in Acuity's Coupons panel or it won't
+   * actually apply a discount (same rule as welcomePopupSchema.discountCode).
+   * Null means the campaign promotes a service/season without a specific
+   * discount attached.
+   */
+  discountCode: z.string().min(1).nullable(),
+});
+
+export type Campaign = z.infer<typeof campaignSchema>;
+
 export type Service = z.infer<typeof serviceSchema>;
 export type FaqGroup = z.infer<typeof faqGroupSchema>;
 export type Testimonial = z.infer<typeof testimonialSchema>;
