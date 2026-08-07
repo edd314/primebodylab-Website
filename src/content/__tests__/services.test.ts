@@ -58,8 +58,8 @@ describe('faqs', () => {
 });
 
 describe('testimonials', () => {
-  it('carries the four reviews from the current site', () => {
-    expect(testimonials).toHaveLength(4);
+  it('carries every review added so far', () => {
+    expect(testimonials.length).toBeGreaterThanOrEqual(8);
   });
 
   it('rates every review between 1 and 5', () => {

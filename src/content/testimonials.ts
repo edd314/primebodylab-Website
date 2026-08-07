@@ -2,15 +2,20 @@ import {z} from 'zod';
 import {testimonialSchema, type Testimonial} from './schema';
 
 /**
- * tom-steggemen and michael-oatah: English is the client's original wording
- * (reproduced verbatim, including phrasing that reads slightly informally),
- * German is our translation.
+ * English is the client's original wording (reproduced verbatim, including
+ * informal phrasing), German is our translation:
+ *   tom-steggemen, michael-oatah, angelika-steiber, katherina-wintrich, m-e
  *
- * tchime-josh and roberto-b: German is the client's original Google review
- * (reproduced verbatim), English is our translation — the reverse of above.
+ * German is the client's original Google review (reproduced verbatim),
+ * English is our translation — the reverse of above:
+ *   tchime-josh, roberto-b, bianca-ozunu
  *
  * Grammar/wording is never silently corrected either direction: these are
  * real clients' words, and changing them is Eddie's call, not ours.
+ *
+ * bianca-ozunu is intentionally much longer than the others (her real
+ * review, reproduced in full) — this will make her card taller than its
+ * grid neighbor. Flagged to Eddie; trim only if he asks.
  *
  * Dr. Verena and Dr. Moritz were removed at Eddie's request pending their
  * actual Google review text — do not re-add from git history without it.
@@ -50,6 +55,42 @@ const data: Testimonial[] = [
     quote: {
       de: 'Es war super!!!! Eddie ist ein toller Masseur.',
       en: 'It was great!!!! Eddie is a fantastic massage therapist.',
+    },
+  },
+  {
+    id: 'bianca-ozunu',
+    author: 'Bianca Ozunu',
+    rating: 5,
+    quote: {
+      de: 'Ich kenne Eddie seit mittlerweile fast zwei Jahren und bin seitdem bei ihm in Behandlung (mobile Experience). Aufgrund meiner beruflichen Tätigkeit litt ich unter starken Rückenproblemen mit wiederkehrenden Hexenschüssen und chronischen Schmerzen.\n\nSchon nach Beginn der Therapie haben meine Beschwerden deutlich nachgelassen, und die Hexenschüsse sind nie wieder zurückgekommen. Doch das Beeindruckendste passierte in einer der Sitzungen: Nach einer gezielten Behandlung waren meine Rückenschmerzen vollständig verschwunden – und sind bis heute nicht zurückgekehrt! Ich führe die Therapie weiterhin prophylaktisch fort, aber dieses Erlebnis hat mich nachhaltig beeindruckt.\n\nWas Eddie besonders macht, ist sein ganzheitlicher Ansatz. Er behandelt nicht einfach Symptome, sondern sucht nach der eigentlichen Ursache und passt jede Behandlung individuell an. In meinem Fall hat er durch eine gezielte Lymphdrainage am Bein und die Aktivierung bestimmter Punkte eine Wirkung bis in den unteren Rücken erzielt – mit einem Ergebnis, das ich nie für möglich gehalten hätte.\n\nEddie, DANKE! Du bist mein Held! ❤️',
+      en: 'I have known Eddie for almost two years now and have been his client ever since (mobile experience). Because of my job, I suffered from severe back problems with recurring acute lumbago and chronic pain.\n\nSoon after starting therapy, my symptoms noticeably improved, and the acute lumbago never came back. But the most impressive part happened during one of the sessions: after a targeted treatment, my back pain disappeared completely — and it hasn’t returned to this day! I still continue the therapy as a preventive measure, but that experience left a lasting impression on me.\n\nWhat makes Eddie special is his holistic approach. He doesn’t just treat symptoms — he looks for the actual cause and tailors every treatment individually. In my case, through targeted lymphatic drainage on my leg and activating specific points, he achieved an effect reaching all the way to my lower back — with a result I never thought possible.\n\nEddie, THANK YOU! You are my hero! ❤️',
+    },
+  },
+  {
+    id: 'angelika-steiber',
+    author: 'Angelika Steiber',
+    rating: 5,
+    quote: {
+      de: 'Es war einfach perfekt 🙏🏽 die beste Massage und aktive Dehnung.',
+      en: 'It was just perfect 🙏🏽 best massage and active stretching.',
+    },
+  },
+  {
+    id: 'katherina-wintrich',
+    author: 'Katherina Wintrich',
+    rating: 5,
+    quote: {
+      de: 'Ich gehe jetzt seit über einem Jahr zu Eddie, und er ist unglaublich professionell. Es ist ehrlich gesagt meine liebste Stunde der Woche! Ich fühle mich danach jedes Mal großartig. Jede Sitzung wird komplett auf das abgestimmt, was mein Körper und meine Muskeln an diesem Tag brauchen, was einen großen Unterschied macht. Ich kann ihn nur wärmstens empfehlen! Mittlerweile gehen auch mehrere meiner Freundinnen zu ihm, und jede Einzelne war beeindruckt.',
+      en: "I've been seeing Eddie for over a year now, and he's incredibly professional. It's honestly my favorite hour of the week! I always leave feeling amazing. Every session is completely tailored to what my body and muscles need that day, which makes such a difference. I can't recommend him enough! In the meantime, several of my friends have started going to him as well, and every single one has been impressed.",
+    },
+  },
+  {
+    id: 'm-e',
+    author: 'M.E.',
+    rating: 5,
+    quote: {
+      de: 'Sehr empfehlenswerter Service! Eddie ist der Beste!',
+      en: 'Highly recommended service! Eddi is the best!',
     },
   },
 ];
