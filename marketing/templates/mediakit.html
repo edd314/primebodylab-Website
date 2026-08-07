@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  @font-face {
+    font-family: 'Fraunces';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Fraunces-400.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Fraunces';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/Fraunces-400-italic.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Inter-400.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/Inter-600.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/Inter-700.ttf') format('truetype');
+  }
+
+  :root {
+    --bone: #F7F1E7;
+    --ink: #2B2116;
+    --forest: #6B4A31;
+    --sage: #5C6640;
+    --muted: #6E6049;
+    --line: #DCCEB0;
+    --surface: #EFE6D3;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 794px; /* A4 @ 96dpi */
+    background: var(--bone);
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    padding: 52px 56px 40px;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 20px;
+    margin-bottom: 26px;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 40px;
+    line-height: 1.05;
+  }
+  h1 em { color: var(--sage); font-style: italic; }
+  .handle {
+    font-size: 14px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .kit-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: right;
+  }
+
+  .pillars-line {
+    font-size: 13px;
+    color: var(--forest);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+  .stat {
+    background: var(--surface);
+    border-radius: 10px;
+    padding: 14px 14px 12px;
+  }
+  .stat .label {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  .stat .value {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    margin-top: 4px;
+  }
+  .stat .value.placeholder { color: var(--muted); font-style: italic; font-size: 15px; }
+
+  h2 {
+    font-family: 'Fraunces', serif;
+    font-size: 17px;
+    margin: 24px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .about p {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+
+  .cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .content-pillars ul, .why ul {
+    list-style: none;
+    display: grid;
+    gap: 8px;
+  }
+  .content-pillars li, .why li {
+    font-size: 12px;
+    line-height: 1.5;
+    display: flex;
+    gap: 8px;
+  }
+  .content-pillars li::before, .why li::before {
+    content: '—';
+    color: var(--forest);
+    flex-shrink: 0;
+  }
+
+  .demo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .demo-grid .cell {
+    background: var(--surface);
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .demo-grid .cell .label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  .demo-grid .cell .value {
+    margin-top: 4px;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  .past {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    padding: 10px 0;
+  }
+
+  .rate-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 6px;
+    font-size: 12px;
+  }
+  .rate-table th {
+    text-align: left;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  .rate-table td {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .rate-table td.fill { color: var(--muted); font-style: italic; }
+
+  footer {
+    margin-top: 28px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  footer .contact { font-weight: 600; color: var(--ink); }
+</style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Eddie <em>Ekanem</em></h1>
+      <div class="handle">@eddieesblog · Athlete · Pfaffenhofen, Germany</div>
+    </div>
+    <div class="kit-label">Creator Media Kit</div>
+  </header>
+
+  <div class="pillars-line">MINDSET · TRAINING · RECOVERY</div>
+
+  <div class="stats">
+    <div class="stat"><div class="label">Followers</div><div class="value placeholder">[ IG Insights ]</div></div>
+    <div class="stat"><div class="label">Avg. Engagement Rate</div><div class="value placeholder">[ IG Insights ]</div></div>
+    <div class="stat"><div class="label">Avg. Reel Reach</div><div class="value placeholder">[ IG Insights ]</div></div>
+    <div class="stat"><div class="label">Posting Frequency</div><div class="value placeholder">[ e.g. 3–4/wk ]</div></div>
+  </div>
+
+  <div class="about">
+    <h2>About</h2>
+    <p>
+      Fitness and lifestyle content creator based in Bavaria, Germany — and, unusually for
+      the niche, also a certified personal trainer, sports massage therapist, and assisted-stretch
+      specialist (founder of PrimeBodyLab). Content sits at the intersection of real training,
+      the recovery side nobody else in the niche covers with actual credentials, and the honest
+      mindset shifts that come with training past your twenties.
+    </p>
+  </div>
+
+  <div class="cols">
+    <div class="content-pillars">
+      <h2>Content Pillars</h2>
+      <ul>
+        <li>Training — real sessions, real form, no filler</li>
+        <li>Recovery — the credentialed angle most fitness creators can't speak to</li>
+        <li>Mindset — relatable, specific, not generic motivation</li>
+        <li>Lifestyle — the person behind the training, not just the gym</li>
+      </ul>
+    </div>
+    <div class="why">
+      <h2>Why This Fits Your Brand</h2>
+      <ul>
+        <li>Dual audience: personal following + an existing local business audience (PrimeBodyLab)</li>
+        <li>Credentialed voice — not just an opinion, an actual practitioner</li>
+        <li>Consistent visual identity, tight niche, no follower-count padding</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Audience Snapshot</h2>
+  <div class="demo-grid">
+    <div class="cell"><div class="label">Top Age Range</div><div class="value">[ IG Insights ]</div></div>
+    <div class="cell"><div class="label">Gender Split</div><div class="value">[ IG Insights ]</div></div>
+    <div class="cell"><div class="label">Top Locations</div><div class="value">[ IG Insights ]</div></div>
+  </div>
+
+  <h2>Past Collaborations</h2>
+  <p class="past">Available on request — add real collaborations here as they happen.</p>
+
+  <h2>Rates</h2>
+  <table class="rate-table">
+    <tr><th>Deliverable</th><th>Format</th><th>Rate</th></tr>
+    <tr><td>Single Reel</td><td>Flipbook / native format</td><td class="fill">[ set once engagement rate is known ]</td></tr>
+    <tr><td>Story Set (3–5 frames)</td><td>Story</td><td class="fill">[ TBD ]</td></tr>
+    <tr><td>Feed Post</td><td>Static / carousel</td><td class="fill">[ TBD ]</td></tr>
+  </table>
+
+  <footer>
+    <span>Media kit prepared for brand partnerships</span>
+    <span class="contact">eddieesblog@instagram · primebodylab.de</span>
+  </footer>
+</body>
+</html>
