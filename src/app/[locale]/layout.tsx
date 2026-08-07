@@ -58,6 +58,10 @@ export default async function LocaleLayout({children, params}: Props) {
               addressLocality: site.city,
               addressCountry: site.country,
             },
+            areaServed: [site.city, ...site.serviceArea].map((name) => ({
+              '@type': 'City',
+              name,
+            })),
             sameAs: Object.values(site.socials),
           }}
         />

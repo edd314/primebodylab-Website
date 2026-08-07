@@ -11,6 +11,7 @@ const data: Site = {
   city: 'Pfaffenhofen',
   country: 'DE',
   taxId: '154/214/50789',
+  serviceArea: ['Freising', 'Ingolstadt'],
   socials: {
     instagram: 'https://www.instagram.com/prime.body.lab/',
     tiktok: 'https://www.tiktok.com/@primebodylab_',

@@ -29,6 +29,9 @@ export function Footer({locale}: {locale: Locale}) {
           <p className="mt-3 text-sm text-muted">
             {locale === 'de' ? 'Steuernummer' : 'Tax ID'}: {site.taxId}
           </p>
+          <p className="mt-3 text-sm text-muted">
+            {locale === 'de' ? 'Mobil auch in' : 'Mobile also serving'}: {site.serviceArea.join(', ')}
+          </p>
         </div>
 
         {/* Carries the main navigation on mobile, where the header hides it. */}

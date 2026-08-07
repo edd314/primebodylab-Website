@@ -33,6 +33,11 @@ export const siteSchema = z.object({
   city: z.string().min(1),
   country: z.string().length(2),
   taxId: z.string().min(1),
+  /**
+   * Cities/towns Mobile service also covers, beyond the home base in
+   * `city`. Plain strings, not localized — place names don't translate.
+   */
+  serviceArea: z.array(z.string().min(1)).min(1),
   socials: z.object({
     instagram: webUrl,
     tiktok: webUrl,

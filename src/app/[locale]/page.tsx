@@ -1,5 +1,6 @@
 import {setRequestLocale} from 'next-intl/server';
 import {home} from '@/content/home';
+import {site} from '@/content/site';
 import {bookCta} from '@/lib/nav';
 import {images} from '@/content/images';
 import {Hero} from '@/components/sections/Hero';
@@ -26,7 +27,10 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
       locale === 'de'
         ? 'PrimeBodyLab — Wellnessmassage, Sportmassage, Stretching & Coaching in Pfaffenhofen'
         : 'PrimeBodyLab — Wellness & Sports Massage, Stretching & Coaching in Pfaffenhofen',
-    description: home.hero.body[locale],
+    description:
+      locale === 'de'
+        ? `Massage & Sportregeneration im Studio in Pfaffenhofen an der Ilm, mobil auch in ${site.serviceArea.join(' & ')}. ${home.hero.body.de}`
+        : `Massage and sports recovery at our studio in Pfaffenhofen an der Ilm, mobile service also in ${site.serviceArea.join(' & ')}. ${home.hero.body.en}`,
   });
 }
 
