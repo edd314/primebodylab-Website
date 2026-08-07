@@ -4,11 +4,11 @@ import {testimonialSchema, type Testimonial} from './schema';
 /**
  * English is the client's original wording (reproduced verbatim, including
  * informal phrasing), German is our translation:
- *   tom-steggemen, michael-oatah, angelika-steiber, katherina-wintrich, m-e
+ *   tom-steggemen, michael-oatah, angelika-steiber, katherina-wintrich, moritz
  *
  * German is the client's original Google review (reproduced verbatim),
  * English is our translation — the reverse of above:
- *   tchime-josh, roberto-b, bianca-ozunu
+ *   tchime-josh, roberto-b, bianca-ozunu, verena-schmuckermeier
  *
  * Grammar/wording is never silently corrected either direction: these are
  * real clients' words, and changing them is Eddie's call, not ours.
@@ -17,8 +17,9 @@ import {testimonialSchema, type Testimonial} from './schema';
  * review, reproduced in full) — this will make her card taller than its
  * grid neighbor. Flagged to Eddie; trim only if he asks.
  *
- * Dr. Verena and Dr. Moritz were removed at Eddie's request pending their
- * actual Google review text — do not re-add from git history without it.
+ * moritz and verena-schmuckermeier are the actual Google reviews for the
+ * "Dr. Moritz"/"Dr. Verena" testimonials removed earlier pending real text —
+ * this is that resolution. No "Dr." title: Eddie gave plain names this time.
  */
 const data: Testimonial[] = [
   {
@@ -85,12 +86,21 @@ const data: Testimonial[] = [
     },
   },
   {
-    id: 'm-e',
-    author: 'M.E.',
+    id: 'moritz',
+    author: 'Moritz',
     rating: 5,
     quote: {
       de: 'Sehr empfehlenswerter Service! Eddie ist der Beste!',
       en: 'Highly recommended service! Eddi is the best!',
+    },
+  },
+  {
+    id: 'verena-schmuckermeier',
+    author: 'Verena Schmuckermeier',
+    rating: 5,
+    quote: {
+      de: 'Eddie ist der beste Masseur, den wir je hatten, sehr einfühlsam und gleichzeitig super kraftvoll. Wir haben schon das zweite Abonnement bei ihm.',
+      en: "Eddie is the best massage therapist we've ever had — very attentive and incredibly powerful at the same time. We're already on our second package with him.",
     },
   },
 ];
