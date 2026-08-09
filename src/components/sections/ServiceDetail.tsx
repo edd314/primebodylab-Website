@@ -18,7 +18,7 @@ export function ServiceDetail({service, locale}: {service: Service; locale: Loca
       </p>
 
       <Figure
-        image={service.image}
+        image={service.detailImage ?? service.image}
         locale={locale}
         className="mt-10 aspect-[16/9] sm:aspect-[21/9]"
         sizes="(min-width: 1280px) 1152px, 100vw"

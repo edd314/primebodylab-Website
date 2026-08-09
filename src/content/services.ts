@@ -20,6 +20,7 @@ const data: Service[] = [
     slug: 'wellness-recovery-massage',
     acuityTypeId: 'category:Wellness%20%26%20Recovery%20Massage%20',
     image: images.wellnessMassage,
+    detailImage: images.wellnessMassageDetail,
     name: {de: 'Wellness & Recovery Massage', en: 'Wellness & Recovery Massage'},
     tagline: {de: 'Entspannen & Regenerieren', en: 'Relax & Restore'},
     description: {

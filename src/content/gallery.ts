@@ -15,17 +15,6 @@ export const gallery: GalleryItem[] = [
   {
     kind: 'image',
     ...imageSchema.parse({
-      src: '/images/gallery-1.jpg',
-      alt: {
-        de: 'Eddie bei der Hüft- und Piriformis-Mobilisation',
-        en: 'Eddie performing a hip and piriformis release',
-      },
-      placeholder: false,
-    }),
-  },
-  {
-    kind: 'image',
-    ...imageSchema.parse({
       src: '/images/gallery-2.jpg',
       alt: {
         de: 'Eddie beim Dehnen der Oberschenkelrückseite',
@@ -37,18 +26,18 @@ export const gallery: GalleryItem[] = [
   {
     kind: 'image',
     ...imageSchema.parse({
-      src: '/images/gallery-3.jpg',
-      alt: {de: 'Eddie bei einer Tischdehnung', en: 'Eddie performing a table stretch'},
+      src: '/images/gallery-8.jpg',
+      alt: {de: 'Eddie, Gründer von PrimeBodyLab', en: 'Eddie, founder of PrimeBodyLab'},
       placeholder: false,
     }),
   },
   {
     kind: 'image',
     ...imageSchema.parse({
-      src: '/images/gallery-5.jpg',
+      src: '/images/gallery-9.jpg',
       alt: {
-        de: 'Eddie bei einer Nacken- und Schultermassage',
-        en: 'Eddie performing a neck and shoulder massage',
+        de: 'Eddie bei einer Hüftbehandlung im Studio',
+        en: 'Eddie performing a hip treatment in the studio',
       },
       placeholder: false,
     }),
@@ -56,16 +45,11 @@ export const gallery: GalleryItem[] = [
   {
     kind: 'image',
     ...imageSchema.parse({
-      src: '/images/gallery-6.jpg',
-      alt: {de: 'Der Behandlungsraum von PrimeBodyLab', en: 'The PrimeBodyLab treatment room'},
-      placeholder: false,
-    }),
-  },
-  {
-    kind: 'image',
-    ...imageSchema.parse({
-      src: '/images/gallery-8.jpg',
-      alt: {de: 'Eddie, Gründer von PrimeBodyLab', en: 'Eddie, founder of PrimeBodyLab'},
+      src: '/images/gallery-10.jpg',
+      alt: {
+        de: 'Eddie bei einer Tiefengewebsmassage',
+        en: 'Eddie performing a deep tissue massage',
+      },
       placeholder: false,
     }),
   },

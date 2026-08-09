@@ -89,6 +89,8 @@ export const serviceSchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/),
   acuityTypeId: z.string().nullable(),
   image: imageSchema,
+  /** Optional second photo shown only on the service's own detail page. Falls back to `image` when unset. */
+  detailImage: imageSchema.optional(),
   name: localizedText,
   tagline: localizedText,
   description: localizedText,

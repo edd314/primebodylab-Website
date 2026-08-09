@@ -48,14 +48,22 @@ export const images = {
     placeholder: false,
   }),
 
-  // Stock — placeholder until Eddie has a suitable real photo for this service.
   wellnessMassage: imageSchema.parse({
-    src: '/images/stock-massage.jpg',
+    src: '/images/eddie-wellness-massage.png',
     alt: {
-      de: 'Hände bei einer Rückenmassage',
-      en: 'Hands performing a back massage',
+      de: 'Eddie bei einer Wellness & Recovery Massage',
+      en: 'Eddie performing a Wellness & Recovery Massage',
     },
-    placeholder: true,
+    placeholder: false,
+  }),
+
+  wellnessMassageDetail: imageSchema.parse({
+    src: '/images/eddie-wellness-massage-detail.jpg',
+    alt: {
+      de: 'Eddie bei einer Nackenbehandlung im Studio',
+      en: 'Eddie treating a client’s neck in the studio',
+    },
+    placeholder: false,
   }),
 
   massage: imageSchema.parse({
@@ -86,13 +94,12 @@ export const images = {
     focus: 'center 25%',
   }),
 
-  // Stock — placeholder until Eddie has a real photo for this bundle.
   bundle: imageSchema.parse({
-    src: '/images/sports-massage.jpg',
+    src: '/images/eddie-bundle-massage.png',
     alt: {
-      de: 'Sportmassage am Bein eines Klienten',
-      en: 'Sports massage on a client’s leg',
+      de: 'Eddie bei einer Bein- und Wadenbehandlung',
+      en: 'Eddie treating a client’s calf and leg',
     },
-    placeholder: true,
+    placeholder: false,
   }),
 } satisfies Record<string, SiteImage>;
