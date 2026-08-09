@@ -54,6 +54,47 @@ export const gallery: GalleryItem[] = [
     }),
   },
   {
+    kind: 'image',
+    ...imageSchema.parse({
+      src: '/images/eddie-wellness-massage-detail.jpg',
+      alt: {
+        de: 'Eddie bei einer Nackenbehandlung im Studio',
+        en: 'Eddie treating a client’s neck in the studio',
+      },
+      placeholder: false,
+    }),
+  },
+  {
+    kind: 'image',
+    ...imageSchema.parse({
+      src: '/images/eddie-bundle-massage.png',
+      alt: {
+        de: 'Eddie bei einer Bein- und Wadenbehandlung',
+        en: 'Eddie treating a client’s calf and leg',
+      },
+      placeholder: false,
+    }),
+  },
+  {
+    kind: 'image',
+    ...imageSchema.parse({
+      src: '/images/eddie-wellness-massage.png',
+      alt: {
+        de: 'Eddie bei einer Wellness & Recovery Massage',
+        en: 'Eddie performing a Wellness & Recovery Massage',
+      },
+      placeholder: false,
+    }),
+  },
+  {
+    kind: 'image',
+    ...imageSchema.parse({
+      src: '/images/gallery-12.jpg',
+      alt: {de: 'Der Behandlungsraum von PrimeBodyLab', en: 'The PrimeBodyLab treatment room'},
+      placeholder: false,
+    }),
+  },
+  {
     kind: 'video',
     ...videoClipSchema.parse({
       src: null,

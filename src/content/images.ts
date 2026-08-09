@@ -39,15 +39,6 @@ export const images = {
     focus: 'center 12%',
   }),
 
-  treatmentRoom: imageSchema.parse({
-    src: '/images/treatment-room.webp',
-    alt: {
-      de: 'Behandlungsraum von PrimeBodyLab in Pfaffenhofen',
-      en: 'The PrimeBodyLab treatment room in Pfaffenhofen',
-    },
-    placeholder: false,
-  }),
-
   wellnessMassage: imageSchema.parse({
     src: '/images/eddie-wellness-massage.png',
     alt: {
@@ -55,6 +46,11 @@ export const images = {
       en: 'Eddie performing a Wellness & Recovery Massage',
     },
     placeholder: false,
+    // Source photo has Eddie's face in the top third and the client/hands
+    // lower down; biasing down keeps the actual treatment (hands on the
+    // client) in frame on wide crops like the /book hero instead of just
+    // showing his face against the wall art.
+    focus: 'center 62%',
   }),
 
   wellnessMassageDetail: imageSchema.parse({
@@ -64,6 +60,11 @@ export const images = {
       en: 'Eddie treating a client’s neck in the studio',
     },
     placeholder: false,
+    // Source photo is a tall portrait crop; the detail page renders it at
+    // 21:9 on desktop, which centers on empty wall/canvas above Eddie's head
+    // by default. Biasing down keeps his hands and the client's neck/head in
+    // frame instead of just cropping to his face and the artwork behind him.
+    focus: 'center 68%',
   }),
 
   massage: imageSchema.parse({
@@ -73,6 +74,10 @@ export const images = {
       en: 'Eddie performing a Performance & Recovery Massage',
     },
     placeholder: false,
+    // Source photo has Eddie's face/torso in the top half and the actual
+    // treatment (hands on the client's hip/leg) lower down; biasing down
+    // keeps the treatment visible on wide crops instead of just his face.
+    focus: 'center 68%',
   }),
 
   stretch: imageSchema.parse({
@@ -95,11 +100,15 @@ export const images = {
   }),
 
   bundle: imageSchema.parse({
-    src: '/images/eddie-bundle-massage.png',
+    src: '/images/eddie-bundle-assisted-stretch.jpg',
     alt: {
-      de: 'Eddie bei einer Bein- und Wadenbehandlung',
-      en: 'Eddie treating a client’s calf and leg',
+      de: 'Eddie beim assistierten Stretching',
+      en: 'Eddie performing an assisted stretch',
     },
     placeholder: false,
+    // Source photo is dim/low-light with a black letterboxed strip at the
+    // very top; biasing down keeps the actual treatment (hands on the
+    // client) in frame instead of showing mostly empty dark ceiling/wall.
+    focus: 'center 65%',
   }),
 } satisfies Record<string, SiteImage>;
