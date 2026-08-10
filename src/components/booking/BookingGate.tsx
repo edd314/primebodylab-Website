@@ -49,7 +49,7 @@ export function BookingGate({locale, service}: {locale: Locale; service: Service
       <h1 className="font-display text-4xl sm:text-5xl">{copy.heading}</h1>
 
       <Figure
-        image={images.wellnessMassage}
+        image={images.wellnessMassageDetail}
         locale={locale}
         className="mt-8 aspect-[16/9]"
         sizes="(min-width: 768px) 768px, 100vw"

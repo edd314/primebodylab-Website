@@ -2,6 +2,7 @@ import type {ReactNode} from 'react';
 import {notFound} from 'next/navigation';
 import {hasLocale, NextIntlClientProvider} from 'next-intl';
 import {setRequestLocale} from 'next-intl/server';
+import {Analytics} from '@vercel/analytics/next';
 import {routing} from '@/i18n/routing';
 import {bodyFont, displayFont} from '@/lib/fonts';
 import {Header} from '@/components/layout/Header';
@@ -74,6 +75,8 @@ export default async function LocaleLayout({children, params}: Props) {
           <MobileContactBar locale={locale} />
           <DeferredWidgets locale={locale} />
         </NextIntlClientProvider>
+
+        <Analytics />
       </body>
     </html>
   );
