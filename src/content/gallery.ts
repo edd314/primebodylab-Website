@@ -15,7 +15,7 @@ export const gallery: GalleryItem[] = [
   {
     kind: 'image',
     ...imageSchema.parse({
-      src: '/images/gallery-2.jpg',
+      src: '/images/eddie-hamstring-stretch.png',
       alt: {
         de: 'Eddie beim Dehnen der Oberschenkelrückseite',
         en: 'Eddie stretching a client’s hamstrings',
