@@ -4,11 +4,13 @@ import {testimonialSchema, type Testimonial} from './schema';
 /**
  * English is the client's original wording (reproduced verbatim, including
  * informal phrasing), German is our translation:
- *   tom-steggemen, michael-oatah, angelika-steiber, katherina-wintrich, moritz
+ *   tom-steggemen, michael-oatah, angelika-steiber, katherina-wintrich, moritz,
+ *   promise-igba, sam-azura
  *
  * German is the client's original Google review (reproduced verbatim),
  * English is our translation — the reverse of above:
- *   tchime-josh, roberto-b, bianca-ozunu, verena-schmuckermeier
+ *   tchime-josh, roberto-b, bianca-ozunu, verena-schmuckermeier,
+ *   denise-gunesch-zelch
  *
  * Grammar/wording is never silently corrected either direction: these are
  * real clients' words, and changing them is Eddie's call, not ours.
@@ -101,6 +103,42 @@ const data: Testimonial[] = [
     quote: {
       de: 'Eddie ist der beste Masseur, den wir je hatten, sehr einfühlsam und gleichzeitig super kraftvoll. Wir haben schon das zweite Abonnement bei ihm.',
       en: "Eddie is the best massage therapist we've ever had — very attentive and incredibly powerful at the same time. We're already on our second package with him.",
+    },
+  },
+  {
+    id: 'promise-igba',
+    author: 'Promise Igba',
+    rating: 5,
+    quote: {
+      en: "Eddie is an amazing professional. From the moment you enter his workplace, you can see everything is well thought. The first time I went to see him, I had very strong contractures in both my upper and lower back, and I was so surprised by how quickly he was able to identify the exact areas that were causing me pain.\n\nI left feeling much lighter and after a few more sessions the pain was gone. He really puts in all his energy and effort in every session. You can tell he's in the fitness industry and has been through injuries himself because of his practical and deep understanding of how the body works.\n\nEddie actually pays attention to what your body needs and creates a very calm, professional and comfortable atmosphere.\n\nThank you so much for your amazing work Eddie.",
+      de: 'Eddie ist ein herausragender Profi. Schon beim Betreten seines Arbeitsplatzes merkt man, wie durchdacht alles ist. Beim ersten Mal hatte ich sehr starke Verspannungen im oberen und unteren Rücken, und ich war überrascht, wie schnell er genau die Stellen gefunden hat, die die Schmerzen verursacht haben.\n\nIch bin danach viel leichter rausgegangen, und nach ein paar weiteren Sitzungen waren die Schmerzen komplett weg. Er gibt in jeder Sitzung wirklich seine volle Energie und Hingabe. Man merkt, dass er aus der Fitnessbranche kommt und selbst Verletzungen durchgemacht hat – das zeigt sich in seinem praktischen und tiefen Verständnis für den Körper.\n\nEddie geht wirklich darauf ein, was der Körper gerade braucht, und schafft eine sehr ruhige, professionelle und angenehme Atmosphäre.\n\nVielen Dank für deine großartige Arbeit, Eddie.',
+    },
+  },
+  {
+    id: 'sam-azura',
+    author: 'Sam Azura',
+    rating: 5,
+    quote: {
+      en: 'Exceptional service. Definitely coming back!!',
+      de: 'Außergewöhnlicher Service. Komme auf jeden Fall wieder!!',
+    },
+  },
+  {
+    id: 'denise-gunesch-zelch',
+    author: 'Denise Gunesch Zelch',
+    rating: 5,
+    quote: {
+      de: 'Ich kann Eddie wirklich von Herzen weiterempfehlen. Ich bin wegen meiner Rückenschmerzen zu ihm gekommen und habe durch seine Sportmassagen, gezielte Übungen und seine große Kompetenz schnell eine deutliche Verbesserung gespürt.\nBesonders schätze ich seine empathische Art und seine positive Energie, man fühlt sich bei ihm sehr gut aufgehoben. Auch als Personal Trainer und Ernährungsspezialist hat er mir geholfen, dem ganzheitlichen Coaching, meinen allgemeinen Gesundheitszustand sichtbar zu verbessern.\nVielen Dank, Eddie, für die professionelle und motivierende Unterstützung!🙏',
+      en: "I can genuinely recommend Eddie from the bottom of my heart. I came to him because of my back pain, and thanks to his sports massages, targeted exercises, and great expertise, I felt a clear improvement quickly.\nWhat I especially appreciate is his empathetic manner and positive energy — you feel really well looked after with him. As a personal trainer and nutrition specialist too, he's helped me visibly improve my overall health through holistic coaching.\nThank you, Eddie, for the professional and motivating support!🙏",
+    },
+  },
+  {
+    id: 'denise-gunesch-zelch-lymphmassage',
+    author: 'Denise Gunesch Zelch',
+    rating: 5,
+    quote: {
+      de: 'Ich hatte eine brasilianische Lymphmassage bei Eddie und bin begeistert! Sehr professionelle Technik, angenehme Atmosphäre und direkt danach ein tolles, leichtes Körpergefühl. Absolute Empfehlung – ich komme definitiv wieder!',
+      en: "I had a Brazilian lymphatic massage with Eddie and I'm thrilled! Very professional technique, a pleasant atmosphere, and right afterward a wonderful, light feeling in my body. Highly recommend — I'll definitely be back!",
     },
   },
 ];
