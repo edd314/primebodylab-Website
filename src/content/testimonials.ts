@@ -5,12 +5,12 @@ import {testimonialSchema, type Testimonial} from './schema';
  * English is the client's original wording (reproduced verbatim, including
  * informal phrasing), German is our translation:
  *   tom-steggemen, michael-oatah, angelika-steiber, katherina-wintrich, moritz,
- *   promise-igba, sam-azura
+ *   beijing-sweetheart, promise-igba
  *
  * German is the client's original Google review (reproduced verbatim),
  * English is our translation — the reverse of above:
  *   tchime-josh, roberto-b, bianca-ozunu, verena-schmuckermeier,
- *   denise-gunesch-zelch
+ *   sam-azura, denise-gunesch-zelch
  *
  * Grammar/wording is never silently corrected either direction: these are
  * real clients' words, and changing them is Eddie's call, not ours.
@@ -106,8 +106,8 @@ const data: Testimonial[] = [
     },
   },
   {
-    id: 'promise-igba',
-    author: 'Promise Igba',
+    id: 'beijing-sweetheart',
+    author: 'Beijing Sweetheart',
     rating: 5,
     quote: {
       en: "Eddie is an amazing professional. From the moment you enter his workplace, you can see everything is well thought. The first time I went to see him, I had very strong contractures in both my upper and lower back, and I was so surprised by how quickly he was able to identify the exact areas that were causing me pain.\n\nI left feeling much lighter and after a few more sessions the pain was gone. He really puts in all his energy and effort in every session. You can tell he's in the fitness industry and has been through injuries himself because of his practical and deep understanding of how the body works.\n\nEddie actually pays attention to what your body needs and creates a very calm, professional and comfortable atmosphere.\n\nThank you so much for your amazing work Eddie.",
@@ -115,8 +115,8 @@ const data: Testimonial[] = [
     },
   },
   {
-    id: 'sam-azura',
-    author: 'Sam Azura',
+    id: 'promise-igba',
+    author: 'Promise Igba',
     rating: 5,
     quote: {
       en: 'Exceptional service. Definitely coming back!!',
@@ -124,8 +124,8 @@ const data: Testimonial[] = [
     },
   },
   {
-    id: 'denise-gunesch-zelch',
-    author: 'Denise Gunesch Zelch',
+    id: 'sam-azura',
+    author: 'Sam Azura',
     rating: 5,
     quote: {
       de: 'Ich kann Eddie wirklich von Herzen weiterempfehlen. Ich bin wegen meiner Rückenschmerzen zu ihm gekommen und habe durch seine Sportmassagen, gezielte Übungen und seine große Kompetenz schnell eine deutliche Verbesserung gespürt.\nBesonders schätze ich seine empathische Art und seine positive Energie, man fühlt sich bei ihm sehr gut aufgehoben. Auch als Personal Trainer und Ernährungsspezialist hat er mir geholfen, dem ganzheitlichen Coaching, meinen allgemeinen Gesundheitszustand sichtbar zu verbessern.\nVielen Dank, Eddie, für die professionelle und motivierende Unterstützung!🙏',
@@ -133,7 +133,7 @@ const data: Testimonial[] = [
     },
   },
   {
-    id: 'denise-gunesch-zelch-lymphmassage',
+    id: 'denise-gunesch-zelch',
     author: 'Denise Gunesch Zelch',
     rating: 5,
     quote: {
