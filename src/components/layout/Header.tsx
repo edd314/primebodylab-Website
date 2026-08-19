@@ -6,8 +6,8 @@ import {LocaleSwitcher} from './LocaleSwitcher';
 
 export function Header({locale}: {locale: Locale}) {
   return (
-    <header className="border-b border-line">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-3 gap-y-2 px-4 py-3 sm:gap-6 sm:px-6 sm:py-5">
+    <header className="px-4 pt-4 sm:px-6 sm:pt-6">
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-x-3 gap-y-2 rounded-full border border-line bg-bone/80 px-4 py-2.5 shadow-[0_8px_24px_rgba(107,74,49,0.08)] backdrop-blur-sm sm:gap-6 sm:px-6 sm:py-3.5">
         <Link href="/" className="flex shrink-0 items-center gap-2 sm:gap-4">
           <Image
             src="/images/logo-mark.png"
@@ -15,11 +15,11 @@ export function Header({locale}: {locale: Locale}) {
             width={160}
             height={107}
             sizes="80px"
-            className="h-11 w-11 object-contain sm:h-16 sm:w-16 md:h-20 md:w-20"
+            className="h-9 w-9 object-contain sm:h-11 sm:w-11 md:h-12 md:w-12"
             priority
           />
           <span className="flex flex-col leading-none">
-            <span className="text-2xl uppercase tracking-tight sm:text-4xl md:text-5xl">PrimeBodyLab</span>
+            <span className="text-lg uppercase tracking-tight sm:text-xl md:text-2xl">PrimeBodyLab</span>
             <span className="mt-1 text-[0.55rem] tracking-[0.2em] text-muted uppercase sm:mt-1.5 sm:text-[0.65rem] sm:tracking-[0.25em] md:text-xs">
               Massage &amp; Sports Recovery
             </span>

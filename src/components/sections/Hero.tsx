@@ -34,7 +34,7 @@ export function Hero({locale, kicker, headline, body, ctaLabel, image}: Props) {
               className="pointer-events-none absolute top-1/2 left-1/2 hidden w-[640px] -translate-x-1/2 -translate-y-1/2 opacity-15 sm:block lg:w-[760px]"
             />
 
-            <span className="relative inline-block rounded-full bg-forest px-4 py-1.5 text-xs font-semibold tracking-[0.18em] text-bone uppercase">
+            <span className="relative inline-block rounded-full bg-surface px-4 py-1.5 text-xs font-semibold tracking-[0.06em] text-sage">
               {kicker[locale]}
             </span>
 
@@ -60,13 +60,13 @@ export function Hero({locale, kicker, headline, body, ctaLabel, image}: Props) {
             <Link
               href="/book"
               data-testid="hero-cta"
-              className="rounded-full bg-forest px-7 py-3.5 text-sm font-medium text-bone transition-opacity hover:opacity-90"
+              className="rounded-full bg-forest px-7 py-3.5 text-sm font-medium text-bone shadow-[0_10px_24px_rgba(107,74,49,0.25)] transition-opacity hover:opacity-90"
             >
               {ctaLabel}
             </Link>
             <Link
               href="/services"
-              className="rounded-full border border-line px-7 py-3.5 text-sm font-medium text-ink transition-colors hover:border-forest"
+              className="rounded-full bg-surface px-7 py-3.5 text-sm font-medium text-sage transition-colors hover:bg-line"
             >
               {locale === 'de' ? 'Leistungen ansehen' : 'Explore Services'}
             </Link>
@@ -76,7 +76,7 @@ export function Hero({locale, kicker, headline, body, ctaLabel, image}: Props) {
         <Figure
           image={image}
           locale={locale}
-          className="aspect-[4/5] rounded-2xl lg:aspect-[3/4]"
+          className="aspect-[4/5] rounded-[55%_45%_60%_40%/60%_55%_45%_40%] shadow-[0_24px_48px_rgba(107,74,49,0.12)] lg:aspect-[3/4]"
           sizes="(min-width: 1024px) 40vw, 100vw"
           priority
         />
