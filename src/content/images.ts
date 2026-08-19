@@ -99,6 +99,16 @@ export const images = {
     focus: 'center 25%',
   }),
 
+  coachingAthletic: imageSchema.parse({
+    src: '/images/eddie-coaching-athletic.jpg',
+    alt: {
+      de: 'Eddie, Gründer von PrimeBodyLab, im Studio',
+      en: 'Eddie, founder of PrimeBodyLab, in the studio',
+    },
+    placeholder: false,
+    focus: 'center 20%',
+  }),
+
   bundle: imageSchema.parse({
     src: '/images/eddie-bundle-assisted-stretch.jpg',
     alt: {

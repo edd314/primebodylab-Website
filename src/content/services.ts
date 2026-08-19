@@ -138,6 +138,7 @@ const data: Service[] = [
     slug: 'performance-coaching',
     acuityTypeId: 'category:Coaching',
     image: images.coaching,
+    detailImage: images.coachingAthletic,
     name: {de: 'Performance Coaching', en: 'Performance Coaching'},
     tagline: {de: 'Klüger trainieren', en: 'Train Smarter'},
     description: {
