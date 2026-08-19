@@ -1,37 +1,37 @@
 @import "tailwindcss";
 
 /**
- * "Warm Calm" theme — light cream background, coffee-brown accent, olive-
- * green secondary accent, soft editorial type. Replaces "Athletic
- * Evolution" (black background, neon yellow-green). Token NAMES stay
- * stable (bone/ink/forest/sage/muted/line/surface) — only the values
- * moved, same mechanism as every previous theme swap on this project:
+ * "Bold Contrast" theme — dark espresso background, warm cream text and
+ * accent, brightened olive-sage secondary accent. Replaces "Warm Calm"
+ * (light cream background, coffee-brown accent). Token NAMES stay stable
+ * (bone/ink/forest/sage/muted/line/surface) — only the values moved, same
+ * mechanism as every previous theme swap on this project:
  *
- * - bone    page background: near-black -> warm cream.
- * - ink     primary text: off-white -> warm espresso (not pure black).
- * - forest  primary accent (solid-fill buttons, bands): neon yellow-green
- *           -> coffee brown. `bone`'s new cream value is still light
- *           enough to read on `forest`'s new brown value, so every
- *           existing `bg-forest` + `text-bone` pairing keeps working
- *           unchanged — no contrast-fix sweep needed this time, unlike
- *           the last theme swap.
+ * - bone    page background: warm cream -> dark espresso. Also doubles as
+ *           the label color on solid `bg-forest` buttons (see `forest`).
+ * - ink     primary text: warm espresso -> warm cream.
+ * - forest  primary accent (solid-fill buttons, bands): coffee brown ->
+ *           warm cream, same value as `ink`. `bone`'s new dark value is
+ *           still dark enough to read as the label on `forest`'s new
+ *           cream value, so every existing `bg-forest` + `text-bone`
+ *           pairing keeps working unchanged — no contrast-fix sweep
+ *           needed this time, same as the swap before it.
  * - sage    secondary accent (taglines, hero last line, hover states):
- *           was the same neon as `forest`; now a *distinct* olive green,
- *           not the same value as `forest` — this palette uses two
- *           accent colors, not one.
+ *           deepened olive -> brightened olive, so it still reads clearly
+ *           against the new dark `bone` background.
  * - muted / line / surface were re-picked to sit correctly against the
- *           new light cream `bone` (surface: a step darker than bone,
- *           for the ticker bar and other elevated panels; line: a soft
- *           warm tan border).
+ *           new dark espresso `bone` (surface: a step lighter than bone,
+ *           for the ticker bar and other elevated panels; line: a muted
+ *           warm brown border, visible without glowing).
  */
 @theme {
-  --color-bone: #F7F1E7;
-  --color-ink: #2B2116;
-  --color-forest: #6B4A31;
-  --color-sage: #5C6640;
-  --color-muted: #6E6049;
-  --color-line: #DCCEB0;
-  --color-surface: #EFE6D3;
+  --color-bone: #241A12;
+  --color-ink: #F7F1E7;
+  --color-forest: #F7F1E7;
+  --color-sage: #C9D6A8;
+  --color-muted: #C7B9A0;
+  --color-line: #4A3A29;
+  --color-surface: #2F2115;
 
   --font-display: var(--font-fraunces), Georgia, serif;
   --font-body: var(--font-inter), system-ui, sans-serif;
