@@ -106,7 +106,7 @@ export const images = {
       en: 'Eddie, founder of PrimeBodyLab, in the studio',
     },
     placeholder: false,
-    focus: 'center 20%',
+    focus: 'center 15%',
   }),
 
   bundle: imageSchema.parse({

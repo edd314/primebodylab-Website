@@ -20,8 +20,14 @@ export function ServiceDetail({service, locale}: {service: Service; locale: Loca
       <Figure
         image={service.detailImage ?? service.image}
         locale={locale}
-        className="mt-10 aspect-[16/9] sm:aspect-[21/9]"
-        sizes="(min-width: 1280px) 1152px, 100vw"
+        className={
+          service.slug === 'performance-coaching'
+            ? 'mt-10 aspect-[4/5] max-w-md'
+            : 'mt-10 aspect-[16/9] sm:aspect-[21/9]'
+        }
+        sizes={
+          service.slug === 'performance-coaching' ? '448px' : '(min-width: 1280px) 1152px, 100vw'
+        }
       />
 
       <div className="mt-14 grid gap-12 sm:grid-cols-2">
