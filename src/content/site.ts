@@ -17,6 +17,7 @@ const data: Site = {
     tiktok: 'https://www.tiktok.com/@primebodylab_',
     facebook: 'https://www.facebook.com/primebodylab',
   },
+  voucherStoreUrl: 'https://app.acuityscheduling.com/catalog.php?owner=37529258&category=Gift+Vouchers+',
   qualifications: {
     de: [
       'Zertifizierter Personal Trainer',

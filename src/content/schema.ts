@@ -44,9 +44,25 @@ export const siteSchema = z.object({
     facebook: webUrl,
   }),
   qualifications: localized(z.array(z.string().min(1)).min(1)),
+  /**
+   * Acuity's "Direct Link to Store" for the Gift Vouchers category — shows
+   * every voucher so the visitor picks the exact duration/location they
+   * want, rather than us maintaining eight separate per-voucher links.
+   */
+  voucherStoreUrl: webUrl,
 });
 
 export type Site = z.infer<typeof siteSchema>;
+
+/** One purchasable gift-voucher tier — mirrors an Acuity gift certificate 1:1. */
+export const voucherSchema = z.object({
+  id: z.string().min(1),
+  minutes: z.number().int().positive(),
+  location: z.enum(['studio', 'mobile']),
+  price: z.number().positive(),
+});
+
+export type Voucher = z.infer<typeof voucherSchema>;
 
 export const durationSchema = z.object({
   minutes: z.number().int().positive(),

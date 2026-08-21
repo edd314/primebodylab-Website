@@ -25,6 +25,7 @@ export const routing = defineRouting({
     '/services': {de: '/leistungen', en: '/services'},
     '/services/[slug]': {de: '/leistungen/[slug]', en: '/services/[slug]'},
     '/book': {de: '/buchen', en: '/book'},
+    '/vouchers': {de: '/gutscheine', en: '/vouchers'},
     '/faq': {de: '/faq', en: '/faq'},
     '/imprint': {de: '/impressum', en: '/imprint'},
     '/privacy': {de: '/datenschutz', en: '/privacy'},
