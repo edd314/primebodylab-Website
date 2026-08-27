@@ -121,4 +121,24 @@ export const images = {
     // client) in frame instead of showing mostly empty dark ceiling/wall.
     focus: 'center 65%',
   }),
+
+  // Client-submitted progress photos, used with her permission (client's
+  // name deliberately kept out of the filename/alt text/on-page copy — see
+  // TransformationSection). Face is cropped/blurred in both.
+  transformationBefore: imageSchema.parse({
+    src: '/images/client-transformation-before.jpg',
+    alt: {
+      de: 'Klientin vor ihrem Trainingsprogramm mit Eddie (Gesicht unkenntlich gemacht)',
+      en: 'Client before her training programme with Eddie (face blurred)',
+    },
+    placeholder: false,
+  }),
+  transformationAfter: imageSchema.parse({
+    src: '/images/client-transformation-after.jpg',
+    alt: {
+      de: 'Klientin nach ihrem Trainingsprogramm mit Eddie (Gesicht unkenntlich gemacht)',
+      en: 'Client after her training programme with Eddie (face blurred)',
+    },
+    placeholder: false,
+  }),
 } satisfies Record<string, SiteImage>;

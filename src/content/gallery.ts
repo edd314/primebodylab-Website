@@ -95,6 +95,28 @@ export const gallery: GalleryItem[] = [
     }),
   },
   {
+    kind: 'image',
+    ...imageSchema.parse({
+      src: '/images/client-transformation-before.jpg',
+      alt: {
+        de: 'Klientin vor ihrem Trainingsprogramm mit Eddie (Gesicht unkenntlich gemacht)',
+        en: 'Client before her training programme with Eddie (face blurred)',
+      },
+      placeholder: false,
+    }),
+  },
+  {
+    kind: 'image',
+    ...imageSchema.parse({
+      src: '/images/client-transformation-after.jpg',
+      alt: {
+        de: 'Klientin nach ihrem Trainingsprogramm mit Eddie (Gesicht unkenntlich gemacht)',
+        en: 'Client after her training programme with Eddie (face blurred)',
+      },
+      placeholder: false,
+    }),
+  },
+  {
     kind: 'video',
     ...videoClipSchema.parse({
       src: null,

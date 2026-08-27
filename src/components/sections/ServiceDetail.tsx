@@ -2,6 +2,7 @@ import {Link} from '@/i18n/navigation';
 import {formatPrice} from '@/lib/format';
 import {Figure} from '@/components/media/Figure';
 import {PackageList} from '@/components/sections/PackageList';
+import {TransformationSection} from '@/components/sections/TransformationSection';
 import type {Locale, Service} from '@/content/schema';
 
 export function ServiceDetail({service, locale}: {service: Service; locale: Locale}) {
@@ -87,6 +88,8 @@ export function ServiceDetail({service, locale}: {service: Service; locale: Loca
       </div>
 
       <PackageList service={service} locale={locale} />
+
+      {service.slug === 'performance-coaching' && <TransformationSection locale={locale} />}
     </section>
   );
 }
