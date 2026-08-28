@@ -10,7 +10,8 @@ import {testimonialSchema, type Testimonial} from './schema';
  * German is the client's original Google review (reproduced verbatim),
  * English is our translation — the reverse of above:
  *   tchime-josh, roberto-b, bianca-ozunu, verena-schmuckermeier,
- *   sam-azura, denise-gunesch-zelch
+ *   sam-azura, denise-gunesch-zelch, stefanie-oberndofer,
+ *   charlotte-kleinschrot, kathrin
  *
  * Grammar/wording is never silently corrected either direction: these are
  * real clients' words, and changing them is Eddie's call, not ours.
@@ -139,6 +140,33 @@ const data: Testimonial[] = [
     quote: {
       de: 'Ich hatte eine brasilianische Lymphmassage bei Eddie und bin begeistert! Sehr professionelle Technik, angenehme Atmosphäre und direkt danach ein tolles, leichtes Körpergefühl. Absolute Empfehlung – ich komme definitiv wieder!',
       en: "I had a Brazilian lymphatic massage with Eddie and I'm thrilled! Very professional technique, a pleasant atmosphere, and right afterward a wonderful, light feeling in my body. Highly recommend — I'll definitely be back!",
+    },
+  },
+  {
+    id: 'stefanie-oberndofer',
+    author: 'Stefanie Oberndofer',
+    rating: 5,
+    quote: {
+      de: 'Mit einem Tennisarm und massiven Blockaden im gesamten Rücken und Schulterbereich durfte ich heute eine sehr professionelle Massage sowie Beratung erhalten.\nDa meine Probleme aus Sportverletzungen einhergehen, ging Eddie genau auf die Problemstellen ein und hat mir mit seinem Wissen erklärt wie es zu diesen Verletzungen kommt, was ich verbessern kann und wie mein Training der Verletzung angepasst zu zurückkehrendem Erfolg führen wird. Zudem habe ich noch eine Lymphmassage der Beine bekommen weil sich etwas Wasser eingelagert hat.\nDa Eddie selber Sportler ist, hat er nochmal ein anderes Hintergrundwissen und überzeugt mit seinem Einfülvermögen und seiner Professionalität.\nIch werde nun regelmäßig in Behandlung gehen. Ich kann Ihn wärmstens empfehlen.\nDie Atmosphäre war ebenfalls sehr angenehm. Eine kleiner Wellness Ausflug mit großer Wirkung.',
+      en: "With tennis elbow and severe blockages throughout my back and shoulder area, I got a very professional massage and consultation today.\nSince my problems stem from sports injuries, Eddie addressed the problem areas precisely and used his knowledge to explain how these injuries happen, what I can improve, and how adapting my training to the injury will lead to a return to form. I also got a lymphatic massage on my legs, since some water had built up.\nSince Eddie is an athlete himself, he brings a different kind of background knowledge and is convincing with his empathy and professionalism.\nI'll now be going for regular treatment. I can wholeheartedly recommend him.\nThe atmosphere was also very pleasant. A little wellness getaway with a big effect.",
+    },
+  },
+  {
+    id: 'charlotte-kleinschrot',
+    author: 'Charlotte Kleinschrot',
+    rating: 5,
+    quote: {
+      de: 'Ich habe schon mehrfach bei Eddie Massagen und Lymphdrainagen gebucht und die Ergebnisse sind einfach eine 12/10! Egal, ob es eine Verspannung im Schulterbereich ist oder Wassereinlagerungen, ich spüre sowohl ein direktes Ergebnis als auch eine nachhaltige Wirkung. Eddie’s Offenheit & grundlegend sympathische Art ist super angenehm und lässt einen direkt wohlfühlen und zur Ruhe kommen.\nIch habe selbst eine hochschwangere Freundin zu ihm geschickt, die ebenfalls begeistert ist und nun einen Masseur ihres Vertrauens gefunden hat ;)\nEs ist außerdem sehr unkompliziert mit Eddie einen Termin zu vereinbaren und er macht alles möglich!\nExperience ⭐️⭐️⭐️⭐️⭐️',
+      en: "I've booked massages and lymphatic drainage with Eddie multiple times now, and the results are simply a 12/10! Whether it's tension in the shoulder area or water retention, I feel both an immediate result and a lasting effect. Eddie's openness and genuinely likeable manner are super pleasant and let you feel at ease and relaxed right away.\nI even sent a heavily pregnant friend to him, who was equally thrilled and has now found a massage therapist she trusts ;)\nIt's also very easy to arrange an appointment with Eddie, and he makes anything possible!\nExperience ⭐️⭐️⭐️⭐️⭐️",
+    },
+  },
+  {
+    id: 'kathrin',
+    author: 'Kathrin',
+    rating: 5,
+    quote: {
+      de: 'Eddie arbeitet sehr professionell und macht auch Hausbesuche. Ich bin ca. seit einem Jahr bei ihm für eine Massage 1x im Monat. Meine Nackenschmerzen sind seitdem deutlich besser geworden. Bei jeder anderen Massage zb bei der Thai Massage hatte ich nie das Gefühl, dass sie wirklich in die Tiefe geht und entlastet. Bei Eddie ist das ganz anders. Die Massage ist sehr intensiv und er findet die richtigen Schmerzpunkte. Ich gehe seitdem nirgendwo anders mehr zur Massage.',
+      en: "Eddie works very professionally and also does home visits. I've been seeing him for a massage once a month for about a year now. My neck pain has gotten noticeably better since then. With every other massage, like Thai massage, I never felt like it really went deep enough to actually relieve anything. With Eddie it's completely different. The massage is very intense and he finds the right pressure points. I haven't gone anywhere else for a massage since.",
     },
   },
 ];
