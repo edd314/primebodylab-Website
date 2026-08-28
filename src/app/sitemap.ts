@@ -9,6 +9,7 @@ type Href = Parameters<typeof getPathname>[0]['href'];
 const staticHrefs: Href[] = [
   '/',
   '/services',
+  '/vouchers',
   '/book',
   '/faq',
   '/imprint',
