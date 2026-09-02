@@ -6,11 +6,28 @@ import {TransformationSection} from '@/components/sections/TransformationSection
 import type {Locale, Service} from '@/content/schema';
 
 export function ServiceDetail({service, locale}: {service: Service; locale: Locale}) {
+  const isKinetic = service.slug === 'performance-coaching';
+
   return (
     <section className="mx-auto max-w-6xl px-6 pt-16 pb-20 sm:pt-20 sm:pb-24">
-      <p className="text-xs uppercase tracking-[0.2em] text-sage">{service.tagline[locale]}</p>
+      <p
+        className={
+          isKinetic
+            ? 'font-kinetic text-xs font-semibold tracking-[0.2em] text-sage uppercase'
+            : 'text-xs uppercase tracking-[0.2em] text-sage'
+        }
+      >
+        {isKinetic && <span aria-hidden className="mr-1.5 opacity-60">//</span>}
+        {service.tagline[locale]}
+      </p>
 
-      <h1 className="mt-3 font-display text-4xl text-balance sm:text-5xl">
+      <h1
+        className={
+          isKinetic
+            ? 'font-kinetic mt-3 text-4xl font-bold tracking-tight text-balance sm:text-5xl'
+            : 'mt-3 font-display text-4xl text-balance sm:text-5xl'
+        }
+      >
         {service.name[locale]}
       </h1>
 
@@ -18,35 +35,77 @@ export function ServiceDetail({service, locale}: {service: Service; locale: Loca
         {service.description[locale]}
       </p>
 
-      <Figure
-        image={service.detailImage ?? service.image}
-        locale={locale}
-        className={
-          service.slug === 'performance-coaching'
-            ? 'mt-10 aspect-[4/5] max-w-md'
-            : 'mt-10 aspect-[16/9] sm:aspect-[21/9]'
-        }
-        sizes={
-          service.slug === 'performance-coaching' ? '448px' : '(min-width: 1280px) 1152px, 100vw'
-        }
-      />
+      {isKinetic ? (
+        <div
+          className="relative mt-10 max-w-md overflow-hidden rounded-none shadow-2xl shadow-black/60 ring-1 ring-white/10"
+          style={{clipPath: 'polygon(0 0, 100% 0, 100% 92%, 92% 100%, 0 100%)'}}
+        >
+          <Figure
+            image={service.detailImage ?? service.image}
+            locale={locale}
+            className="aspect-[4/5]"
+            sizes="448px"
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0"
+            style={{background: 'linear-gradient(135deg, transparent 60%, rgba(198,255,61,0.12) 100%)'}}
+          />
+        </div>
+      ) : (
+        <Figure
+          image={service.detailImage ?? service.image}
+          locale={locale}
+          className="mt-10 aspect-[16/9] sm:aspect-[21/9]"
+          sizes="(min-width: 1280px) 1152px, 100vw"
+        />
+      )}
 
-      <div className="mt-14 grid gap-12 sm:grid-cols-2">
-        <div>
-          <h2 className="text-xs uppercase tracking-[0.2em] text-muted">
+      <div className={isKinetic ? 'mt-14 grid gap-6 sm:grid-cols-2' : 'mt-14 grid gap-12 sm:grid-cols-2'}>
+        <div
+          className={isKinetic ? 'bg-surface p-6 shadow-xl shadow-black/40 ring-1 ring-white/5' : undefined}
+          style={
+            isKinetic
+              ? {clipPath: 'polygon(0 0, 100% 0, 100% 100%, 14px 100%, 0 calc(100% - 14px))'}
+              : undefined
+          }
+        >
+          <h2
+            className={
+              isKinetic
+                ? 'font-kinetic text-xs tracking-[0.2em] text-sage uppercase'
+                : 'text-xs uppercase tracking-[0.2em] text-muted'
+            }
+          >
             {locale === 'de' ? 'Enthaltene Techniken' : 'Treatments Include'}
           </h2>
           <ul className="mt-4 space-y-2 text-base">
             {service.includes[locale].map((item) => (
-              <li key={item} className="border-b border-line pb-2">
+              <li
+                key={item}
+                className={isKinetic ? 'border-b border-dashed border-line pb-2' : 'border-b border-line pb-2'}
+              >
                 {item}
               </li>
             ))}
           </ul>
         </div>
 
-        <div>
-          <h2 className="text-xs uppercase tracking-[0.2em] text-muted">
+        <div
+          className={isKinetic ? 'bg-surface p-6 shadow-xl shadow-black/40 ring-1 ring-white/5' : undefined}
+          style={
+            isKinetic
+              ? {clipPath: 'polygon(0 0, 100% 0, 100% 100%, 14px 100%, 0 calc(100% - 14px))'}
+              : undefined
+          }
+        >
+          <h2
+            className={
+              isKinetic
+                ? 'font-kinetic text-xs tracking-[0.2em] text-sage uppercase'
+                : 'text-xs uppercase tracking-[0.2em] text-muted'
+            }
+          >
             {locale === 'de' ? 'Dauer & Preis' : 'Duration & Price'}
           </h2>
           <ul className="mt-4 space-y-2 text-base">
@@ -54,7 +113,11 @@ export function ServiceDetail({service, locale}: {service: Service; locale: Loca
               <li
                 key={duration.minutes}
                 data-testid="duration-row"
-                className="flex justify-between gap-4 border-b border-line pb-2"
+                className={
+                  isKinetic
+                    ? 'flex justify-between gap-4 border-b border-dashed border-line pb-2'
+                    : 'flex justify-between gap-4 border-b border-line pb-2'
+                }
               >
                 <span>
                   {duration.minutes} {locale === 'de' ? 'Min.' : 'min'}
@@ -80,16 +143,20 @@ export function ServiceDetail({service, locale}: {service: Service; locale: Loca
 
           <Link
             href={{pathname: '/book', query: {service: service.slug}}}
-            className="mt-8 inline-block rounded-full bg-forest px-7 py-3.5 text-sm font-medium text-bone transition-opacity hover:opacity-90"
+            className={
+              isKinetic
+                ? 'font-kinetic mt-8 inline-block rounded-full bg-forest px-7 py-3.5 text-sm font-semibold text-bone shadow-[0_0_0_0_rgba(198,255,61,0.5)] transition-all duration-200 hover:shadow-[0_0_24px_2px_rgba(198,255,61,0.35)]'
+                : 'mt-8 inline-block rounded-full bg-forest px-7 py-3.5 text-sm font-medium text-bone transition-opacity hover:opacity-90'
+            }
           >
-            {locale === 'de' ? 'Termin buchen' : 'Book Now'}
+            {locale === 'de' ? 'Termin buchen →' : 'Book Now →'}
           </Link>
         </div>
       </div>
 
       <PackageList service={service} locale={locale} />
 
-      {service.slug === 'performance-coaching' && <TransformationSection locale={locale} />}
+      {isKinetic && <TransformationSection locale={locale} />}
     </section>
   );
 }

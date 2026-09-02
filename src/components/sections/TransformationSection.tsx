@@ -23,7 +23,7 @@ export function TransformationSection({locale}: {locale: Locale}) {
           <Figure
             image={images.transformationBefore}
             locale={locale}
-            className="aspect-[3/4] rounded-2xl"
+            className="aspect-[3/4] rounded-2xl shadow-xl shadow-black/50 ring-1 ring-white/10 transition-transform duration-300 hover:-translate-y-1"
             sizes="(min-width: 640px) 220px, 45vw"
           />
           <p className="mt-2 text-center text-xs tracking-wide text-muted uppercase">
@@ -34,7 +34,7 @@ export function TransformationSection({locale}: {locale: Locale}) {
           <Figure
             image={images.transformationAfter}
             locale={locale}
-            className="aspect-[3/4] rounded-2xl"
+            className="aspect-[3/4] rounded-2xl shadow-xl shadow-black/50 ring-1 ring-white/10 transition-transform duration-300 hover:-translate-y-1"
             sizes="(min-width: 640px) 220px, 45vw"
           />
           <p className="mt-2 text-center text-xs tracking-wide text-muted uppercase">
