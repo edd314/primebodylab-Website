@@ -75,8 +75,16 @@ export const munichGroupIncludes: Record<MunichService['group'], Localized<strin
     ],
   },
   bundle: {
-    de: ['Assistierte Stretching-Einheit', 'Klassische Massage-Einheit', 'Komplettes Reset-Erlebnis'],
-    en: ['Assisted Stretch Session', 'Classic Massage Session', 'Complete Reset Experience'],
+    de: [
+      '60 Min. assistiertes Stretching (inkl. PNF-Stretching & Mobilitätstherapie)',
+      '60 Min. Wellness-Massage (inkl. Schröpftherapie & Aromaöle)',
+      'Massage individuell auf deine Bedürfnisse abgestimmt',
+    ],
+    en: [
+      '60 min Full Assisted Stretch Session (incl. PNF Stretching & Mobility Therapy)',
+      '60 min Wellness Massage (incl. Cupping Therapy & Aroma Oils)',
+      'Massage customised to your needs',
+    ],
   },
 };
 

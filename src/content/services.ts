@@ -113,12 +113,20 @@ const data: Service[] = [
     name: {de: 'Performance & Recovery Bundle', en: 'Performance & Recovery Bundle'},
     tagline: {de: 'Von der Matte auf die Liege', en: 'From the Mats to the Table'},
     description: {
-      de: 'Ein kompletter Reset in einem Termin — eine assistierte Stretching-Einheit gefolgt von einer klassischen Massage, kombiniert in einem zweistündigen Besuch. Mehr Zeit ist gegen Aufpreis buchbar.',
-      en: 'A complete reset in one visit — an assisted stretch session followed by a classic massage, combined into a single two-hour appointment. Extra time can be booked for an additional cost.',
+      de: 'Ein kompletter Reset in einem Termin — 60 Minuten volles assistiertes Stretching, direkt gefolgt von 60 Minuten Wellness-Massage, individuell auf dich abgestimmt. Mehr Zeit ist gegen Aufpreis buchbar.',
+      en: 'A complete reset in one visit — 60 minutes of full assisted stretching, followed directly by 60 minutes of wellness massage, tailored to you. Extra time can be booked for an additional cost.',
     },
     includes: {
-      de: ['Assistierte Stretching-Einheit', 'Klassische Massage-Einheit', 'Komplettes Reset-Erlebnis'],
-      en: ['Assisted Stretch Session', 'Classic Massage Session', 'Complete Reset Experience'],
+      de: [
+        '60 Min. assistiertes Stretching (inkl. PNF-Stretching & Mobilitätstherapie)',
+        '60 Min. Wellness-Massage (inkl. Schröpftherapie & Aromaöle)',
+        'Massage individuell auf deine Bedürfnisse abgestimmt',
+      ],
+      en: [
+        '60 min Full Assisted Stretch Session (incl. PNF Stretching & Mobility Therapy)',
+        '60 min Wellness Massage (incl. Cupping Therapy & Aroma Oils)',
+        'Massage customised to your needs',
+      ],
     },
     durations: [{minutes: 120, price: 225}],
   },
