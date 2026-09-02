@@ -24,24 +24,12 @@ const data: Service[] = [
     name: {de: 'Wellness & Recovery Massage', en: 'Wellness & Recovery Massage'},
     tagline: {de: 'Entspannen & Regenerieren', en: 'Relax & Restore'},
     description: {
-      de: 'Unsere beliebteste Behandlung — eine entspannende, regenerierende Massage mit Schröpftherapie und beruhigenden Aromaölen, abgerundet mit Tee und einem kleinen Geschenk zum Mitnehmen.',
-      en: 'Our most-loved treatment — a relaxing, restorative massage enhanced with cupping therapy and calming aroma oils, finished with tea and a small treat for the road.',
+      de: 'Unsere beliebteste Behandlung — eine entspannende, regenerierende Massage mit Schröpftherapie und beruhigenden Aromaölen.',
+      en: 'Our most-loved treatment — a relaxing, restorative massage enhanced with cupping therapy and calming aroma oils.',
     },
     includes: {
-      de: [
-        'Klassische Massage',
-        'Schröpftherapie',
-        'Aromaöle zur Entspannung',
-        'Tee (nur im Studio)',
-        'Kleines Geschenk zum Abschluss',
-      ],
-      en: [
-        'Classic Massage',
-        'Cupping Therapy',
-        'Aroma Oils for Relaxation',
-        'Tea (studio only)',
-        'A Small Treat for the Road',
-      ],
+      de: ['Klassische Massage', 'Schröpftherapie', 'Aromaöle zur Entspannung'],
+      en: ['Classic Massage', 'Cupping Therapy', 'Aroma Oils for Relaxation'],
     },
     durations: [
       {minutes: 60, price: 80},

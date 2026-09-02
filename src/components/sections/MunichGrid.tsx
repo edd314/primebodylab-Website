@@ -1,5 +1,5 @@
 import {formatPrice} from '@/lib/format';
-import {munichGroupLabels, munichServices} from '@/content/munich';
+import {munichGroupIncludes, munichGroupLabels, munichServices} from '@/content/munich';
 import type {Locale, MunichService} from '@/content/schema';
 
 const GROUP_ORDER: MunichService['group'][] = ['wellness', 'performance', 'stretch', 'bundle'];
@@ -14,7 +14,22 @@ export function MunichGrid({locale}: {locale: Locale}) {
         return (
           <div key={group} className="rounded-3xl bg-surface px-7 py-8">
             <p className="text-sm font-medium">{munichGroupLabels[group][locale]}</p>
-            <ul className="mt-4 space-y-3">
+
+            <h3 className="mt-5 text-xs uppercase tracking-[0.2em] text-muted">
+              {locale === 'de' ? 'Enthaltene Techniken' : 'Treatments Include'}
+            </h3>
+            <ul className="mt-3 space-y-1.5">
+              {munichGroupIncludes[group][locale].map((item) => (
+                <li key={item} className="text-sm text-muted">
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="mt-6 text-xs uppercase tracking-[0.2em] text-muted">
+              {locale === 'de' ? 'Dauer & Preis' : 'Duration & Price'}
+            </h3>
+            <ul className="mt-3 space-y-3">
               {items.map((service) => (
                 <li key={service.id} className="flex items-center justify-between gap-4 text-sm">
                   <span className="text-muted">

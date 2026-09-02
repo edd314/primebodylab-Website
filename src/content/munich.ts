@@ -29,6 +29,57 @@ export const munichGroupLabels: Record<MunichService['group'], Localized<string>
   bundle: {de: 'Performance & Recovery Bundle', en: 'Performance & Recovery Bundle'},
 };
 
+/**
+ * Mirrors the "Treatments Include" lists on the matching Studio service pages
+ * (src/content/services.ts). Wellness's studio-only perks (tea, small gift)
+ * are dropped here rather than copied verbatim — there's no studio at the
+ * pop-up. Everything else is copied as-is since it's technique, not venue.
+ */
+export const munichGroupIncludes: Record<MunichService['group'], Localized<string[]>> = {
+  wellness: {
+    de: ['Klassische Massage', 'Schröpftherapie', 'Aromaöle zur Entspannung'],
+    en: ['Classic Massage', 'Cupping Therapy', 'Aroma Oils for Relaxation'],
+  },
+  performance: {
+    de: [
+      'Sportmassage',
+      'Tiefengewebsmassage',
+      'Regenerationsmassage',
+      'Triggerpunkt-Therapie',
+      'Brasilianische Lymphdrainage',
+      'Myofasziale Entspannung',
+    ],
+    en: [
+      'Sports Massage',
+      'Deep Tissue Massage',
+      'Recovery Massage',
+      'Trigger Point Therapy',
+      'Brazilian Lymphatic Drainage',
+      'Myofascial Release',
+    ],
+  },
+  stretch: {
+    de: [
+      'Assistiertes Stretching',
+      'PNF-Stretching',
+      'Mobilitätstherapie',
+      'Verbesserung des Bewegungsumfangs',
+      'Wiederherstellung der Bewegung',
+    ],
+    en: [
+      'Assisted Stretching',
+      'PNF Stretching',
+      'Mobility Therapy',
+      'Range of Motion Improvement',
+      'Movement Restoration',
+    ],
+  },
+  bundle: {
+    de: ['Assistierte Stretching-Einheit', 'Klassische Massage-Einheit', 'Komplettes Reset-Erlebnis'],
+    en: ['Assisted Stretch Session', 'Classic Massage Session', 'Complete Reset Experience'],
+  },
+};
+
 export const munichPageCopy: {
   title: Localized<string>;
   metaTitle: Localized<string>;
