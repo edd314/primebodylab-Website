@@ -1,7 +1,9 @@
 import {setRequestLocale} from 'next-intl/server';
-import {munichPageCopy} from '@/content/munich';
+import {munichPageCopy, munichServices} from '@/content/munich';
 import {MunichGrid} from '@/components/sections/MunichGrid';
-import {buildMetadata} from '@/lib/metadata';
+import {buildMetadata, SITE_URL} from '@/lib/metadata';
+import {JsonLd} from '@/components/seo/JsonLd';
+import {site} from '@/content/site';
 import type {Metadata} from 'next';
 import type {Locale} from '@/content/schema';
 
@@ -14,11 +16,8 @@ export async function generateMetadata({params}: {params: Promise<{locale: strin
   return buildMetadata({
     locale,
     href: '/munich',
-    title: locale === 'de' ? 'München Pop-Up | PrimeBodyLab' : 'Munich Pop-Up | PrimeBodyLab',
-    description:
-      locale === 'de'
-        ? 'Jeden zweiten Samstag in München — Massagen und Behandlungen von PrimeBodyLab, online buchbar.'
-        : 'Every other Saturday in Munich — massages and treatments from PrimeBodyLab, bookable online.',
+    title: munichPageCopy.metaTitle[locale],
+    description: munichPageCopy.metaDescription[locale],
   });
 }
 
@@ -27,8 +26,36 @@ export default async function MunichPage({params}: Props) {
   setRequestLocale(raw);
   const locale = raw as Locale;
 
+  const minPrice = Math.min(...munichServices.map((service) => service.price));
+
   return (
     <section className="mx-auto max-w-3xl px-6 pt-16 pb-20 sm:pt-20 sm:pb-24">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Service',
+          serviceType: locale === 'de' ? 'Massage & Sportregeneration' : 'Massage & Sports Recovery',
+          name: munichPageCopy.metaTitle[locale],
+          description: munichPageCopy.metaDescription[locale],
+          url: SITE_URL + (locale === 'de' ? '/muenchen' : '/en/munich'),
+          areaServed: {'@type': 'City', name: 'München', containedInPlace: {'@type': 'AdministrativeArea', name: 'Bayern'}},
+          provider: {
+            '@type': 'HealthAndBeautyBusiness',
+            name: 'PrimeBodyLab',
+            url: SITE_URL,
+            telephone: site.phone,
+          },
+          offers: {
+            '@type': 'AggregateOffer',
+            priceCurrency: 'EUR',
+            lowPrice: minPrice,
+            highPrice: Math.max(...munichServices.map((service) => service.price)),
+            offerCount: munichServices.length,
+            availability: 'https://schema.org/InStock',
+          },
+        }}
+      />
+
       <h1 className="font-display text-4xl sm:text-5xl">{munichPageCopy.title[locale]}</h1>
       <p className="mt-6 max-w-[58ch] text-base leading-relaxed text-muted">
         {munichPageCopy.intro[locale]}

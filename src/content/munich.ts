@@ -31,6 +31,8 @@ export const munichGroupLabels: Record<MunichService['group'], Localized<string>
 
 export const munichPageCopy: {
   title: Localized<string>;
+  metaTitle: Localized<string>;
+  metaDescription: Localized<string>;
   intro: Localized<string>;
   schedule: Localized<string>;
   scheduleDates: Localized<string>;
@@ -39,6 +41,14 @@ export const munichPageCopy: {
   title: {
     de: 'München Pop-Up',
     en: 'Munich Pop-Up',
+  },
+  metaTitle: {
+    de: 'Massage München | PrimeBodyLab Pop-Up (jeden 2. Samstag)',
+    en: 'Massage Munich | PrimeBodyLab Pop-Up (Every Other Saturday)',
+  },
+  metaDescription: {
+    de: 'Sport- und Wellnessmassage, Stretch-Therapie und mehr — jeden zweiten Samstag in München. PrimeBodyLab-Pop-Up, online buchbar, ab 3. Oktober 2026.',
+    en: 'Sports and wellness massage, stretch therapy, and more — every other Saturday in Munich. PrimeBodyLab pop-up, bookable online, starting October 3rd, 2026.',
   },
   intro: {
     de: 'Jeden zweiten Samstag bringen wir PrimeBodyLab nach München. Alle Behandlungen unseres Studios sind vor Ort buchbar — der genaue Standort wird nach der Buchung mitgeteilt.',
