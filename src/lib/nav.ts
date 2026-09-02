@@ -1,13 +1,14 @@
 import type {Localized} from '@/content/schema';
 
 export type NavItem = {
-  href: '/services' | '/vouchers' | '/faq';
+  href: '/services' | '/vouchers' | '/munich' | '/faq';
   label: Localized<string>;
 };
 
 export const navItems: NavItem[] = [
   {href: '/services', label: {de: 'Leistungen', en: 'Services'}},
   {href: '/vouchers', label: {de: 'Gutscheine', en: 'Vouchers'}},
+  {href: '/munich', label: {de: 'München Pop-Up', en: 'Munich Pop-Up'}},
   {href: '/faq', label: {de: 'FAQ', en: 'FAQ'}},
 ];
 

@@ -70,6 +70,22 @@ export const durationSchema = z.object({
 });
 
 /**
+ * One bookable duration of the Munich Pop-Up offering. Unlike the Studio
+ * services in serviceSchema, each duration here is its own distinct Acuity
+ * appointment type (not a shared category), so it links straight out to its
+ * own Acuity booking page rather than going through the /book?service= flow.
+ */
+export const munichServiceSchema = z.object({
+  id: z.string().min(1),
+  group: z.enum(['wellness', 'performance', 'stretch', 'bundle']),
+  minutes: z.number().int().positive(),
+  price: z.number().positive(),
+  bookingUrl: z.url({protocol: /^https$/, hostname: z.regexes.domain}),
+});
+
+export type MunichService = z.infer<typeof munichServiceSchema>;
+
+/**
  * `placeholder: true` means this is stock imagery standing in until Eddie's own
  * photography arrives. It makes the site render a small visible chip on the
  * image, so nobody mistakes stock for his studio. Set it to false when the real
