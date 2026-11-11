@@ -39,6 +39,9 @@ export function VoucherGrid({locale}: {locale: Locale}) {
 
       <div className="sm:col-span-2">
         <p className="text-xs text-muted">{voucherPageCopy.validity[locale]}</p>
+        <p className="mt-3 max-w-[70ch] text-xs leading-relaxed text-muted">
+          {voucherPageCopy.terms[locale]}
+        </p>
         <a
           href={site.voucherStoreUrl}
           target="_blank"

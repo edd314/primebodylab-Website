@@ -40,6 +40,17 @@ export function Header({locale}: {locale: Locale}) {
             </Link>
           ))}
 
+          {/* Plain anchor, not the typed `Link`: this points at a homepage
+              section (#unternehmen), not a routed page, so it needs the
+              locale prefix handled manually instead of going through
+              next-intl's pathnames config. */}
+          <a
+            href={locale === 'de' ? '/#unternehmen' : '/en#unternehmen'}
+            className="hidden text-sm text-muted transition-colors hover:text-ink sm:inline"
+          >
+            {locale === 'de' ? 'Für Unternehmen' : 'For Companies'}
+          </a>
+
           <LocaleSwitcher current={locale} />
 
           <Link

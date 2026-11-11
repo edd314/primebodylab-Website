@@ -236,6 +236,73 @@ export const homeSchema = z.object({
 
 export type Home = z.infer<typeof homeSchema>;
 
+export const companyStatSchema = z.object({
+  id: z.string().min(1),
+  value: localizedText,
+  label: localizedText,
+});
+
+export const companyStepSchema = z.object({
+  id: z.string().min(1),
+  title: localizedText,
+  body: localizedText,
+});
+
+export const companyFaqItemSchema = z.object({
+  id: z.string().min(1),
+  question: localizedText,
+  answer: localizedText,
+});
+
+/**
+ * Homepage "Für Unternehmen" band — a corporate on-site massage/stretch
+ * pitch aimed at companies, distinct from the individual-client content
+ * above. `calculator.minuteOptions` drives the duration buttons shown in
+ * `CompanyCalculator`; `defaultEmployees` must fall within
+ * [minEmployees, maxEmployees].
+ */
+export const companiesSchema = z.object({
+  eyebrow: localizedText,
+  headline: localizedText,
+  body: localizedText,
+  stats: z.array(companyStatSchema).min(1),
+  /** Attribution/disclaimer shown under the stat row — see content/companies.ts for why these are still placeholders. */
+  statsSource: localizedText,
+  steps: z.array(companyStepSchema).length(3),
+  calculator: z.object({
+    heading: localizedText,
+    employeesLabel: localizedText,
+    durationLabel: localizedText,
+    frequencyLabel: localizedText,
+    totalLabel: localizedText,
+    perHeadLabel: localizedText,
+    minuteOptions: z.array(z.number().int().positive()).min(2),
+    defaultEmployees: z.number().int().positive(),
+    minEmployees: z.number().int().positive(),
+    maxEmployees: z.number().int().positive(),
+    /** Extra % off on top of the base corporate rate, keyed by booking rhythm — first entry is the default selection. */
+    frequencyOptions: z
+      .array(
+        z.object({
+          id: z.string().min(1),
+          label: localizedText,
+          extraDiscountPercent: z.number().min(0).max(100),
+        }),
+      )
+      .min(2),
+  }),
+  trust: z.object({
+    eyebrow: localizedText,
+    /** Real on-site clients only — never pad this with companies PrimeBodyLab hasn't actually served. */
+    clients: z.array(z.object({id: z.string().min(1), name: z.string().min(1)})).min(1),
+    note: localizedText,
+  }),
+  faq: z.array(companyFaqItemSchema).min(1),
+  ctaLabel: localizedText,
+});
+
+export type Companies = z.infer<typeof companiesSchema>;
+
 /**
  * A month/day boundary for a recurring yearly promo window (no year — the
  * same window applies every year). `end` before `start` in month/day order

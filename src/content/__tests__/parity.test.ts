@@ -4,7 +4,7 @@ import {pendingGermanReview} from '@/content/review';
 
 describe('site content', () => {
   it('carries the owner’s exact business details', () => {
-    expect(site.phone).toBe('+49 176 83248394');
+    expect(site.phone).toBe('+49 176 28932107');
     expect(site.email).toBe('book_primebodylab@proton.me');
     expect(site.taxId).toBe('154/214/50789');
     expect(site.postcode).toBe('85276');

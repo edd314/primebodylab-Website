@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  @font-face {
+    font-family: 'Fraunces';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Fraunces-400.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Fraunces';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/Fraunces-400-italic.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Inter-400.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/Inter-600.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/Inter-700.ttf') format('truetype');
+  }
+
+  :root {
+    --bone: #F7F1E7;
+    --ink: #2B2116;
+    --forest: #6B4A31;
+    --sage: #5C6640;
+    --muted: #6E6049;
+    --line: #DCCEB0;
+    --surface: #EFE6D3;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body { width: 1004px; }
+
+  .card {
+    width: 1004px;
+    height: 650px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    page-break-after: always;
+  }
+  .card:last-child { page-break-after: avoid; }
+
+  /* ---------- FRONT ---------- */
+  .front {
+    background: var(--bone);
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .front .mark {
+    width: 260px;
+    height: auto;
+    margin-bottom: 6px;
+    mix-blend-mode: multiply;
+  }
+  .front .wordmark {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--forest);
+  }
+  .front .subline {
+    margin-top: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .front .tagline {
+    margin-top: 26px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--sage);
+  }
+  .front .frame {
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    right: 28px;
+    bottom: 28px;
+    border: 1px solid var(--line);
+    pointer-events: none;
+  }
+
+  /* ---------- BACK ---------- */
+  .back {
+    background: var(--forest);
+    color: var(--bone);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 64px;
+  }
+  .back .mark-bg {
+    position: absolute;
+    right: -70px;
+    bottom: -60px;
+    width: 420px;
+    height: 280px;
+    opacity: 0.08;
+    background: var(--bone);
+    -webkit-mask: url('../assets/logo-mark.png') no-repeat center / contain;
+    mask: url('../assets/logo-mark.png') no-repeat center / contain;
+  }
+  .back .info {
+    display: flex;
+    flex-direction: column;
+  }
+  .back .name {
+    font-family: 'Fraunces', serif;
+    font-size: 40px;
+    line-height: 1.05;
+  }
+  .back .role {
+    margin-top: 8px;
+    font-size: 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #E7DCC4;
+  }
+  .back .rule {
+    width: 56px;
+    height: 2px;
+    background: var(--sage);
+    margin: 22px 0;
+  }
+  .back .row {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    font-size: 19px;
+    margin-bottom: 9px;
+  }
+  .back .row .label {
+    width: 60px;
+    flex-shrink: 0;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #C9B98F;
+  }
+  .back .qr-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .back .qr-chip {
+    width: 180px;
+    height: 180px;
+    background: var(--bone);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .back .qr-chip img {
+    width: 156px;
+    height: 156px;
+  }
+  .back .qr-label {
+    margin-top: 12px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #C9B98F;
+  }
+</style>
+</head>
+<body>
+
+  <div class="card front">
+    <div class="frame"></div>
+    <img class="mark" src="../assets/logo-mark.png" alt="" />
+    <div class="wordmark">PrimeBodyLab</div>
+    <div class="subline">Massage &amp; Sports Recovery</div>
+    <div class="tagline">Sore today. Unstoppable tomorrow.</div>
+  </div>
+
+  <div class="card back">
+    <div class="mark-bg" aria-hidden="true"></div>
+    <div class="info">
+      <div class="name">PrimeBodyLab</div>
+      <div class="role">Massage &amp; Sports Recovery</div>
+      <div class="rule"></div>
+      <div class="row"><span class="label">Phone</span><span>+49 176 8324 8394</span></div>
+      <div class="row"><span class="label">Email</span><span>book_primebodylab@proton.me</span></div>
+    </div>
+    <div class="qr-block">
+      <div class="qr-chip"><img src="../assets/qr-website.png" alt="" /></div>
+      <div class="qr-label">primebodylab.de</div>
+    </div>
+  </div>
+
+</body>
+</html>

@@ -21,6 +21,7 @@ export const voucherPageCopy: {
   mobileLabel: Localized<string>;
   ctaLabel: Localized<string>;
   validity: Localized<string>;
+  terms: Localized<string>;
 } = {
   title: {
     de: 'Gutscheine',
@@ -45,5 +46,9 @@ export const voucherPageCopy: {
   validity: {
     de: 'Jeder Gutschein ist 3 Jahre gültig.',
     en: 'Every voucher is valid for 3 years.',
+  },
+  terms: {
+    de: 'Gutscheine sind ab Kaufdatum bis zum Ende des dritten auf den Kauf folgenden Jahres gültig (gesetzliche Verjährungsfrist). Eine Barauszahlung des Gutscheinwerts, auch von Restbeträgen, ist ausgeschlossen. Gutscheine sind auf andere Personen übertragbar, jedoch nicht mit anderen Aktionen oder Rabatten kombinierbar. Es gelten ergänzend unsere AGB.',
+    en: 'Gift vouchers are valid from the date of purchase until the end of the third year following the purchase (statutory limitation period). Cash payout of the voucher value, including any remaining balance, is excluded. Vouchers are transferable to another person but cannot be combined with other offers or discounts. Our Terms & Conditions apply in addition.',
   },
 };

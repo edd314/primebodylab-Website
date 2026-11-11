@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  @font-face {
+    font-family: 'Fraunces';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Fraunces-400.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Fraunces';
+    font-style: italic;
+    font-weight: 400;
+    src: url('../fonts/Fraunces-400-italic.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/Inter-400.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/Inter-600.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/Inter-700.ttf') format('truetype');
+  }
+
+  :root {
+    --bone: #F7F1E7;
+    --ink: #2B2116;
+    --forest: #6B4A31;
+    --sage: #5C6640;
+    --muted: #6E6049;
+    --line: #DCCEB0;
+    --surface: #EFE6D3;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 1748px;
+    height: 2480px;
+  }
+
+  body {
+    background: var(--bone);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* ---------- HEADER ---------- */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 56px 90px 40px;
+  }
+  .header .wordmark {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--forest);
+  }
+  .header .kicker {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ---------- HERO (logo) ---------- */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 760px;
+    background: var(--surface);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero .mark {
+    width: 260px;
+    height: auto;
+    mix-blend-mode: multiply;
+    margin-bottom: 8px;
+  }
+  .hero .wordmark {
+    font-size: 52px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--forest);
+  }
+  .hero .tagline {
+    margin-top: 14px;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-size: 28px;
+    color: var(--sage);
+  }
+
+  /* ---------- MAIN ---------- */
+  .main {
+    display: flex;
+    flex-direction: column;
+    padding: 56px 90px 0;
+  }
+
+  .headline {
+    font-family: 'Fraunces', serif;
+    font-size: 72px;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    max-width: 1250px;
+  }
+
+  .intro {
+    margin-top: 26px;
+    font-size: 25px;
+    line-height: 1.55;
+    color: var(--muted);
+    max-width: 1250px;
+  }
+
+  .pillars {
+    margin-top: 68px;
+    display: flex;
+    gap: 56px;
+  }
+  .pillars .pillar {
+    flex: 1;
+    border-top: 2px solid var(--sage);
+    padding-top: 24px;
+  }
+  .pillars .pillar .title {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    color: var(--forest);
+  }
+  .pillars .pillar .body {
+    margin-top: 8px;
+    font-size: 18px;
+    line-height: 1.45;
+    color: var(--muted);
+  }
+
+  .divider {
+    margin: 48px 0 36px;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .services-heading {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+
+  .services {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .service-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .service-row .name {
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    color: var(--ink);
+  }
+  .service-row .tagline {
+    font-size: 18px;
+    color: var(--sage);
+    font-style: italic;
+    white-space: nowrap;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .footer {
+    margin-top: auto;
+    background: var(--forest);
+    color: var(--bone);
+    padding: 72px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .footer .mark-bg {
+    position: absolute;
+    right: -60px;
+    top: -40px;
+    width: 400px;
+    height: 267px;
+    opacity: 0.08;
+    background: var(--bone);
+    -webkit-mask: url('../assets/logo-mark.png') no-repeat center / contain;
+    mask: url('../assets/logo-mark.png') no-repeat center / contain;
+  }
+  .footer .cta-line {
+    font-family: 'Fraunces', serif;
+    font-size: 40px;
+    margin-bottom: 28px;
+  }
+  .footer .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 20px;
+  }
+  .footer .details .col { line-height: 1.7; }
+  .footer .details .label {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #C9B98F;
+    margin-bottom: 4px;
+  }
+  .footer .details .qr-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .footer .details .qr-chip {
+    width: 168px;
+    height: 168px;
+    background: var(--bone);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .footer .details .qr-chip img {
+    width: 146px;
+    height: 146px;
+  }
+  .footer .details .qr-caption {
+    margin-top: 10px;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #C9B98F;
+  }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <span class="wordmark">PrimeBodyLab</span>
+    <span class="kicker">Studio &amp; Mobile &middot; Pfaffenhofen</span>
+  </div>
+
+  <div class="hero">
+    <img class="mark" src="../assets/logo-mark.png" alt="" />
+    <div class="wordmark">PrimeBodyLab</div>
+    <div class="tagline">Sore today. Unstoppable tomorrow.</div>
+  </div>
+
+  <div class="main">
+    <div class="headline">Recover Stronger.<br />Train Smarter.<br />Move Better.</div>
+    <p class="intro">Every journey begins with different goals. Every PrimeBodyLab service is tailored to your individual needs and delivered with a commitment to quality, personalised care, and lasting results.</p>
+
+    <div class="pillars">
+      <div class="pillar">
+        <div class="title">Performance</div>
+        <div class="body">Build strength, improve movement patterns and produce results that last.</div>
+      </div>
+      <div class="pillar">
+        <div class="title">Recovery</div>
+        <div class="body">Minimise muscle tension and recover faster — between sessions and in daily life.</div>
+      </div>
+      <div class="pillar">
+        <div class="title">Movement</div>
+        <div class="body">Enhance mobility, increase flexibility and restore freedom of movement.</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="services-heading">Services</div>
+    <div class="services">
+      <div class="service-row"><span class="name">Wellness &amp; Recovery Massage</span><span class="tagline">Relax &amp; Restore</span></div>
+      <div class="service-row"><span class="name">Performance &amp; Recovery Massage</span><span class="tagline">Recover Faster</span></div>
+      <div class="service-row"><span class="name">Assisted Stretch Therapy</span><span class="tagline">Move Better</span></div>
+      <div class="service-row"><span class="name">Performance &amp; Recovery Bundle</span><span class="tagline">From the Mats to the Table</span></div>
+      <div class="service-row"><span class="name">Performance Coaching</span><span class="tagline">Train Smarter</span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="mark-bg" aria-hidden="true"></div>
+    <div class="cta-line">Book your first session.</div>
+    <div class="details">
+      <div class="col">
+        <div class="label">Contact</div>
+        +49 176 8324 8394<br />
+        book_primebodylab@proton.me
+      </div>
+      <div class="col">
+        <div class="label">Studio</div>
+        Hans-Kohlman-Str., 85276 Pfaffenhofen<br />
+        Also serving Freising &amp; Ingolstadt
+      </div>
+      <div class="qr-block">
+        <div class="qr-chip"><img src="../assets/qr-website.png" alt="" /></div>
+        <div class="qr-caption">Scan to book &middot; primebodylab.de</div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

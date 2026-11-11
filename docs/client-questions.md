@@ -18,6 +18,40 @@ through) so there's a record of what was decided.
     and the redirects are confirmed working. A few extra days of hosting is
     cheap insurance against downtime.
 
+15. **Refund / cancellation / withdrawal policy — legal review needed before
+    treating as final.** The AGB (`src/content/legal.ts`) now has: a concrete
+    cancellation clause (free up to 24h studio / 48h mobile; 100% charged for
+    later cancellations and no-shows; mobile may add a travel-cost share),
+    a Gift Vouchers clause (3-year validity, no cash payout, transferable,
+    not combinable), and a full Widerrufsrecht (14-day right of withdrawal)
+    section. The Gutscheine page shows a short version of the voucher terms.
+    All of this is an unreviewed draft — an imprecise Storno-/Widerruf clause
+    is a common Abmahnung target in Germany. Run it past a lawyer or a
+    generator service (eRecht24, IT-Recht Kanzlei) before considering it done.
+
+16. **Consent checkbox at booking is still missing.** The Widerrufsrecht clause
+    only becomes enforceable against a client who has already had the session
+    if they gave explicit, recorded consent at booking to start the service
+    before the 14 days are up (and acknowledged the right ends on full
+    performance). This site's booking is on Acuity, so it has to be added
+    there — either a required checkout consent field (plan-tier dependent) or a
+    required acknowledgment line on the intake form so there's a timestamped
+    record per booking. Suggested German wording:
+    "Ich verlange ausdrücklich, dass PrimeBodyLab bereits vor Ablauf der
+    Widerrufsfrist mit der Ausführung der gebuchten Leistung beginnt. Mir ist
+    bekannt, dass ich mit vollständiger Vertragserfüllung mein Widerrufsrecht
+    verliere."
+
+17. **Coaching-plan cancellation terms** are referenced in the AGB ("communicated
+    separately") but not written down anywhere yet. Decide the actual terms and
+    where clients see them.
+
+18. **Session packages / bundles (5er / 10er).** Not built and no AGB clause yet.
+    When they launch, add a bundle clause: e.g. 12-month validity; unused
+    sessions refundable but recalculated at the full single-session price of
+    sessions already taken (difference to the package price not refunded);
+    unused sessions expire after the validity period.
+
 ## Resolved
 
 1. ~~All German copy needs your approval.~~ Still tracked in `src/content/review.json`
