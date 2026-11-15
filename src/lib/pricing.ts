@@ -34,3 +34,29 @@ export function getCompanyRatePerMinute(wellnessService: Service): number {
   }
   return (sixty.price / 60) * (1 - CORPORATE_BASE_DISCOUNT);
 }
+
+/**
+ * Shared by the homepage teaser calculator and the full /companies request
+ * page, so the two never drift apart on how a quote is actually priced.
+ * `extraDiscountPercent` (rhythm) and `commitmentDiscountPercent` (optional,
+ * voluntary upfront commitment) stack multiplicatively, not additively —
+ * each is a discount off what's left after the previous one.
+ */
+export function computeCompanyQuote({
+  employees,
+  minutes,
+  ratePerMinute,
+  extraDiscountPercent,
+  commitmentDiscountPercent = 0,
+}: {
+  employees: number;
+  minutes: number;
+  ratePerMinute: number;
+  extraDiscountPercent: number;
+  commitmentDiscountPercent?: number;
+}): {total: number; perHead: number} {
+  const effectiveRate =
+    ratePerMinute * (1 - extraDiscountPercent / 100) * (1 - commitmentDiscountPercent / 100);
+  const total = Math.round(employees * minutes * effectiveRate);
+  return {total, perHead: Math.round(total / employees)};
+}

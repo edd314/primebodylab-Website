@@ -290,6 +290,23 @@ export const companiesSchema = z.object({
         }),
       )
       .min(2),
+    /**
+     * OPTIONAL upfront commitment, stacked on top of the rhythm discount —
+     * never a requirement. The company FAQ ("Gibt es eine Mindestlaufzeit?")
+     * explicitly promises no minimum term; this only rewards a voluntary
+     * commitment with a better price, it never gates booking on one.
+     * First entry is the default ("no commitment") selection.
+     */
+    commitmentOptions: z
+      .array(
+        z.object({
+          id: z.string().min(1),
+          months: z.number().int().min(0),
+          label: localizedText,
+          extraDiscountPercent: z.number().min(0).max(100),
+        }),
+      )
+      .min(2),
   }),
   trust: z.object({
     eyebrow: localizedText,
@@ -299,6 +316,28 @@ export const companiesSchema = z.object({
   }),
   faq: z.array(companyFaqItemSchema).min(1),
   ctaLabel: localizedText,
+  /** The dedicated /companies request page — configurator + lead form. */
+  requestPage: z.object({
+    eyebrow: localizedText,
+    title: localizedText,
+    intro: localizedText,
+    form: z.object({
+      companyNameLabel: localizedText,
+      contactNameLabel: localizedText,
+      emailLabel: localizedText,
+      phoneLabel: localizedText,
+      phoneOptionalNote: localizedText,
+      submitLabel: localizedText,
+      privacyNote: localizedText,
+    }),
+    confirmation: z.object({
+      heading: localizedText,
+      body: localizedText,
+      whatsappButtonLabel: localizedText,
+      copyButtonLabel: localizedText,
+      copiedLabel: localizedText,
+    }),
+  }),
 });
 
 export type Companies = z.infer<typeof companiesSchema>;

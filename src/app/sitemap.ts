@@ -10,6 +10,7 @@ const staticHrefs: Href[] = [
   '/',
   '/services',
   '/vouchers',
+  '/companies',
   '/munich',
   '/book',
   '/faq',

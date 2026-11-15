@@ -116,6 +116,33 @@ const data: Companies = {
         extraDiscountPercent: 10,
       },
     ],
+    // Purely optional — see the schema comment. Never required to book.
+    commitmentOptions: [
+      {
+        id: 'keine',
+        months: 0,
+        label: {de: 'Keine Festlegung', en: 'No commitment'},
+        extraDiscountPercent: 0,
+      },
+      {
+        id: 'drei-monate',
+        months: 3,
+        label: {de: '3 Monate im Voraus', en: '3 months upfront'},
+        extraDiscountPercent: 3,
+      },
+      {
+        id: 'sechs-monate',
+        months: 6,
+        label: {de: '6 Monate im Voraus', en: '6 months upfront'},
+        extraDiscountPercent: 5,
+      },
+      {
+        id: 'zwoelf-monate',
+        months: 12,
+        label: {de: '12 Monate im Voraus', en: '12 months upfront'},
+        extraDiscountPercent: 8,
+      },
+    ],
   },
   trust: {
     eyebrow: {de: 'Bereits vor Ort bei', en: 'Already on-site at'},
@@ -154,6 +181,39 @@ const data: Companies = {
     },
   ],
   ctaLabel: {de: 'Erstgespräch anfragen', en: 'Request an initial call'},
+  requestPage: {
+    eyebrow: {de: 'Für Unternehmen', en: 'For Companies'},
+    title: {
+      de: 'Stellen Sie sich Ihr Angebot zusammen',
+      en: 'Put together your own plan',
+    },
+    intro: {
+      de: 'Teamgröße, Dauer, Rhythmus — und optional eine Vorab-Festlegung für einen besseren Preis. Danach senden Sie Ihre Anfrage direkt per WhatsApp, ganz ohne Mindestlaufzeit.',
+      en: 'Team size, duration, rhythm — and an optional upfront commitment for a better price. Then send your request straight over WhatsApp, with no minimum term required.',
+    },
+    form: {
+      companyNameLabel: {de: 'Unternehmen', en: 'Company'},
+      contactNameLabel: {de: 'Ansprechpartner/in', en: 'Contact person'},
+      emailLabel: {de: 'E-Mail', en: 'Email'},
+      phoneLabel: {de: 'Telefon', en: 'Phone'},
+      phoneOptionalNote: {de: '(optional)', en: '(optional)'},
+      submitLabel: {de: 'Anfrage vorbereiten', en: 'Prepare request'},
+      privacyNote: {
+        de: 'Ihre Angaben werden ausschließlich zur Bearbeitung dieser Anfrage verwendet.',
+        en: 'Your details are used only to process this request.',
+      },
+    },
+    confirmation: {
+      heading: {de: 'Ihre Anfrage ist bereit', en: 'Your request is ready'},
+      body: {
+        de: 'Öffnen Sie WhatsApp, um die vorbereitete Nachricht mit allen Details direkt an uns zu senden.',
+        en: 'Open WhatsApp to send the prepared message with all the details straight to us.',
+      },
+      whatsappButtonLabel: {de: 'In WhatsApp öffnen', en: 'Open in WhatsApp'},
+      copyButtonLabel: {de: 'Nachricht kopieren', en: 'Copy message'},
+      copiedLabel: {de: 'Kopiert', en: 'Copied'},
+    },
+  },
 };
 
 export const companies = companiesSchema.parse(data);

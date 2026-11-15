@@ -2,6 +2,7 @@
 
 import {useMemo, useState} from 'react';
 import type {Companies, Locale} from '@/content/schema';
+import {computeCompanyQuote} from '@/lib/pricing';
 
 type Props = {
   locale: Locale;
@@ -27,11 +28,10 @@ export function CompanyCalculator({locale, labels, ratePerMinute}: Props) {
   const extraDiscountPercent =
     labels.frequencyOptions.find((option) => option.id === frequencyId)?.extraDiscountPercent ?? 0;
 
-  const {total, perHead} = useMemo(() => {
-    const effectiveRate = ratePerMinute * (1 - extraDiscountPercent / 100);
-    const totalValue = Math.round(employees * minutes * effectiveRate);
-    return {total: totalValue, perHead: Math.round(totalValue / employees)};
-  }, [employees, minutes, ratePerMinute, extraDiscountPercent]);
+  const {total, perHead} = useMemo(
+    () => computeCompanyQuote({employees, minutes, ratePerMinute, extraDiscountPercent}),
+    [employees, minutes, ratePerMinute, extraDiscountPercent],
+  );
 
   return (
     <div className="relative mt-10 border-t border-bone/15 pt-6" data-testid="company-calculator">

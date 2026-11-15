@@ -1,4 +1,5 @@
 import type {Companies, Locale} from '@/content/schema';
+import {Link} from '@/i18n/navigation';
 import {Reveal} from '@/components/motion/Reveal';
 import {CompanyCalculator} from './CompanyCalculator';
 import {CompanyFaq} from './CompanyFaq';
@@ -62,6 +63,13 @@ export function CompanyBand({locale, companies, ratePerMinute}: Props) {
         </div>
 
         <CompanyCalculator locale={locale} labels={companies.calculator} ratePerMinute={ratePerMinute} />
+
+        <Link
+          href="/companies"
+          className="relative mt-6 inline-flex items-center rounded-full bg-sage px-6 py-3 text-sm font-semibold text-ink transition-opacity hover:opacity-90"
+        >
+          {companies.ctaLabel[locale]}
+        </Link>
 
         <div className="relative mt-10">
           <span className="text-xs font-semibold tracking-[0.08em] text-sage uppercase">
