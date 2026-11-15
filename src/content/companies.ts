@@ -159,8 +159,8 @@ const data: Companies = {
       id: 'umziehen',
       question: {de: 'Müssen sich Mitarbeitende umziehen?', en: 'Do employees need to change clothes?'},
       answer: {
-        de: 'Nein. Chair-Massage und Stretch funktionieren bekleidet, direkt am Arbeitsplatz oder in einem ruhigen Raum.',
-        en: 'No. Chair massage and stretching work fully clothed, right at the desk or in a quiet room.',
+        de: 'Für die Chair-Massage: oberkörperfrei. Beim Stretch kann die Kleidung anbleiben — bequeme Sportkleidung ist dafür ideal.',
+        en: 'For chair massage: shirts off. For stretching, clothes can stay on — comfortable sportswear works best.',
       },
     },
     {
