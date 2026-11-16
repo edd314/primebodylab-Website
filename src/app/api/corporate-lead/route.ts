@@ -2,6 +2,9 @@ import {createHash} from 'crypto';
 import {NextResponse} from 'next/server';
 import mailchimp from '@mailchimp/mailchimp_marketing';
 import {Resend} from 'resend';
+import {buildCorporateLeadClientInput, formatCorporateLeadNote, type CorporateLeadFields} from '@/lib/crm/leadMapping';
+import {createClient} from '@/lib/crm/clients';
+import {addActivityLogEntry} from '@/lib/crm/activityLog';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -53,6 +56,26 @@ export async function POST(request: Request) {
     `Geschätzt: ${total} € pro Team-Tag (${perHead} € pro Person)`,
   ].filter((line): line is string => line !== null);
   const note = noteLines.join('\n');
+
+  const leadFields: CorporateLeadFields = {
+    companyName,
+    contactName,
+    email,
+    phone,
+    employees,
+    minutes,
+    frequency,
+    commitment,
+    total,
+    perHead,
+  };
+
+  try {
+    const client = await createClient(buildCorporateLeadClientInput(leadFields));
+    await addActivityLogEntry(client.id, formatCorporateLeadNote(leadFields));
+  } catch (crmError) {
+    console.error('Corporate lead CRM logging error', crmError);
+  }
 
   const audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
   if (process.env.MAILCHIMP_API_KEY && process.env.MAILCHIMP_SERVER_PREFIX && audienceId) {
