@@ -3,6 +3,7 @@ import {Link} from '@/i18n/navigation';
 import {bookCta, navItems} from '@/lib/nav';
 import type {Locale} from '@/content/schema';
 import {LocaleSwitcher} from './LocaleSwitcher';
+import {MobileMenu} from './MobileMenu';
 
 export function Header({locale}: {locale: Locale}) {
   return (
@@ -59,6 +60,8 @@ export function Header({locale}: {locale: Locale}) {
           >
             {bookCta[locale]}
           </Link>
+
+          <MobileMenu locale={locale} />
         </nav>
       </div>
     </header>
