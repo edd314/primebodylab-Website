@@ -1,7 +1,10 @@
 // src/app/admin/clients/new/page.tsx
+import {requireAdminSession} from '@/lib/crm/adminAuth';
 import {createClientAction} from './actions';
 
-export default function NewClientPage() {
+export default async function NewClientPage() {
+  await requireAdminSession();
+
   return (
     <form action={createClientAction} className="flex max-w-sm flex-col gap-3">
       <h1 className="font-display text-2xl">Add client</h1>

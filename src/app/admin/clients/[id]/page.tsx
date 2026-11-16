@@ -2,12 +2,14 @@ import {notFound} from 'next/navigation';
 import {getClientById} from '@/lib/crm/clients';
 import {listPackagesForClient} from '@/lib/crm/packages';
 import {listActivityLogForClient} from '@/lib/crm/activityLog';
+import {requireAdminSession} from '@/lib/crm/adminAuth';
 import {remainingSessions} from '@/lib/crm/types';
 import {
   addActivityLogAction,
   addPackageAction,
   incrementSessionAction,
   setFollowUpAction,
+  updateClientDetailsAction,
   updateStatusAction,
 } from './actions';
 
@@ -16,9 +18,13 @@ export const dynamic = 'force-dynamic';
 type Props = {params: Promise<{id: string}>};
 
 export default async function ClientDetailPage({params}: Props) {
+  await requireAdminSession();
+
   const {id: rawId} = await params;
+  // Digits only — rejects "1.0", "1e0", " 1" etc. instead of coercing them.
+  if (!/^d+$/.test(rawId)) notFound();
   const id = Number(rawId);
-  if (!Number.isInteger(id)) notFound();
+  if (!Number.isSafeInteger(id)) notFound();
 
   const client = await getClientById(id);
   if (!client) notFound();
@@ -34,6 +40,46 @@ export default async function ClientDetailPage({params}: Props) {
           {client.source}
         </p>
       </div>
+
+      <section>
+        <h2 className="font-display text-lg">Edit details</h2>
+        <form action={updateClientDetailsAction.bind(null, client.id)} className="mt-2 flex flex-wrap gap-2">
+          <input
+            type="text"
+            name="name"
+            defaultValue={client.name ?? ''}
+            placeholder="Name"
+            className="rounded-full border border-line bg-bone px-4 py-2 text-sm"
+          />
+          <input
+            type="tel"
+            name="phone"
+            defaultValue={client.phone ?? ''}
+            placeholder="Phone"
+            className="rounded-full border border-line bg-bone px-4 py-2 text-sm"
+          />
+          <input
+            type="email"
+            name="email"
+            defaultValue={client.email ?? ''}
+            placeholder="Email"
+            className="rounded-full border border-line bg-bone px-4 py-2 text-sm"
+          />
+          <select
+            name="visitType"
+            defaultValue={client.visitType}
+            className="rounded-full border border-line bg-bone px-4 py-2 text-sm"
+          >
+            <option value="studio">Studio</option>
+            <option value="home">Home</option>
+            <option value="both">Both</option>
+            <option value="corporate">Corporate</option>
+          </select>
+          <button type="submit" className="rounded-full border border-line px-4 py-2 text-sm">
+            Save details
+          </button>
+        </form>
+      </section>
 
       <section>
         <h2 className="font-display text-lg">Status</h2>

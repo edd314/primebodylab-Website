@@ -1,6 +1,8 @@
 // src/app/admin/page.tsx
 import Link from 'next/link';
 import {listClients, listFollowUpsDue} from '@/lib/crm/clients';
+import {requireAdminSession} from '@/lib/crm/adminAuth';
+import {todayInGermany} from '@/lib/crm/dates';
 import type {ClientStatus, VisitType} from '@/lib/crm/types';
 
 export const dynamic = 'force-dynamic';
@@ -21,8 +23,10 @@ type Props = {
 };
 
 export default async function AdminDashboardPage({searchParams}: Props) {
+  await requireAdminSession();
+
   const params = await searchParams;
-  const today = new Date().toISOString().slice(0, 10);
+  const today = todayInGermany();
 
   const [followUpsDue, clients] = await Promise.all([
     listFollowUpsDue(today),

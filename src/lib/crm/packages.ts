@@ -1,6 +1,7 @@
 // src/lib/crm/packages.ts
 import {sql} from '@vercel/postgres';
 import {ensureSchema} from './schema';
+import {toDateOnlyString, todayInGermany} from './dates';
 import type {Package, PaymentMethod} from './types';
 
 type PackageRow = {
@@ -11,7 +12,8 @@ type PackageRow = {
   used_sessions: number;
   price_paid: string | null;
   payment_method: PaymentMethod | null;
-  purchased_at: string;
+  // DATE arrives as a Date object from the driver at runtime.
+  purchased_at: string | Date;
 };
 
 function mapRow(row: PackageRow): Package {
@@ -23,7 +25,7 @@ function mapRow(row: PackageRow): Package {
     usedSessions: row.used_sessions,
     pricePaid: row.price_paid === null ? null : Number(row.price_paid),
     paymentMethod: row.payment_method,
-    purchasedAt: row.purchased_at,
+    purchasedAt: toDateOnlyString(row.purchased_at),
   };
 }
 
@@ -45,7 +47,7 @@ export async function addPackage(clientId: number, input: AddPackageInput): Prom
       ${input.totalSessions},
       ${input.pricePaid ?? null},
       ${input.paymentMethod ?? null},
-      ${input.purchasedAt ?? new Date().toISOString().slice(0, 10)}
+      ${input.purchasedAt ?? todayInGermany()}
     )
     RETURNING *
   `;

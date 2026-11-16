@@ -1,4 +1,4 @@
-import {NextResponse} from 'next/server';
+import {NextResponse, after} from 'next/server';
 import mailchimp from '@mailchimp/mailchimp_marketing';
 import {buildWelcomePopupClientInput} from '@/lib/crm/leadMapping';
 import {createClient} from '@/lib/crm/clients';
@@ -37,11 +37,15 @@ export async function POST(request: Request) {
       tags: ['welcome-15'],
     });
 
-    try {
-      await createClient(buildWelcomePopupClientInput(email));
-    } catch (crmError) {
-      console.error('Welcome popup CRM logging error', crmError);
-    }
+    // Log the lead in the admin CRM after the response is sent, so a slow
+    // database never delays the visitor's popup confirmation.
+    after(async () => {
+      try {
+        await createClient(buildWelcomePopupClientInput(email));
+      } catch (crmError) {
+        console.error('Welcome popup CRM logging error', crmError);
+      }
+    });
 
     return NextResponse.json({ok: true});
   } catch (error) {

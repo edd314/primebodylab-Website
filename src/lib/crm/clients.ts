@@ -1,6 +1,7 @@
 // src/lib/crm/clients.ts
 import {sql} from '@vercel/postgres';
 import {ensureSchema} from './schema';
+import {toDateOnlyString, toIsoTimestampString} from './dates';
 import type {CreateClientInput} from './leadMapping';
 import type {Client, ClientStatus, VisitType} from './types';
 
@@ -14,10 +15,11 @@ type ClientRow = {
   visit_type: VisitType;
   status: ClientStatus;
   source: string;
-  next_follow_up_at: string | null;
+  // DATE / TIMESTAMPTZ arrive as Date objects from the driver at runtime.
+  next_follow_up_at: string | Date | null;
   next_follow_up_note: string | null;
-  created_at: string;
-  updated_at: string;
+  created_at: string | Date;
+  updated_at: string | Date;
 };
 
 function mapRow(row: ClientRow): Client {
@@ -29,10 +31,10 @@ function mapRow(row: ClientRow): Client {
     visitType: row.visit_type,
     status: row.status,
     source: row.source,
-    nextFollowUpAt: row.next_follow_up_at,
+    nextFollowUpAt: toDateOnlyString(row.next_follow_up_at),
     nextFollowUpNote: row.next_follow_up_note,
-    createdAt: row.created_at,
-    updatedAt: row.updated_at,
+    createdAt: toIsoTimestampString(row.created_at),
+    updatedAt: toIsoTimestampString(row.updated_at),
   };
 }
 
@@ -94,6 +96,23 @@ export async function listFollowUpsDue(today: string): Promise<Client[]> {
 export async function updateClientStatus(id: number, status: ClientStatus): Promise<void> {
   await ensureSchema();
   await sql`UPDATE clients SET status = ${status}, updated_at = now() WHERE id = ${id}`;
+}
+
+export type UpdateClientDetailsInput = {
+  name: string | null;
+  phone: string | null;
+  email: string | null;
+  visitType: VisitType;
+};
+
+export async function updateClientDetails(id: number, input: UpdateClientDetailsInput): Promise<void> {
+  await ensureSchema();
+  await sql`
+    UPDATE clients
+    SET name = ${input.name}, phone = ${input.phone}, email = ${input.email},
+        visit_type = ${input.visitType}, updated_at = now()
+    WHERE id = ${id}
+  `;
 }
 
 export async function setFollowUp(id: number, date: string, note: string | null): Promise<void> {

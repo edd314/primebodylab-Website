@@ -1,5 +1,5 @@
 import {createHash} from 'crypto';
-import {NextResponse} from 'next/server';
+import {NextResponse, after} from 'next/server';
 import mailchimp from '@mailchimp/mailchimp_marketing';
 import {Resend} from 'resend';
 import {buildCorporateLeadClientInput, formatCorporateLeadNote, type CorporateLeadFields} from '@/lib/crm/leadMapping';
@@ -70,13 +70,6 @@ export async function POST(request: Request) {
     perHead,
   };
 
-  try {
-    const client = await createClient(buildCorporateLeadClientInput(leadFields));
-    await addActivityLogEntry(client.id, formatCorporateLeadNote(leadFields));
-  } catch (crmError) {
-    console.error('Corporate lead CRM logging error', crmError);
-  }
-
   const audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
   if (process.env.MAILCHIMP_API_KEY && process.env.MAILCHIMP_SERVER_PREFIX && audienceId) {
     try {
@@ -116,6 +109,17 @@ export async function POST(request: Request) {
       console.error('Corporate lead email notification error', error);
     }
   }
+
+  // Admin CRM record, deferred until after the response is sent so a slow
+  // database can never delay the visitor or the guaranteed email above.
+  after(async () => {
+    try {
+      const client = await createClient(buildCorporateLeadClientInput(leadFields));
+      await addActivityLogEntry(client.id, formatCorporateLeadNote(leadFields));
+    } catch (crmError) {
+      console.error('Corporate lead CRM logging error', crmError);
+    }
+  });
 
   // Always ok: the visitor's WhatsApp message already carries the full
   // request, so a failed backup record or notification email shouldn't

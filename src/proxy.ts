@@ -26,5 +26,8 @@ export default async function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: '/((?!api|_next|_vercel|icon|apple-icon|opengraph-image|.*\\..*).*)',
+  // The first pattern skips static files (anything with a dot), which would
+  // also skip dotted admin paths like /admin/clients/1.0. /admin is listed
+  // explicitly so the session check always runs there.
+  matcher: ['/((?!api|_next|_vercel|icon|apple-icon|opengraph-image|.*\\..*).*)', '/admin/:path*'],
 };

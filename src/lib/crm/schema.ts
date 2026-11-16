@@ -10,7 +10,13 @@ let schemaReady: Promise<void> | null = null;
  */
 export function ensureSchema(): Promise<void> {
   if (!schemaReady) {
-    schemaReady = runMigrations();
+    // Don't cache a rejection: if migrations fail once (e.g. a cold-start
+    // timeout), clear the memo so the next CRM call retries instead of this
+    // warm instance failing forever.
+    schemaReady = runMigrations().catch((error: unknown) => {
+      schemaReady = null;
+      throw error;
+    });
   }
   return schemaReady;
 }
