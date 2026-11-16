@@ -1,5 +1,7 @@
 import {NextResponse} from 'next/server';
 import mailchimp from '@mailchimp/mailchimp_marketing';
+import {buildWelcomePopupClientInput} from '@/lib/crm/leadMapping';
+import {createClient} from '@/lib/crm/clients';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -34,6 +36,13 @@ export async function POST(request: Request) {
       status: 'pending',
       tags: ['welcome-15'],
     });
+
+    try {
+      await createClient(buildWelcomePopupClientInput(email));
+    } catch (crmError) {
+      console.error('Welcome popup CRM logging error', crmError);
+    }
+
     return NextResponse.json({ok: true});
   } catch (error) {
     // Already on the list — don't error, and don't force their status back
