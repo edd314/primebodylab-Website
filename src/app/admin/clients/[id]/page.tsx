@@ -22,7 +22,7 @@ export default async function ClientDetailPage({params}: Props) {
 
   const {id: rawId} = await params;
   // Digits only — rejects "1.0", "1e0", " 1" etc. instead of coercing them.
-  if (!/^d+$/.test(rawId)) notFound();
+  if (!/^\d+$/.test(rawId)) notFound();
   const id = Number(rawId);
   if (!Number.isSafeInteger(id)) notFound();
 
