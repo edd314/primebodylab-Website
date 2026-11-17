@@ -7,11 +7,13 @@ import {remainingSessions} from '@/lib/crm/types';
 import {
   addActivityLogAction,
   addPackageAction,
+  deleteClientAction,
   incrementSessionAction,
   setFollowUpAction,
   updateClientDetailsAction,
   updateStatusAction,
 } from './actions';
+import {DeleteClientButton} from './DeleteClientButton';
 
 export const dynamic = 'force-dynamic';
 
@@ -205,6 +207,13 @@ export default async function ClientDetailPage({params}: Props) {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section>
+        <h2 className="font-display text-lg text-red-600">Danger zone</h2>
+        <form action={deleteClientAction.bind(null, client.id)} className="mt-2">
+          <DeleteClientButton clientName={client.name || client.email || `Client #${client.id}`} />
+        </form>
       </section>
     </div>
   );

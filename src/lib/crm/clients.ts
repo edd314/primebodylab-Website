@@ -132,3 +132,9 @@ export async function clearFollowUp(id: number): Promise<void> {
     WHERE id = ${id}
   `;
 }
+
+// packages and activity_log rows cascade via their ON DELETE CASCADE foreign keys.
+export async function deleteClient(id: number): Promise<void> {
+  await ensureSchema();
+  await sql`DELETE FROM clients WHERE id = ${id}`;
+}

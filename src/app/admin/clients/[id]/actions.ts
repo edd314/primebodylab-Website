@@ -1,7 +1,8 @@
 'use server';
 
 import {revalidatePath} from 'next/cache';
-import {clearFollowUp, setFollowUp, updateClientDetails, updateClientStatus} from '@/lib/crm/clients';
+import {redirect} from 'next/navigation';
+import {clearFollowUp, deleteClient, setFollowUp, updateClientDetails, updateClientStatus} from '@/lib/crm/clients';
 import {addPackage, incrementUsedSessions} from '@/lib/crm/packages';
 import {addActivityLogEntry} from '@/lib/crm/activityLog';
 import {requireAdminSession} from '@/lib/crm/adminAuth';
@@ -89,4 +90,11 @@ export async function incrementSessionAction(packageId: number, clientId: number
   await requireAdminSession();
   await incrementUsedSessions(packageId, 1);
   revalidatePath(`/admin/clients/${clientId}`);
+}
+
+export async function deleteClientAction(clientId: number): Promise<void> {
+  await requireAdminSession();
+  await deleteClient(clientId);
+  revalidatePath('/admin');
+  redirect('/admin');
 }
