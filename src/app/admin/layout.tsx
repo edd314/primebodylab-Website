@@ -8,6 +8,11 @@ import {logout} from './actions';
 
 export const metadata: Metadata = {
   robots: {index: false, follow: false},
+  appleWebApp: {
+    capable: true,
+    title: 'PrimeBodyLab Admin',
+    statusBarStyle: 'default',
+  },
 };
 
 export default async function AdminLayout({children}: {children: ReactNode}) {
