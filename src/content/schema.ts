@@ -101,21 +101,7 @@ export const imageSchema = z.object({
 
 export type SiteImage = z.infer<typeof imageSchema>;
 
-/**
- * A short, muted, looping ambient clip (walking to the car, arriving at a
- * client's door, etc.) — not a produced video with sound/controls.
- * `src: null` renders as an empty "Platzhalter" tile, same convention as
- * `imageSchema`'s `placeholder: true`, until Eddie has real footage.
- */
-export const videoClipSchema = z.object({
-  src: z.string().startsWith('/videos/').nullable(),
-  poster: z.string().startsWith('/images/').optional(),
-  alt: localizedText,
-});
-
-export type VideoClip = z.infer<typeof videoClipSchema>;
-
-export type GalleryItem = ({kind: 'image'} & SiteImage) | ({kind: 'video'} & VideoClip);
+export type GalleryItem = {kind: 'image'} & SiteImage;
 
 /**
  * The homepage "watch a session" moment — a tap-to-play clip with real

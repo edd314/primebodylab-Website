@@ -1,4 +1,4 @@
-import {imageSchema, videoClipSchema, type GalleryItem} from './schema';
+import {imageSchema, type GalleryItem} from './schema';
 
 /**
  * Homepage "behind the scenes" gallery — candid session/studio photos and
@@ -28,28 +28,6 @@ export const gallery: GalleryItem[] = [
     ...imageSchema.parse({
       src: '/images/gallery-8.jpg',
       alt: {de: 'Eddie, Gründer von PrimeBodyLab', en: 'Eddie, founder of PrimeBodyLab'},
-      placeholder: false,
-    }),
-  },
-  {
-    kind: 'image',
-    ...imageSchema.parse({
-      src: '/images/gallery-9.jpg',
-      alt: {
-        de: 'Eddie bei einer Hüftbehandlung im Studio',
-        en: 'Eddie performing a hip treatment in the studio',
-      },
-      placeholder: false,
-    }),
-  },
-  {
-    kind: 'image',
-    ...imageSchema.parse({
-      src: '/images/gallery-10.jpg',
-      alt: {
-        de: 'Eddie bei einer Tiefengewebsmassage',
-        en: 'Eddie performing a deep tissue massage',
-      },
       placeholder: false,
     }),
   },
@@ -117,13 +95,58 @@ export const gallery: GalleryItem[] = [
     }),
   },
   {
-    kind: 'video',
-    ...videoClipSchema.parse({
-      src: null,
+    kind: 'image',
+    ...imageSchema.parse({
+      src: '/images/gallery-13.jpg',
       alt: {
-        de: 'Eddie auf dem Weg zu einem Mobiltermin',
-        en: 'Eddie on his way to a mobile appointment',
+        de: 'Eddie bei einer Rückenbehandlung im Studio',
+        en: 'Eddie performing a back treatment in the studio',
       },
+      placeholder: false,
+    }),
+  },
+  {
+    kind: 'image',
+    ...imageSchema.parse({
+      src: '/images/gallery-14.jpg',
+      alt: {
+        de: 'Eddie bei einer Rückenbehandlung im Studio',
+        en: 'Eddie performing a back treatment in the studio',
+      },
+      placeholder: false,
+    }),
+  },
+  {
+    kind: 'image',
+    ...imageSchema.parse({
+      src: '/images/gallery-15.jpg',
+      alt: {
+        de: 'Eddie bei einer Rückenmassage im Studio',
+        en: 'Eddie performing a back massage in the studio',
+      },
+      placeholder: false,
+    }),
+  },
+  {
+    kind: 'image',
+    ...imageSchema.parse({
+      src: '/images/gallery-16.jpg',
+      alt: {
+        de: 'Eddie bei einer Nacken- und Kopfbehandlung im Studio',
+        en: 'Eddie performing a neck and head treatment in the studio',
+      },
+      placeholder: false,
+    }),
+  },
+  {
+    kind: 'image',
+    ...imageSchema.parse({
+      src: '/images/gallery-17.jpg',
+      alt: {
+        de: 'Eddie bei einer Bauchmassage',
+        en: 'Eddie performing an abdominal massage',
+      },
+      placeholder: false,
     }),
   },
 ];

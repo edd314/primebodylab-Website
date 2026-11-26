@@ -46,21 +46,17 @@ export function Gallery({locale}: {locale: Locale}) {
         ref={trackRef}
         className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
-        {gallery.map((item, index) =>
-          item.kind === 'video' ? (
-            <VideoSlide key={index} item={item} locale={locale} />
-          ) : (
-            <Figure
-              key={index}
-              image={item}
-              locale={locale}
-              data-testid="gallery-slide"
-              className={SLIDE_CLASS}
-              sizes="(min-width: 1024px) 28vw, (min-width: 640px) 42vw, 78vw"
-              priority={false}
-            />
-          ),
-        )}
+        {gallery.map((item, index) => (
+          <Figure
+            key={index}
+            image={item}
+            locale={locale}
+            data-testid="gallery-slide"
+            className={SLIDE_CLASS}
+            sizes="(min-width: 1024px) 28vw, (min-width: 640px) 42vw, 78vw"
+            priority={false}
+          />
+        ))}
       </div>
 
       {gallery.length > 1 && (
@@ -76,54 +72,5 @@ export function Gallery({locale}: {locale: Locale}) {
         </div>
       )}
     </section>
-  );
-}
-
-function VideoSlide({
-  item,
-  locale,
-}: {
-  item: Extract<(typeof gallery)[number], {kind: 'video'}>;
-  locale: Locale;
-}) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      video.pause();
-      video.removeAttribute('autoplay');
-    }
-  }, []);
-
-  if (!item.src) {
-    return (
-      <div
-        data-testid="gallery-slide"
-        className={`${SLIDE_CLASS} flex items-center justify-center border border-dashed border-line bg-surface`}
-      >
-        <span className="text-[11px] tracking-wide text-muted uppercase">
-          {locale === 'de' ? 'Video folgt' : 'Video coming soon'}
-        </span>
-      </div>
-    );
-  }
-
-  return (
-    <div data-testid="gallery-slide" className={SLIDE_CLASS}>
-      <video
-        ref={videoRef}
-        src={item.src}
-        poster={item.poster}
-        aria-label={item.alt[locale]}
-        className="h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="metadata"
-      />
-    </div>
   );
 }
