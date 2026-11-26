@@ -4,8 +4,8 @@ const data: VideoIntro = {
   src: '/videos/home-intro-reel.mp4',
   poster: '/images/home-intro-poster.jpg',
   alt: {
-    de: 'Eddie bei einer Nacken- und Schulterbehandlung sowie einer Lymphdrainage',
-    en: 'Eddie performing a neck and shoulder treatment and a lymphatic drainage session',
+    de: 'Eddie bei einer Nacken- und Schulterbehandlung, einer Lymphdrainage und einer unterstützten Dehnung',
+    en: 'Eddie performing a neck and shoulder treatment, a lymphatic drainage session and an assisted stretch',
   },
   eyebrow: {
     de: 'Einblick',
