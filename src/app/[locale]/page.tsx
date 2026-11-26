@@ -3,12 +3,14 @@ import {home} from '@/content/home';
 import {companies} from '@/content/companies';
 import {bookCta} from '@/lib/nav';
 import {images} from '@/content/images';
+import {videoIntro} from '@/content/videoIntro';
 import {getService} from '@/content/services';
 import {getCompanyRatePerMinute} from '@/lib/pricing';
 import {Hero} from '@/components/sections/Hero';
 import {ServiceTicker} from '@/components/sections/ServiceTicker';
 import {CompanyBand} from '@/components/sections/CompanyBand';
 import {Gallery} from '@/components/sections/Gallery';
+import {VideoIntro} from '@/components/sections/VideoIntro';
 import {PillarGrid} from '@/components/sections/PillarGrid';
 import {FounderBlock} from '@/components/sections/FounderBlock';
 import {TestimonialRow} from '@/components/sections/TestimonialRow';
@@ -66,6 +68,7 @@ export default async function HomePage({params}: Props) {
       <ServiceTicker locale={locale} quote={home.tickerQuote} />
       <CompanyBand locale={locale} companies={companies} ratePerMinute={companyRatePerMinute} />
       <Gallery locale={locale} />
+      <VideoIntro locale={locale} video={videoIntro} />
       <PillarGrid locale={locale} pillars={home.pillars} standard={home.standard} />
       <FounderBlock locale={locale} founder={home.founder} />
       <TestimonialRow locale={locale} />

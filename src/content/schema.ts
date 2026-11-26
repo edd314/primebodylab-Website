@@ -117,6 +117,24 @@ export type VideoClip = z.infer<typeof videoClipSchema>;
 
 export type GalleryItem = ({kind: 'image'} & SiteImage) | ({kind: 'video'} & VideoClip);
 
+/**
+ * The homepage "watch a session" moment — a tap-to-play clip with real
+ * audio (voiceover-free background music), unlike `videoClipSchema`'s
+ * always-muted ambient loop. Visitor-initiated playback is what lets
+ * browsers allow the sound at all.
+ */
+export const videoIntroSchema = z.object({
+  src: z.string().startsWith('/videos/'),
+  poster: z.string().startsWith('/images/'),
+  alt: localizedText,
+  eyebrow: localizedText,
+  heading: localizedText,
+  body: localizedText,
+  playLabel: localizedText,
+});
+
+export type VideoIntro = z.infer<typeof videoIntroSchema>;
+
 export const serviceSchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/),
   acuityTypeId: z.string().nullable(),
