@@ -23,6 +23,17 @@ import {testimonialSchema, type Testimonial} from './schema';
  * moritz and verena-schmuckermeier are the actual Google reviews for the
  * "Dr. Moritz"/"Dr. Verena" testimonials removed earlier pending real text —
  * this is that resolution. No "Dr." title: Eddie gave plain names this time.
+ *
+ * pinar-mautzka: German is the client's original Google review (screenshot
+ * showed both), English is Google's own translation (reproduced as shown).
+ *
+ * mala-mys, liam-fiedler: the screenshots only showed Google's English
+ * translation ("Translated by Google · See original (German)") — the actual
+ * German original was not captured, so German here is our translation of
+ * the English back, same as the reverse-direction entries above.
+ *
+ * georgina-rickmers: no translation notice on the screenshot, so English is
+ * the client's original wording; German is our translation.
  */
 const data: Testimonial[] = [
   {
@@ -167,6 +178,42 @@ const data: Testimonial[] = [
     quote: {
       de: 'Eddie arbeitet sehr professionell und macht auch Hausbesuche. Ich bin ca. seit einem Jahr bei ihm für eine Massage 1x im Monat. Meine Nackenschmerzen sind seitdem deutlich besser geworden. Bei jeder anderen Massage zb bei der Thai Massage hatte ich nie das Gefühl, dass sie wirklich in die Tiefe geht und entlastet. Bei Eddie ist das ganz anders. Die Massage ist sehr intensiv und er findet die richtigen Schmerzpunkte. Ich gehe seitdem nirgendwo anders mehr zur Massage.',
       en: "Eddie works very professionally and also does home visits. I've been seeing him for a massage once a month for about a year now. My neck pain has gotten noticeably better since then. With every other massage, like Thai massage, I never felt like it really went deep enough to actually relieve anything. With Eddie it's completely different. The massage is very intense and he finds the right pressure points. I haven't gone anywhere else for a massage since.",
+    },
+  },
+  {
+    id: 'mala-mys',
+    author: 'Mala Mys',
+    rating: 5,
+    quote: {
+      en: "Suffering from painful muscle tension and a blockage resulting from a sports injury, I experienced firsthand today with Eddie what a professional massage with deep tissue work can do. Since he's an athlete himself, he was able to explain very well how I can best recover and how I can adjust my training. My next appointments are already booked! Highly recommended for recovery after a tough workout. You don't have to wait until you experience an overuse injury!\n\nEddie is incredibly friendly, and you can immediately tell that he has a wealth of knowledge about physiotherapy and bodywork. A definite recommendation!",
+      de: 'Mit schmerzhaften Muskelverspannungen und einer Blockade durch eine Sportverletzung habe ich heute bei Eddie hautnah erlebt, was eine professionelle Massage mit Tiefengewebearbeit bewirken kann. Da er selbst Sportler ist, konnte er mir sehr gut erklären, wie ich mich am besten erhole und mein Training anpassen kann. Meine nächsten Termine sind schon gebucht! Sehr zu empfehlen für die Erholung nach einem harten Workout. Man muss nicht warten, bis man eine Überlastungsverletzung hat!\n\nEddie ist unglaublich freundlich, und man merkt sofort, dass er ein enormes Wissen über Physiotherapie und Körperarbeit hat. Eine klare Empfehlung!',
+    },
+  },
+  {
+    id: 'liam-fiedler',
+    author: 'Liam Fiedler',
+    rating: 5,
+    quote: {
+      en: 'Very friendly, great reception and top massage.',
+      de: 'Sehr freundlich, toller Empfang und top Massage.',
+    },
+  },
+  {
+    id: 'georgina-rickmers',
+    author: 'Georgina Rickmers',
+    rating: 5,
+    quote: {
+      en: 'The best masseuse in Munich!!!!!!!',
+      de: 'Der beste Masseur in München!!!!!!!',
+    },
+  },
+  {
+    id: 'pinar-mautzka',
+    author: 'Pinar Mautzka',
+    rating: 5,
+    quote: {
+      de: 'Ich bin schon seit einigen Wochen bei Eddie in Behandlung und für mich gibt es keinen besseren Masseur, als ihn. Er ist wahnsinnig freundlich, gewissenhaft und geht immer auf die Bedürfnisse seiner Kunden ein. Ich würde ihn IMMER weiter empfehlen und bin ganz dankbar, dass ich Kundin bei ihm sein darf ☺️',
+      en: "I've been seeing Eddie for several weeks now, and for me, there's no better massage therapist. He's incredibly friendly, conscientious, and always caters to his clients' needs. I would ALWAYS recommend him and am so grateful to be his client ☺️",
     },
   },
 ];
